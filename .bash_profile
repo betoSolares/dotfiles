@@ -14,7 +14,5 @@ export EDITOR="vim"
 export TERMINAL="st"
 
 # Start graphical server
-if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep qtile | exec startx
-fi
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
