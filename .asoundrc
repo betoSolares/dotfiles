@@ -1,0 +1,16 @@
+# 
+# !/bin/sh
+# Configuration for alsa
+#
+
+pmc.!default
+{
+	type hw
+	card 1
+}
+ctl.!default
+{
+	type hw
+	card 0
+}
+
