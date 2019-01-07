@@ -3,7 +3,7 @@
 # Configuration for alsa
 #
 
-pmc.!default
+pcm.!default
 {
 	type hw
 	card 1
