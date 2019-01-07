@@ -24,45 +24,29 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# Imports
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 
-try:
-    from typing import List  # noqa: F401
-except ImportError:
-    pass
-
 mod = "mod4"
 
+# Keybandings
 keys = [
-    # Switch between windows in current stack pane
+    #Applications
+    Key([mod], "Return", lazy.spawn("st")),
+    Key([mod], "c", lazy.spawn("chromium")),
+    Key([mod], "f", lazy.spawn("ranger")),
+    Key([mod], "q", lazy.spawn("qutebrowser")),
+    
+    # Window Control
     Key([mod], "k", lazy.layout.down()),
     Key([mod], "j", lazy.layout.up()),
-
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up()),
-
-    # Switch window focus to other pane(s) of stack
     Key([mod], "space", lazy.layout.next()),
-
-    # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
-
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("xterm")),
-
-    # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
-
-    Key([mod, "control"], "r", lazy.restart()),
-    Key([mod, "control"], "q", lazy.shutdown()),
+    Key([mod, "shift"], "c", lazy.window.kill()),
+    Key([mod, "shift"], "r", lazy.restart()),
     Key([mod], "r", lazy.spawncmd()),
 ]
 
