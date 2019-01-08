@@ -25,7 +25,7 @@
 # SOFTWARE.
 
 # Imports
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Drag, Click, Key, Screen, Group
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 
@@ -58,6 +58,15 @@ keys = [
     Key([mod], "b", lazy.hide_show_bar()), 
     Key([mod, "shift"], "c", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
+]
+
+# Mouse bindings 
+mouse = [
+   # Window Control
+    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([mod, "shift"], "Button2", lazy.window.kill()),
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
@@ -97,15 +106,6 @@ screens = [
             24,
         ),
     ),
-]
-
-# Drag floating layouts.
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
