@@ -28,6 +28,20 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 
+# Personal Functions
+@lazy.function
+def prev_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i - 1].name
+
+@lazy.function
+def next_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i + 1].name
+
+# Keybandings
 def init_keys():
     return [
         # Applications
@@ -41,8 +55,8 @@ def init_keys():
         Key([mod], "j", lazy.layout.up()),
         Key([mod], "Tab", lazy.next_layout()),
         Key([mod, "shift"], "Tab", lazy.prev_layout()),
-        #Key([mod], "Left", prev_group),
-        #Key([mod], "Right", next_group),
+        Key([mod], "Left", prev_group),
+        Key([mod], "Right", next_group),
         Key([mod], "l", lazy.layout.increase_ratio()),
         Key([mod], "h", lazy.layout.decrase_ratio()),
         Key([mod, "shift"], "c", lazy.window.kill()),
