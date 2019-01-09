@@ -69,6 +69,23 @@ mouse = [
     Click([mod, "shift"], "Button2", lazy.window.kill()),
 ]
 
+# Common properties in layouts
+commonProperties = dict(
+    border_focus = '#cc43c5', 
+    border_normal = '#08324c', 
+    border_width = 2, 
+    margin = 6, 
+)
+
+# Layouts
+layouts = [
+    layout.MonadTall(**commonProperties), 
+    layout.MonadWide(**commonProperties), 
+    layout.Columns(insert_position = 1, fair = True, num_columns=3, **commonProperties),
+    layout.Max(),
+    layout.Floating(**commonProperties), 
+]
+
 groups = [Group(i) for i in "asdfuiop"]
 
 for i in groups:
@@ -79,11 +96,6 @@ for i in groups:
         # mod1 + shift + letter of group = switch to & move focused window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
-
-layouts = [
-    layout.Max(),
-    layout.Stack(num_stacks=2)
-]
 
 widget_defaults = dict(
     font='sans',
