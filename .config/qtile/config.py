@@ -87,16 +87,25 @@ layouts = [
     layout.Floating(**commonProperties), 
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+# Groups
+groups = [
+    Group(name = "WWW", layout = "max"),
+    Group(name = "DEV", layout = "monadtall"),
+    Group(name = "TXT", layout = "monadtall"),
+    Group(name = "VM", layout = "floating"),
+    Group(name = "AUDIO", layout = "columns"), 
+    Group(name = "VIDEO", layout = "max"), 
+    Group(name = "GAMES", layout = "floating"), 
+    Group(name = "CHAT", layout = "columns"), 
+    Group(name = "MEDIA", layout = "floating"),
+    Group(name = "SYS", layout = "monadtall")
+]
 
-for i in groups:
-    keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen()),
-
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-    ])
+# Keybandings to change the group
+for index, group in enumerate(groups[:10]):
+    i = 0 if index == 9 else index + 1  
+    keys.append(Key([mod], str(i), lazy.group[group.name].toscreen()))
+    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(group.name)))
 
 widget_defaults = dict(
     font='sans',
