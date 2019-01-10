@@ -25,9 +25,9 @@
 # SOFTWARE.
 
 # Imports
-from libqtile.config import Drag, Click, Key, Screen, Group
+from libqtile.config import Drag, Click, Key, Group, Screen
 from libqtile.command import lazy
-from libqtile import layout, bar, widget
+from libqtile import bar, layout, widget
 
 mod = "mod4"
 
@@ -37,12 +37,12 @@ keys = [
     Key([mod], "Return", lazy.spawn("st")),
     Key([mod], "v", lazy.spawn("vivaldi-stable")),
     Key([mod, "control"], "v", lazy.spawn("vivaldi-stable --incognito")), 
-    Key([mod], "d", lazy.spawn("dmenu_run -b")), 
+    Key([mod], "d", lazy.spawn("dmenu_run")), 
 
     # Audio Control
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 1 -q set Master 1.75dB-")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 1 -q set Master 1.75dB+")),
-    Key([], "XF86AudioMute", lazy.spawn("amixer -c 1 -q set Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -1%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +1%")),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
 
     # Window Controls
     Key([mod], "k", lazy.layout.down()),
@@ -107,27 +107,100 @@ for index, group in enumerate(groups[:10]):
     keys.append(Key([mod], str(i), lazy.group[group.name].toscreen()))
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(group.name)))
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
-
+# Screen, bar and widgets
 screens = [
     Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.TextBox("default config", name="default"),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-            ],
-            24,
-        ),
-    ),
+        top = bar.Bar([
+            widget.GroupBox(
+               active = "232323",
+               borderwidth = 2,
+               font = "monospace",
+               fontsize = 10,
+               foreground = "232323",
+               highlight_color = ["42f474", "42f474"],
+               highlight_method = "line",
+               inactive = "dd1616",
+               padding = 0,
+               margin_x = 0,
+               margin_y = 0,
+               this_current_screen_border = "b20094"
+            ),
+            widget.Sep( foreground = "42f474"),
+            widget.Sep( foreground = "dd1616", size_percent = 70),
+            widget.CurrentLayoutIcon(
+                font = "monospace",
+                fontsize = 10,
+                foreground = "dd1616",
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0,
+                scale = 1
+            ),
+            widget.Sep( foreground = "dd1616", size_percent = 70),
+            widget.WindowName(
+                font = "monospace",
+                fontsize = 10,
+                foreground = "42f474",
+                padding = 0
+            ),
+            widget.Systray(
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0,
+                icon_size = 15
+            ),
+            # Updates
+            # Backlight
+            #widget.Volume(
+            #    font = "monospace",
+            #    fontsize = 10,
+            #    foreground = "dd1616",
+            #    device = "hw: 1",
+            #    step = 1,
+            #    padding = 3,
+            #    margin_x = 0,
+            #    margin_y = 0
+            #),
+            widget.Wlan(
+                font = "monospace",
+                fontsize = 10,
+                foreground = "dd1616",
+                format = "{essid} {percent:2.0%}",
+                interface = "wlo1",
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.Battery(
+                charge_char = "C",
+                discharge_char = "M",
+                font = "monospace",
+                fontsize = 10,
+                foreground = "dd1616",
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.Clock(
+                font = "monospace",
+                fontsize = 10,
+                foreground = "dd1616",
+                format = "%b %d (%a)",
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.Clock(
+                font = "monospace",
+                fontsize = 10,
+                foreground = "dd1616",
+                format = "%H:%M",
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            )
+        ], 20, background = "#42f474")
+    )
 ]
 
 dgroups_key_binder = None
