@@ -31,6 +31,14 @@ from libqtile import bar, layout, widget
 
 mod = "mod4"
 
+# Read colors from .Xresources
+colors = []
+with open("/home/beto/.Xresources") as xres:
+    for i, line in enumerate(xres):
+        if i >= 20 and i <= 51:
+            if i % 2 == 0:
+                colors.append(line[line.find("#") + 1:].rstrip())
+
 # Keybandings
 keys = [
     # Applications
