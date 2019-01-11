@@ -19,6 +19,6 @@ export EDITOR="vim"
 export TERMINAL="st"
 
 # Start graphical server
-if [[ "$tty" = "/dev/tty1" ]]; then
+if [[ "$(tty)" = "/dev/tty1" ]]; then
 	pgrep qtile || exec startx
 fi
