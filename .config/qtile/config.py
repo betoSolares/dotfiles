@@ -80,8 +80,8 @@ mouse = [
 
 # Common properties in layouts
 commonProperties = dict(
-    border_focus = '#cc43c5', 
-    border_normal = '#08324c', 
+    border_focus = colors[2], 
+    border_normal = colors[0], 
     border_width = 2, 
     margin = 6, 
 )
@@ -120,35 +120,35 @@ screens = [
     Screen(
         top = bar.Bar([
             widget.GroupBox(
-               active = "232323",
+               active = colors[0],
                borderwidth = 2,
                font = "monospace",
                fontsize = 10,
-               foreground = "232323",
-               highlight_color = ["42f474", "42f474"],
+               foreground = colors[0],
+               highlight_color = [colors[1], colors[1]],
                highlight_method = "line",
-               inactive = "dd1616",
+               inactive = colors[7],
                padding = 0,
                margin_x = 0,
                margin_y = 0,
-               this_current_screen_border = "b20094"
+               this_current_screen_border = colors[0]
             ),
-            widget.Sep( foreground = "42f474"),
-            widget.Sep( foreground = "dd1616", size_percent = 70),
+            widget.Sep( foreground = colors[1]),
+            widget.Sep( foreground = colors[7], size_percent = 70),
             widget.CurrentLayoutIcon(
                 font = "monospace",
                 fontsize = 10,
-                foreground = "dd1616",
+                foreground = colors[0],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0,
                 scale = 1
             ),
-            widget.Sep( foreground = "dd1616", size_percent = 70),
+            widget.Sep( foreground = colors[7], size_percent = 70),
             widget.WindowName(
                 font = "monospace",
                 fontsize = 10,
-                foreground = "42f474",
+                foreground = colors[1],
                 padding = 0
             ),
             widget.Systray(
@@ -172,7 +172,7 @@ screens = [
             widget.Wlan(
                 font = "monospace",
                 fontsize = 10,
-                foreground = "dd1616",
+                foreground = colors[7],
                 format = "{essid} {percent:2.0%}",
                 interface = "wlo1",
                 padding = 3,
@@ -184,7 +184,7 @@ screens = [
                 discharge_char = "M",
                 font = "monospace",
                 fontsize = 10,
-                foreground = "dd1616",
+                foreground = colors[7],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -192,7 +192,7 @@ screens = [
             widget.Clock(
                 font = "monospace",
                 fontsize = 10,
-                foreground = "dd1616",
+                foreground = colors[7],
                 format = "%b %d (%a)",
                 padding = 3,
                 margin_x = 0,
@@ -201,13 +201,13 @@ screens = [
             widget.Clock(
                 font = "monospace",
                 fontsize = 10,
-                foreground = "dd1616",
+                foreground = colors[7],
                 format = "%H:%M",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
             )
-        ], 20, background = "#42f474")
+        ], 20, background = colors[1])
     )
 ]
 
