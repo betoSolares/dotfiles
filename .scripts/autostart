@@ -1,0 +1,11 @@
+# 
+# !/bin/sh
+# Do something automatically
+#
+
+# Set the wallpaper
+wal -g -i ~/.wall.png
+
+# Update the Xresources
+cp -f .cache/wal/colors.Xresources ~/.Xresources
+
