@@ -89,25 +89,25 @@ commonProperties = dict(
 
 # Layouts
 layouts = [
-    layout.MonadTall(**commonProperties), 
-    layout.MonadWide(**commonProperties), 
-    layout.Columns(insert_position = 1, fair = True, num_columns=3, **commonProperties),
-    layout.Max(),
-    layout.Floating(**commonProperties), 
+    layout.MonadTall(**commonProperties, name = "monadTall"), 
+    layout.MonadWide(**commonProperties, name = "monadWide"), 
+    layout.Columns(insert_position = 1, fair = True, num_columns=3, **commonProperties, name = "Columns"),
+    layout.Max(name = "max"),
+    layout.Floating(**commonProperties, name = "Floating"), 
 ]
 
 # Groups
 groups = [
     Group(name = "WWW", layout = "max"),
-    Group(name = "DEV", layout = "monadtall"),
-    Group(name = "TXT", layout = "monadtall"),
-    Group(name = "VM", layout = "floating"),
-    Group(name = "AUDIO", layout = "columns"), 
+    Group(name = "DEV", layout = "monadTall"),
+    Group(name = "TXT", layout = "monadTall"),
+    Group(name = "VM", layout = "Floating"),
+    Group(name = "AUDIO", layout = "Columns"), 
     Group(name = "VIDEO", layout = "max"), 
-    Group(name = "GAMES", layout = "floating"), 
-    Group(name = "CHAT", layout = "columns"), 
-    Group(name = "MEDIA", layout = "floating"),
-    Group(name = "SYS", layout = "monadtall")
+    Group(name = "GAMES", layout = "Floating"), 
+    Group(name = "CHAT", layout = "Columns"), 
+    Group(name = "MEDIA", layout = "Floating"),
+    Group(name = "SYS", layout = "monadTall")
 ]
 
 # Keybandings to change the group
@@ -136,14 +136,13 @@ screens = [
             ),
             widget.Sep( foreground = colors[1]),
             widget.Sep( foreground = colors[7], size_percent = 70),
-            widget.CurrentLayoutIcon(
+            widget.CurrentLayout(
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[0],
                 padding = 3,
                 margin_x = 0,
-                margin_y = 0,
-                scale = 1
+                margin_y = 0
             ),
             widget.Sep( foreground = colors[7], size_percent = 70),
             widget.WindowName(
