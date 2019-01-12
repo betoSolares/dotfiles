@@ -28,6 +28,7 @@
 from libqtile.config import Drag, Click, Key, Group, Screen
 from libqtile.command import lazy
 from libqtile import bar, layout, widget
+from customWidgets import Script
 
 mod = "mod4"
 
@@ -156,6 +157,15 @@ screens = [
                 margin_x = 0,
                 margin_y = 0,
                 icon_size = 15
+            ),
+            widget.Pacman(
+                font = "monospace",
+                fontsize = 10,
+                foregorund = colors[7],
+                unavailable = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
             ),
             # Updates
             # Backlight

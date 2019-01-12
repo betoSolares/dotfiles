@@ -12,7 +12,7 @@ class Script(base.ThreadedPollText):
     orientations = base.ORIENTATION_HORIZONTAL
     defaults = [
         ('name', None, 'Script name'),
-        ('directory', os.path.expanduser('~/.scipts/'),
+        ('directory', os.path.expanduser('~/.scipts/'), 'PATH to the script'),
     ]
 
     def __init__(self, **config):
