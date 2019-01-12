@@ -12,7 +12,7 @@ class Script(base.ThreadedPollText):
     orientations = base.ORIENTATION_HORIZONTAL
     defaults = [
         ('name', None, 'Script name'),
-        ('directory', os.path.expanduser('~/.scipts/'), 'PATH to the script'),
+        ('directory', os.path.expanduser('~/.scripts/'), 'PATH to the script'),
     ]
 
     def __init__(self, **config):
@@ -29,9 +29,9 @@ class Script(base.ThreadedPollText):
             _button_['WIDGET_BUTTON'] = str(button)
             _button_['WIDGET_X_LOC'] = str(x)
             _button_['WIDGET_Y_LOC'] = str(y)
-            result = subprocess.run(self.name, stdout = subprocess.PIPE, env=_button_)
+            result = subprocess.run(['sh', self.name], stdout = subprocess.PIPE, env=_button_)
         else:
-            result = subprocess.run(self.name, stadout=subprocess.PIPE)
+            result = subprocess.run(['sh', self.name], stdout=subprocess.PIPE)
 
         return result.stdout.decode()
 
