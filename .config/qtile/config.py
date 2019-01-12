@@ -168,16 +168,16 @@ screens = [
             ),
             # Updates
             # Backlight
-            #widget.Volume(
-            #    font = "monospace",
-            #    fontsize = 10,
-            #    foreground = "dd1616",
-            #    device = "hw: 1",
-            #    step = 1,
-            #    padding = 3,
-            #    margin_x = 0,
-            #    margin_y = 0
-            #),
+            Script(
+                name = "volume",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
             widget.Wlan(
                 font = "monospace",
                 fontsize = 10,
