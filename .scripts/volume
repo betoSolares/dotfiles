@@ -3,17 +3,9 @@
 # Shell script to print the actual volume
 #
 
-[ "$(pulsemixer --get-mute)" = "1" ] && printf "MUTE" && exit
+[ "$(pulsemixer --get-mute)" = "1" ] && exit
 
 volume=$(pulsemixer --get-volume | awk '{print $1}')
 
-if [ "$volume" -gt "70" ]; then
-	icon="++"
-elif [ "$volume" -lt "30" ]; then
-	icon=" "
-else
-	icon="+"
-fi
-
-printf "%s %s" "$icon" "$volume"
+printf "%s" "$volume"
 

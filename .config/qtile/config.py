@@ -156,6 +156,15 @@ screens = [
                 margin_y = 0,
                 icon_size = 15
             ),
+            widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
             widget.Pacman(
                 font = "monospace",
                 fontsize = 10,
@@ -168,11 +177,30 @@ screens = [
             # Updates
             # Backlight
             Script(
+                name = "iconvolume",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
                 name = "volume",
                 update_interval = 1,
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -188,11 +216,20 @@ screens = [
                 margin_y = 0
             ),
             widget.Battery(
-                charge_char = "C",
-                discharge_char = "M",
+                charge_char = "",
+                discharge_char = "",
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -202,6 +239,15 @@ screens = [
                 fontsize = 10,
                 foreground = colors[7],
                 format = "%b %d (%a)",
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
