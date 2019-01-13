@@ -89,25 +89,25 @@ commonProperties = dict(
 
 # Layouts
 layouts = [
-    layout.MonadTall(**commonProperties, name = "monadTall"), 
-    layout.MonadWide(**commonProperties, name = "monadWide"), 
-    layout.Columns(insert_position = 1, fair = True, num_columns=3, **commonProperties, name = "Columns"),
-    layout.Max(name = "max"),
-    layout.Floating(**commonProperties, name = "Floating"), 
+    layout.MonadTall(**commonProperties, name = "﬿"), 
+    layout.MonadWide(**commonProperties, name = "ﰧ"), 
+    layout.Columns(insert_position = 1, fair = True, num_columns=3, **commonProperties, name = "﩯"),
+    layout.Max(name = ""),
+    layout.Floating(**commonProperties, name = ""), 
 ]
 
 # Groups
 groups = [
-    Group(name = "", layout = "max"),
-    Group(name = "ﲵ", layout = "monadTall"),
-    Group(name = "", layout = "monadTall"),
-    Group(name = "", layout = "Floating"),
-    Group(name = "", layout = "Columns"), 
-    Group(name = "", layout = "max"), 
-    Group(name = "", layout = "Floating"), 
-    Group(name = "", layout = "Columns"), 
-    Group(name = "", layout = "Floating"),
-    Group(name = "", layout = "monadTall")
+    Group(name = "", layout = ""),
+    Group(name = "ﲵ", layout = "﬿"),
+    Group(name = "", layout = "﬿"),
+    Group(name = "", layout = ""),
+    Group(name = "", layout = "﩯"), 
+    Group(name = "", layout = ""), 
+    Group(name = "", layout = ""), 
+    Group(name = "", layout = "﩯"), 
+    Group(name = "", layout = ""),
+    Group(name = "", layout = "﬿")
 ]
 
 # Keybandings to change the group
@@ -137,7 +137,7 @@ screens = [
             widget.Sep( foreground = colors[7], size_percent = 70),
             widget.CurrentLayout(
                 font = "monospace",
-                fontsize = 10,
+                fontsize = 20,
                 foreground = colors[0],
                 padding = 3,
                 margin_x = 0,
