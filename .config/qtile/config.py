@@ -98,16 +98,16 @@ layouts = [
 
 # Groups
 groups = [
-    Group(name = "WWW", layout = "max"),
-    Group(name = "DEV", layout = "monadTall"),
-    Group(name = "TXT", layout = "monadTall"),
-    Group(name = "VM", layout = "Floating"),
-    Group(name = "AUDIO", layout = "Columns"), 
-    Group(name = "VIDEO", layout = "max"), 
-    Group(name = "GAMES", layout = "Floating"), 
-    Group(name = "CHAT", layout = "Columns"), 
-    Group(name = "MEDIA", layout = "Floating"),
-    Group(name = "SYS", layout = "monadTall")
+    Group(name = "", layout = "max"),
+    Group(name = "ﲵ", layout = "monadTall"),
+    Group(name = "", layout = "monadTall"),
+    Group(name = "", layout = "Floating"),
+    Group(name = "", layout = "Columns"), 
+    Group(name = "", layout = "max"), 
+    Group(name = "", layout = "Floating"), 
+    Group(name = "", layout = "Columns"), 
+    Group(name = "", layout = "Floating"),
+    Group(name = "", layout = "monadTall")
 ]
 
 # Keybandings to change the group
@@ -123,8 +123,7 @@ screens = [
             widget.GroupBox(
                active = colors[0],
                borderwidth = 2,
-               font = "monospace",
-               fontsize = 10,
+               fontsize = 20,
                foreground = colors[0],
                highlight_color = [colors[1], colors[1]],
                highlight_method = "line",
