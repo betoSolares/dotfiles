@@ -25,9 +25,11 @@
 # SOFTWARE.
 
 # Imports
+import os
+import subprocess
 from libqtile.config import Drag, Click, Key, Group, Screen
 from libqtile.command import lazy
-from libqtile import bar, layout, widget
+from libqtile import bar, hook, layout, widget
 from customWidgets import Script
 
 mod = "mod4"
@@ -324,4 +326,9 @@ main = None
 # java that happens to be on java's whitelist.
 #wmname = "LG3D"
 wmname = "Qtile"
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.scripts/autostart')
+    subprocess.call(['sh', home])
 
