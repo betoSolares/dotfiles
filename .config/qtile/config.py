@@ -32,6 +32,19 @@ from customWidgets import Script
 
 mod = "mod4"
 
+# Personalize functions
+@lazy.function
+def to_next_group(qtile):
+    if qtile.currentWindow is not None:
+        index = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[index + 1].name)
+
+@lazy.function
+def to_prev_group(qtile):
+    if qtile.currentWindow is not None:
+        index = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[index - 1].name)
+
 # Read colors from .Xresources
 colors = []
 with open("/home/beto/.Xresources") as xres:
@@ -64,6 +77,8 @@ keys = [
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod], "Left", lazy.screen.prev_group()),
     Key([mod], "Right", lazy.screen.next_group()),
+    Key([mod, "shift"], "Left", to_prev_group),
+    Key([mod, "shift"], "Right", to_next_group),
     Key([mod, "shift"], "Tab", lazy.prev_layout()),
     Key([mod], "b", lazy.hide_show_bar()), 
     Key([mod, "shift"], "c", lazy.window.kill()),
