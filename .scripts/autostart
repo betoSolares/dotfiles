@@ -4,8 +4,5 @@
 #
 
 # Set the wallpaper
-wal -g -i ~/.wall.png
-
-# Update the Xresources
-cp -f .cache/wal/colors.Xresources ~/.Xresources
+setbg ~/.wall.png
 

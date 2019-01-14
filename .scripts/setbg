@@ -1,0 +1,11 @@
+# 
+# !/bin/sh
+# Set the wallpaper
+# 
+
+# Use pywal
+wal -g -i $1
+
+# Update the Xresources file
+cp -f ~/.cache/wal/colors.Xresources ~/.Xresources
+
