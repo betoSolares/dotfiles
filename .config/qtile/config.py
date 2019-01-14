@@ -209,15 +209,25 @@ screens = [
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[7],
-                format = "{essid} {percent:2.0%}",
+                format = "{essid}",
                 interface = "wlo1",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
             ),
-            widget.Battery(
-                charge_char = "",
-                discharge_char = "",
+             Script(
+                name = "iconbattery",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[0],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "battery",
+                update_interval = 60,
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[7],
@@ -256,7 +266,7 @@ screens = [
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[7],
-                format = "%H:%M",
+                format = "%I:%M",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0

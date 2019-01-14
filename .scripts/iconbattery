@@ -1,0 +1,35 @@
+# 
+# !/bin/sh
+# Get the battery level to put the icon
+#
+
+battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | sed -e "s/ //g" | awk -F: 'BEGIN { ORS=" " }; /state|percentage/ { print $2 }')
+state=$(echo $battery | cut -d" " -f1)
+percentage=$(echo $battery | cut -d" " -f2 | sed -e "s/%//g")
+
+[ "$state" = "charging" ] && printf "" && exit
+
+if [[ "$percentage" < 10 ]]; then
+	icon=""
+elif [[ "$percentage" < 20 ]]; then
+	icon=""
+elif [[ "$percentage" < 30 ]]; then
+	icon=""
+elif [[ "$percentage" < 40 ]]; then
+	icon=""
+elif [[ "$percentage" < 50 ]]; then
+	icon=""
+elif [[ "$percentage" < 60 ]]; then
+	icon=""
+elif [[ "$percentage" < 70 ]]; then 
+	icon=""
+elif [[ "$percentage" < 80 ]]; then
+	icon=""
+elif [[ "$percentage" < 90 ]]; then
+	icon=""
+else
+	icon=""
+fi
+
+printf "%s" "$icon"
+
