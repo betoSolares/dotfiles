@@ -6,3 +6,6 @@
 # Set the wallpaper
 sh ~/.scripts/setbg ~/.wall.png
 
+# Initialize compton
+compton --config ~/.config/compton/compton.conf &
+
