@@ -174,6 +174,25 @@ screens = [
                 icon_size = 15
             ),
             widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 16,
+                foreground = colors[0],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "cpu",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.TextBox(
                 text = "",
                 font = "monospace",
                 fontsize = 20,
