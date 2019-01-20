@@ -193,6 +193,25 @@ screens = [
                 margin_y = 0
             ),
             widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "memory",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.TextBox(
                 text = "",
                 font = "monospace",
                 fontsize = 20,
