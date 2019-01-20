@@ -3,12 +3,9 @@
 # Do something automatically
 #
 
-# Set the wallpaper
-sh ~/.scripts/setbg ~/.wall.png
+# Generate the color scheme
+colorscheme ~/.wall.png
 
 # Initialize compton
 compton --config ~/.config/compton/compton.conf &
-
-# Start dunst(for notifications)
-dunst > /dev/null 2>&1 &
 
