@@ -191,7 +191,25 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            # Updates
+            widget.TextBox(
+                text = "/",
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[7],
+                padding = 0,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "aurupdates",
+                update_interval = 60,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
             # Backlight
             Script(
                 name = "iconvolume",
