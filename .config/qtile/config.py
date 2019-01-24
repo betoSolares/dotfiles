@@ -55,6 +55,9 @@ def changebrightnessup(qtile):
 def changebrightnessdown(qtile):
         subprocess.call(['sh', '/home/beto/.scripts/backlightdown'])
 
+@lazy.function
+def screenshot(qtile):
+        subprocess.call(['sh', '/home/beto/.scripts/screenshot'])
 
 # Read colors from .Xresources
 colors = []
@@ -80,6 +83,9 @@ keys = [
     # Backlight Control
     Key([], "XF86MonBrightnessDown", changebrightnessdown),
     Key([], "XF86MonBrightnessUp", changebrightnessup), 
+
+    # ScreenShot
+    Key([], "Print", screenshot),
 
     # Window Controls
     Key([mod], "k", lazy.layout.down()),
