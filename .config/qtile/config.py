@@ -47,6 +47,15 @@ def to_prev_group(qtile):
         index = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[index - 1].name)
 
+@lazy.function
+def changebrightnessup(qtile):
+        subprocess.call(['sh', '/home/beto/.scripts/backlightup'])
+
+@lazy.function
+def changebrightnessdown(qtile):
+        subprocess.call(['sh', '/home/beto/.scripts/backlightdown'])
+
+
 # Read colors from .Xresources
 colors = []
 with open("/home/beto/.Xresources") as xres:
@@ -67,6 +76,10 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -1%")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +1%")),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
+
+    # Backlight Control
+    Key([], "XF86MonBrightnessDown", changebrightnessdown),
+    Key([], "XF86MonBrightnessUp", changebrightnessup), 
 
     # Window Controls
     Key([mod], "k", lazy.layout.down()),
@@ -223,7 +236,7 @@ screens = [
             widget.Pacman(
                 font = "monospace",
                 fontsize = 10,
-                foregorund = colors[7],
+                foreground = colors[7],
                 unavailable = colors[7],
                 padding = 3,
                 margin_x = 0,
