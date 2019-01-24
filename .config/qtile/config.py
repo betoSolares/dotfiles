@@ -261,7 +261,25 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            # Backlight
+            widget.TextBox(
+                    text = "盛",
+                font = "monospace",
+                fontsize = 20,
+                foreground = colors[0],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "backlight",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors[7],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
             Script(
                 name = "iconvolume",
                 update_interval = 1,
