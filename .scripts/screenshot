@@ -1,0 +1,6 @@
+# 
+# !/bin/sh
+# Take a screenshot
+#
+
+scrot ~/Pictures/ScreenShots/%Y-%m-%d-%s.png -e 'notify-send -i $f -a Scrot "Screenshot taken"'
