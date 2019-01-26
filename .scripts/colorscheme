@@ -3,8 +3,8 @@
 # Genereate a color scheme
 # 
 
-# Set the background and generate the gtk theme using wal
-wal -g -i $1
+# Set the background using wal
+wal -i $1
 
 # Update the Xresources file
 cp -f ~/.cache/wal/colors.Xresources ~/.Xresources
