@@ -1,0 +1,13 @@
+#
+# !/bin/sh
+# Create the colorscheme for vivaldi
+#
+
+# Read the colors
+. "${HOME}/.cache/wal/colors.sh"
+
+# Create the colorscheme
+cp -f ${HOME}/.config/vivaldi/colors.css /tmp/colors.css
+sed -i "s/lgt1/$color1/ ; s/drk1/$color0/ ; s/drk2/$color5/; s/fnt/$color7/; s/lgt2/$color2/" /tmp/colors.css
+cp -f /tmp/colors.css /opt/vivaldi/resources/vivaldi/style/
+

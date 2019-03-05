@@ -15,3 +15,6 @@ cp -f ~/.cache/wal/colors.Xresources ~/.Xresources
 # Start dunst with colors
 dunstcolors
 
+# Change the colors for vivaldi browser
+vivaldicolors
+
