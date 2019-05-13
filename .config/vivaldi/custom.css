@@ -1,4 +1,4 @@
-/** Vivaldi custom css - V2.4 **/
+/** Vivaldi custom css - v2.5 **/
 
 /** Delete gradient in tabs **/
 .tabs-top.color-behind-tabs-on #tabs-container {
@@ -23,5 +23,10 @@ button.button-addressfield {
 /** Hide the profile button **/
 .toolbar-mainbar .button-circularimage {
 	display: none !important;
+}
+
+/** Remove the padding at the top **/
+.no-thumbs {
+	padding-top: 0 !important;
 }
 
