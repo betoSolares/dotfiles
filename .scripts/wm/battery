@@ -4,6 +4,5 @@
 #
 
 percentage=$(cat /sys/class/power_supply/BAT0/capacity) || exit
-
 printf "%s%%" "$percentage"
 

@@ -4,8 +4,6 @@
 #
 
 [ "$(pulsemixer --get-mute)" = "1" ] && exit
-
 volume=$(pulsemixer --get-volume | awk '{print $1}')
-
 printf "%s" "$volume"
 

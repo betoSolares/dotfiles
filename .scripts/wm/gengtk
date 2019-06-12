@@ -1,7 +1,6 @@
 # 
 # !/bin/sh
-# Script for generate gtk themes
-# Made by u/YuiMaestro | https://github.com/himidori/linux_cfgs/blob/master/gengtk
+# Autogenerate a gtk theme
 #
 
 source "$HOME/.cache/wal/colors.sh"

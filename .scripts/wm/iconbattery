@@ -3,11 +3,12 @@
 # Get the battery level to put the icon
 #
 
-battery=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | sed -e "s/ //g" | awk -F: 'BEGIN { ORS=" " }; /state|percentage/ { print $2 }')
-state=$(echo $battery | cut -d" " -f1)
-percentage=$(echo $battery | cut -d" " -f2 | sed -e "s/%//g")
+# Get the percentage and the state of the battery
+state=$(cat /sys/class/power_supply/BAT0/status) || exit
+percentage=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 
-[ "$state" = "charging" ] && printf "" && exit
+# Icon for the panel
+[ "$state" = "Charging" ] && printf "" && exit
 
 if [[ "$percentage" < 10 ]]; then
 	icon=""
