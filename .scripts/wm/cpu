@@ -1,8 +1,0 @@
-# 
-# !/bin/sh
-# Get the temperture of the cpu
-#
-
-temperture="$(sensors | awk '/Core 0/ { print $3}')"
-printf "%s" "$temperture"
-
