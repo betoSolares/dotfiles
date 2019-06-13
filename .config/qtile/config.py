@@ -49,15 +49,15 @@ def to_prev_group(qtile):
 
 @lazy.function
 def changebrightnessup(qtile):
-        subprocess.call(['sh', '/home/beto/.scripts/backlightup'])
+        subprocess.call(['sh', '/home/beto/.scripts/tools/backlightup'])
 
 @lazy.function
 def changebrightnessdown(qtile):
-        subprocess.call(['sh', '/home/beto/.scripts/backlightdown'])
+        subprocess.call(['sh', '/home/beto/.scripts/tools/backlightdown'])
 
 @lazy.function
 def screenshot(qtile):
-        subprocess.call(['sh', '/home/beto/.scripts/screenshot'])
+        subprocess.call(['sh', '/home/beto/.scripts/tools/screenshot'])
 
 # Read colors from .Xresources
 colors = []
@@ -187,10 +187,10 @@ screens = [
                 padding = 0
             ),
             widget.Systray(
-                padding = 3,
+                icon_size = 15,
+                padding = 5,
                 margin_x = 0,
-                margin_y = 0,
-                icon_size = 15
+                margin_y = 0
             ),
             widget.TextBox(
                 text = "",
@@ -201,9 +201,7 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            Script(
-                name = "cpu",
-                update_interval = 1,
+            widget.ThermalSensor(
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors[7],
@@ -422,6 +420,6 @@ wmname = "Qtile"
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.scripts/autostart')
+    home = os.path.expanduser('~/.scripts/wm/autostart')
     subprocess.call(['sh', home])
 
