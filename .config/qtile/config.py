@@ -192,6 +192,7 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
+            widget.Sep( foreground = colors[1]),
             widget.TextBox(
                 text = "",
                 font = "monospace",
