@@ -31,6 +31,7 @@ from libqtile.config import Drag, Click, Key, Group, Screen
 from libqtile.command import lazy
 from libqtile import bar, hook, layout, widget
 from customWidgets import Script
+import json
 
 mod = "mod4"
 
@@ -59,13 +60,9 @@ def changebrightnessdown(qtile):
 def screenshot(qtile):
         subprocess.call(['sh', '/home/beto/.scripts/tools/screenshot'])
 
-# Read colors from .Xresources
-colors = []
-with open("/home/beto/.Xresources") as xres:
-    for i, line in enumerate(xres):
-        if i >= 20 and i <= 51:
-            if i % 2 == 0:
-                colors.append(line[line.find("#") + 1:].rstrip())
+# Read colors from wal
+with open("/home/beto/.cache/wal/colors.json") as f:
+    colors = json.load(f)['colors']
 
 # Keybandings
 keys = [
@@ -117,8 +114,8 @@ mouse = [
 
 # Common properties in layouts
 commonProperties = dict(
-    border_focus = colors[2], 
-    border_normal = colors[0], 
+    border_focus = colors['color2'], 
+    border_normal = colors['color0'], 
     border_width = 2, 
     margin = 6, 
 )
@@ -157,33 +154,33 @@ screens = [
     Screen(
         top = bar.Bar([
             widget.GroupBox(
-               active = colors[0],
+               active = colors['color0'],
                borderwidth = 2,
                fontsize = 20,
-               foreground = colors[0],
-               highlight_color = [colors[1], colors[1]],
+               foreground = colors['color0'],
+               highlight_color = [colors['color1'], colors['color1']],
                highlight_method = "line",
-               inactive = colors[7],
+               inactive = colors['color7'],
                padding = 0,
                margin_x = 0,
                margin_y = 0,
-               this_current_screen_border = colors[0]
+               this_current_screen_border = colors['color0']
             ),
-            widget.Sep( foreground = colors[1]),
-            widget.Sep( foreground = colors[7], size_percent = 70),
+            widget.Sep( foreground = colors['color1']),
+            widget.Sep( foreground = colors['color7'], size_percent = 70),
             widget.CurrentLayout(
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
             ),
-            widget.Sep( foreground = colors[7], size_percent = 70),
+            widget.Sep( foreground = colors['color7'], size_percent = 70),
             widget.WindowName(
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[1],
+                foreground = colors['color1'],
                 padding = 0
             ),
             widget.Systray(
@@ -192,12 +189,12 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            widget.Sep( foreground = colors[1]),
+            widget.Sep( foreground = colors['color1']),
             widget.TextBox(
                 text = "",
                 font = "monospace",
                 fontsize = 16,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -205,7 +202,7 @@ screens = [
             widget.ThermalSensor(
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -214,7 +211,7 @@ screens = [
                 text = "",
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -224,7 +221,7 @@ screens = [
                 update_interval = 1,
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -233,7 +230,7 @@ screens = [
                 text = "",
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -241,8 +238,8 @@ screens = [
             widget.Pacman(
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
-                unavailable = colors[7],
+                foreground = colors['color7'],
+                unavailable = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -251,7 +248,7 @@ screens = [
                 text = "/",
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 0,
                 margin_x = 0,
                 margin_y = 0
@@ -261,7 +258,7 @@ screens = [
                 update_interval = 60,
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -270,7 +267,7 @@ screens = [
                     text = "盛",
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -280,7 +277,7 @@ screens = [
                 update_interval = 1,
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -290,7 +287,7 @@ screens = [
                 update_interval = 1,
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -300,7 +297,7 @@ screens = [
                 update_interval = 1,
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -309,7 +306,7 @@ screens = [
                 text = "",
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -317,7 +314,7 @@ screens = [
             widget.Wlan(
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 format = "{essid}",
                 interface = "wlo1",
                 padding = 3,
@@ -329,7 +326,7 @@ screens = [
                 update_interval = 1,
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -339,7 +336,7 @@ screens = [
                 update_interval = 60,
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -348,7 +345,7 @@ screens = [
                 text = "",
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -356,7 +353,7 @@ screens = [
             widget.Clock(
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 format = "%b %d (%a)",
                 padding = 3,
                 margin_x = 0,
@@ -366,7 +363,7 @@ screens = [
                 text = "",
                 font = "monospace",
                 fontsize = 20,
-                foreground = colors[0],
+                foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -374,13 +371,13 @@ screens = [
             widget.Clock(
                 font = "monospace",
                 fontsize = 10,
-                foreground = colors[7],
+                foreground = colors['color7'],
                 format = "%I:%M",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
             )
-        ], 20, background = colors[1])
+        ], 20, background = colors['color1'])
     )
 ]
 
