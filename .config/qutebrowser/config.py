@@ -617,3 +617,10 @@ c.zoom.text_only = False
 # Qutewal
 config.source("qutewal.py")
 
+# Key Bindings
+config.bind('<Ctrl-0>', 'zoom')
+config.bind('<Alt-j>', 'tab-next')
+config.bind('<Alt-k>', 'tab-prev')
+config.bind('<Alt-h>', 'back')
+config.bind('<Alt-l>', 'forward')
+
