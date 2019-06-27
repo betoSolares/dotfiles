@@ -71,6 +71,7 @@ keys = [
     Key([mod], "v", lazy.spawn("vivaldi-stable")),
     Key([mod, "control"], "v", lazy.spawn("vivaldi-stable --incognito")), 
     Key([mod], "d", lazy.spawn("dmenu_run")), 
+    Key([mod], "q", lazy.spawn("qutebrowser")),
 
     # Audio Control
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -1%")),
@@ -191,7 +192,7 @@ screens = [
             ),
             widget.Sep( foreground = colors['color1']),
             widget.TextBox(
-                text = "",
+                text = "",
                 font = "monospace",
                 fontsize = 16,
                 foreground = colors['color0'],
