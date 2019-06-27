@@ -623,4 +623,7 @@ config.bind('<Alt-j>', 'tab-next')
 config.bind('<Alt-k>', 'tab-prev')
 config.bind('<Alt-h>', 'back')
 config.bind('<Alt-l>', 'forward')
+config.bind('<Ctrl-m>', 'quickmark-save')
+config.bind('<Alt-r>', 'reload -f')
+config.bind('<Ctrl-i>', 'inspector')
 
