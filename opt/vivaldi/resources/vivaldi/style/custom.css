@@ -1,17 +1,53 @@
-/** Vivaldi custom css - v2.5 **/
+/** Vivaldi Custom CSS - v2.6 **/
+@import "colors.css";
+
+/** Vivaldi Colors **/
+* {
+	--colorBg: var(--color0) !important;
+	--colorBgIntenser: var(--color1) !important;
+	--colorFg: var(--color7) !important;
+	--colorFgFaded: var(--color7) !important;
+	--colorAccentBg: var(--color1) !important;
+	--colorBorder: var(--color1) !important;
+	--colorBorderHighlight: var(--color0) !important;
+	--colorBorderIntense: var(--color5) !important;
+	--colorBgDark: var(--color0) !important;
+	--colorBgDarker: var(--color0) !important;
+	--colorBgLight: var(--color2) !important;
+	--colorBgIntense: var(--color0) !important;
+	--colorBgLightIntense: var(--color0) !important;
+	--colorBgInverser: var(--color2) !important;
+	--colorHighlightBg: var(--color2) !important;
+	--colorAccentBgDark: var(--color5) !important;
+}
+
+.dials .dial .close {
+	background-color: var(--colorBg) !important;
+}
+
+.thumbnail-image svg .folder-tab-color {
+	fill: var(--colorHighlightBg) !important;
+}
+
+.addressfield .pageload .pageload-indicator {
+	background-color: var(--colorBg) !important;
+}
+
+.startpage .startpage-content .sdwrapper {
+	background-color: var(--colorBg) !important;
+}
+
+.folder .thumbnail > .thumbnail-image {
+	background-image: linear-gradient(125deg, var(--colorBgLight) 0%, var(--colorBgLight) 80%) !important;
+}
 
 /** Delete gradient in tabs **/
-.tabs-top.color-behind-tabs-on #tabs-container {
+.tabs-top.color-behind-tabs-on #tabs-container{
 	background: var(--colorAccentBg) !important;
 }
 
 /** Hide start page navigation bar **/
 .startpage-navigation {
-	display: none !important;
-}
-
-/** Hide the trash **/
-#tabs-container .toolbar .toggle-trash {
 	display: none !important;
 }
 
