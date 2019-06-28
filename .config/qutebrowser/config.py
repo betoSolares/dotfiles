@@ -575,7 +575,7 @@ c.tabs.wrap = True
 c.url.auto_search = "naive"
 
 # Page to open if :open -t/-b/-w is used without URL.
-c.url.default_page = "file:///home/beto/.config/qutebrowser/startpage.html"
+c.url.default_page = "file:///home/beto/.config/qutebrowser/startpage/startpage.html"
 
 # URL segments where :navigate increment/decrement will search for a number.
 c.url.incdec_segments = ["path", "query"]
@@ -591,7 +591,7 @@ c.url.searchengines = {
 }
 
 # Page(s) to open at the start.
-c.url.start_pages = "file:///home/beto/.config/qutebrowser/startpage.html"
+c.url.start_pages = "file:///home/beto/.config/qutebrowser/startpage/startpage.html"
 
 # URL parameters to strip with :yank url.
 c.url.yank_ignored_parameters = ["ref", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
