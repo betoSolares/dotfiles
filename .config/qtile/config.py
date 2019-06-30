@@ -71,7 +71,7 @@ keys = [
     Key([mod], "v", lazy.spawn("vivaldi-stable")),
     Key([mod, "control"], "v", lazy.spawn("vivaldi-stable --incognito")), 
     Key([mod], "d", lazy.spawn("dmenu_run")), 
-    Key([mod], "q", lazy.spawn("qutebrowser")),
+    Key([mod], "q", lazy.spawn("qute")),
 
     # Audio Control
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -1%")),
