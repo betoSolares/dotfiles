@@ -4,10 +4,10 @@
 #
 
 # Export own scripts to $PATH
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':')"
+export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':')"
 
 # Some Default Variables
-export BROWSER="chromium"
+export BROWSER="qutebrowser"
 export EDITOR="vim"
 export TERMINAL="st"
 

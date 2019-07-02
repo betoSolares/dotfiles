@@ -50,15 +50,15 @@ def to_prev_group(qtile):
 
 @lazy.function
 def changebrightnessup(qtile):
-        subprocess.call(['sh', '/home/beto/.scripts/tools/backlightup'])
+        subprocess.call(['sh', '/home/beto/bin/tools/backlightup'])
 
 @lazy.function
 def changebrightnessdown(qtile):
-        subprocess.call(['sh', '/home/beto/.scripts/tools/backlightdown'])
+        subprocess.call(['sh', '/home/beto/bin/tools/backlightdown'])
 
 @lazy.function
 def screenshot(qtile):
-        subprocess.call(['sh', '/home/beto/.scripts/tools/screenshot'])
+        subprocess.call(['sh', '/home/beto/bin/tools/screenshot'])
 
 # Read colors from wal
 with open("/home/beto/.cache/wal/colors.json") as f:
@@ -419,6 +419,6 @@ wmname = "Qtile"
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.scripts/wm/autostart')
+    home = os.path.expanduser('~/bin/wm/autostart')
     subprocess.call(['sh', home])
 
