@@ -70,7 +70,7 @@ keys = [
     Key([mod], "Return", lazy.spawn("st")),
     Key([mod], "v", lazy.spawn("vivaldi-stable")),
     Key([mod, "control"], "v", lazy.spawn("vivaldi-stable --incognito")), 
-    Key([mod], "d", lazy.spawn("dmenu_run")), 
+    Key([mod], "d", lazy.spawn("dmenurun")), 
     Key([mod], "q", lazy.spawn("qute")),
 
     # Audio Control
@@ -84,6 +84,10 @@ keys = [
 
     # ScreenShot
     Key([], "Print", screenshot),
+
+    # System Control
+    Key([mod, "shift"], "q", lazy.spawn("shuttingdown")),
+    Key([mod, "shift"], "r", lazy.spawn("rebooting")),
 
     # Window Controls
     Key([mod], "k", lazy.layout.down()),
@@ -101,7 +105,7 @@ keys = [
     Key([mod, "shift"], "Tab", lazy.prev_layout()),
     Key([mod], "b", lazy.hide_show_bar()), 
     Key([mod, "shift"], "c", lazy.window.kill()),
-    Key([mod, "shift"], "r", lazy.restart()),
+    Key([mod], "r", lazy.restart()),
 ]
 
 # Mouse bindings 
@@ -171,7 +175,7 @@ screens = [
             widget.Sep( foreground = colors['color7'], size_percent = 70),
             widget.CurrentLayout(
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 15,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -211,7 +215,7 @@ screens = [
             widget.TextBox(
                 text = "",
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -230,7 +234,7 @@ screens = [
             widget.TextBox(
                 text = "",
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -267,7 +271,7 @@ screens = [
             widget.TextBox(
                     text = "盛",
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -287,7 +291,7 @@ screens = [
                 name = "iconvolume",
                 update_interval = 1,
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -306,7 +310,7 @@ screens = [
             widget.TextBox(
                 text = "",
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -326,7 +330,7 @@ screens = [
                 name = "iconbattery",
                 update_interval = 1,
                 font = "monospace",
-                fontsize = 10,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -345,7 +349,7 @@ screens = [
             widget.TextBox(
                 text = "",
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
@@ -363,7 +367,7 @@ screens = [
             widget.TextBox(
                 text = "",
                 font = "monospace",
-                fontsize = 20,
+                fontsize = 16,
                 foreground = colors['color0'],
                 padding = 3,
                 margin_x = 0,
