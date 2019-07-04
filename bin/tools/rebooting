@@ -1,0 +1,8 @@
+#!/bin/sh
+# Ask for reboot
+
+# Import colors
+. "${HOME}/.cache/wal/colors.sh"
+
+# Run dmenu
+[ $(echo -e "No\nYes" | dmenu -i -p "Are you sure you want to reboot?" -nb $color0 -nf $color7 -sb $color0 -sf $color1) == "Yes" ] && reboot
