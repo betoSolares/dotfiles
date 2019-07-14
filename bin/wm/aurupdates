@@ -1,9 +1,0 @@
-# 
-# !/bin/sh
-# Check the number of updates from aur
-#
-
-yay -Qu > /tmp/aurdb
-packages="$(wc -l < /tmp/aurdb)"
-printf "%s" "$packages"
-

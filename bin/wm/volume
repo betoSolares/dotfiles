@@ -1,9 +1,6 @@
-# 
-# !/bin/sh
-# Shell script to print the actual volume
-#
+#!/bin/sh
+# Get the current volume
 
-[ "$(pulsemixer --get-mute)" = "1" ] && exit
-volume=$(pulsemixer --get-volume | awk '{print $1}')
+[ "$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $6 }')" == "off" ] && exit
+volume=$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $2 }')
 printf "%s" "$volume"
-

@@ -1,19 +1,12 @@
-# 
-# !/bin/sh
-# Shell script to print the actual volume
-#
+#!/bin/sh
+# Get the current volume
 
-[ "$(pulsemixer --get-mute)" = "1" ] && printf "婢" && exit
-
-volume=$(pulsemixer --get-volume | awk '{print $1}')
-
+[ "$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $6 }')" == "off" ] && printf "婢" && exit
+volume=$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $2+0 }')
 if [ "$volume" -gt "70" ]; then
-	icon=""
+	printf ""
 elif [ "$volume" -lt "30" ]; then
-	icon=""
+	printf ""
 else
-	icon=""
+	printf ""
 fi
-
-printf "%s" "$icon"
-
