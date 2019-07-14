@@ -35,31 +35,6 @@ import json
 
 mod = "mod4"
 
-# Personalize functions
-@lazy.function
-def to_next_group(qtile):
-    if qtile.currentWindow is not None:
-        index = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[index + 1].name)
-
-@lazy.function
-def to_prev_group(qtile):
-    if qtile.currentWindow is not None:
-        index = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[index - 1].name)
-
-@lazy.function
-def changebrightnessup(qtile):
-        subprocess.call(['sh', '/home/beto/bin/tools/backlightup'])
-
-@lazy.function
-def changebrightnessdown(qtile):
-        subprocess.call(['sh', '/home/beto/bin/tools/backlightdown'])
-
-@lazy.function
-def screenshot(qtile):
-        subprocess.call(['sh', '/home/beto/bin/tools/screenshot'])
-
 # Read colors from wal
 with open("/home/beto/.cache/wal/colors.json") as f:
     colors = json.load(f)['colors']
@@ -74,16 +49,16 @@ keys = [
     Key([mod], "q", lazy.spawn("qute")),
 
     # Audio Control
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -1%")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +1%")),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q -c 1 sset Master 1%-")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q -c 1 sset Master 1%+")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q -c 1 sset Master toggle")),
 
     # Backlight Control
-    Key([], "XF86MonBrightnessDown", changebrightnessdown),
-    Key([], "XF86MonBrightnessUp", changebrightnessup), 
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 1")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 1")), 
 
     # ScreenShot
-    Key([], "Print", screenshot),
+    Key([], "Print", lazy.spawn("screenshot")),
 
     # System Control
     Key([mod, "shift"], "q", lazy.spawn("shuttingdown")),
@@ -100,8 +75,6 @@ keys = [
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod], "Left", lazy.screen.prev_group()),
     Key([mod], "Right", lazy.screen.next_group()),
-    Key([mod, "shift"], "Left", to_prev_group),
-    Key([mod, "shift"], "Right", to_next_group),
     Key([mod, "shift"], "Tab", lazy.prev_layout()),
     Key([mod], "b", lazy.hide_show_bar()), 
     Key([mod, "shift"], "c", lazy.window.kill()),
@@ -110,7 +83,6 @@ keys = [
 
 # Mouse bindings 
 mouse = [
-   # Window Control
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
@@ -171,7 +143,7 @@ screens = [
                margin_y = 0,
                this_current_screen_border = colors['color0']
             ),
-            widget.Sep( foreground = colors['color1']),
+            widget.Spacer(length = 5),
             widget.Sep( foreground = colors['color7'], size_percent = 70),
             widget.CurrentLayout(
                 font = "monospace",
@@ -184,9 +156,9 @@ screens = [
             widget.Sep( foreground = colors['color7'], size_percent = 70),
             widget.WindowName(
                 font = "monospace",
-                fontsize = 10,
-                foreground = colors['color1'],
-                padding = 0
+                fontsize = 12,
+                foreground = colors['color7'],
+                padding = 5
             ),
             widget.Systray(
                 icon_size = 15,
@@ -194,7 +166,45 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            widget.Sep( foreground = colors['color1']),
+            widget.Spacer(length = 5),
+            widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 16,
+                foreground = colors['color0'],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "homeusage",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors['color7'],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            widget.TextBox(
+                text = "",
+                font = "monospace",
+                fontsize = 16,
+                foreground = colors['color0'],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
+            Script(
+                name = "rootusage",
+                update_interval = 1,
+                font = "monospace",
+                fontsize = 10,
+                foreground = colors['color7'],
+                padding = 3,
+                margin_x = 0,
+                margin_y = 0
+            ),
             widget.TextBox(
                 text = "",
                 font = "monospace",
@@ -240,11 +250,14 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            widget.Pacman(
+            widget.CheckUpdates(
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors['color7'],
-                unavailable = colors['color7'],
+                colour_have_updates = colors['color7'],
+                colour_no_updates = colors['color7'],
+                distro = "Arch",
+                display_format = "{updates}",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
@@ -258,18 +271,20 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            Script(
-                name = "aurupdates",
-                update_interval = 60,
+            widget.CheckUpdates(
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors['color7'],
+                colour_have_updates = colors['color7'],
+                colour_no_updates = colors['color7'],
+                custom_command = "checkupdates-aur",
+                display_format = "{updates}",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
             ),
             widget.TextBox(
-                    text = "盛",
+                text = "盛",
                 font = "monospace",
                 fontsize = 16,
                 foreground = colors['color0'],
@@ -277,9 +292,8 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            Script(
-                name = "backlight",
-                update_interval = 1,
+            widget.Backlight(
+                backlight_name = "intel_backlight",
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors['color7'],
@@ -336,12 +350,13 @@ screens = [
                 margin_x = 0,
                 margin_y = 0
             ),
-            Script(
-                name = "battery",
-                update_interval = 60,
+            widget.Battery(
+                baterry = 0,
                 font = "monospace",
                 fontsize = 10,
                 foreground = colors['color7'],
+                low_foreground = colors['color7'],
+                format = "{percent:2.0%}",
                 padding = 3,
                 margin_x = 0,
                 margin_y = 0
