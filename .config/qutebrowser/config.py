@@ -560,10 +560,10 @@ c.tabs.tabs_are_windows = False
 c.tabs.title.alignment = "left"
 
 # Format to use for the tab title.
-c.tabs.title.format = "{audio}{title}"
+c.tabs.title.format = "{audio}{current_title}"
 
 # Format to use for the tab title for pinned tabs.
-c.tabs.title.format_pinned = "{audio}{title}"
+c.tabs.title.format_pinned = "{audio}{current_title}"
 
 # Width (in pixels or as percentage of the window) of the tab bar if it’s vertical.
 c.tabs.width = "20%"
@@ -600,7 +600,7 @@ c.url.yank_ignored_parameters = ["ref", "utm_source", "utm_medium", "utm_campaig
 c.window.hide_decoration = False
 
 # Format to use for the window title.
-c.window.title_format = "{perc}{title}{title_sep}"
+c.window.title_format = "{perc}{current_title}{title_sep}"
 
 # Default zoom level.
 c.zoom.default = "100%"
