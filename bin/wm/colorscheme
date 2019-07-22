@@ -1,7 +1,5 @@
-# 
 # !/bin/sh
 # Genereate a color scheme
-# 
 
 # Set the background using wal
 if [[ "$1" = "RECOVERY" ]]; then
@@ -11,7 +9,7 @@ else
 fi
 
 # Create and set the gtk theme
-gengtk
+gengtk &
 
 # Update the Xresources file
 cp -f ~/.cache/wal/colors.Xresources ~/.Xresources
@@ -21,4 +19,3 @@ dunstcolors
 
 # Change the colors for vivaldi browser and the startpage
 internetcolors
-

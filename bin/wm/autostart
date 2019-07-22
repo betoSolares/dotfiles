@@ -1,7 +1,5 @@
-# 
 # !/bin/sh
 # Do something automatically
-#
 
 # Generate the color scheme
 colorscheme RECOVERY
@@ -9,3 +7,5 @@ colorscheme RECOVERY
 # Initialize compton
 compton --config ~/.config/compton/compton.conf &
 
+# Hide cursor idle
+unclutter &

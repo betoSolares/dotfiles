@@ -1,9 +1,6 @@
-#
 # !/bin/sh
 # Create the colorscheme for vivaldi and qutebrowser startpage
-#
 
 # Copy the colors from pywal to correct directories
 cp -f ${HOME}/.cache/wal/colors.css /opt/vivaldi/resources/vivaldi/style
 cp -f ${HOME}/.cache/wal/colors.css ${HOME}/.config/qutebrowser/startpage
-

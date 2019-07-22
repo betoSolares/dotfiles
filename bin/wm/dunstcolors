@@ -1,7 +1,5 @@
-# 
 # !/bin/sh
 # Reload the colors generate from pywal
-#
 
 # Read the colors
 . "${HOME}/.cache/wal/colors.sh"
@@ -16,4 +14,3 @@ dunst \
 	-bf "${color7}" \
 	-cf "${color7}" \
 	-nf "${color7}" &
-
