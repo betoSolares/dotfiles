@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # Genereate a color scheme
 
 # Set the background using wal
@@ -8,14 +8,7 @@ else
 	wal -i $1
 fi
 
-# Create and set the gtk theme
-gengtk &
-
-# Update the Xresources file
-cp -f ~/.cache/wal/colors.Xresources ~/.Xresources
-
-# Start dunst with colors
-dunstcolors
-
-# Change the colors for vivaldi browser and the startpage
-internetcolors
+gengtk # Create and set the gtk theme
+cp -f ~/.cache/wal/colors.Xresources ~/.Xresources # Update the Xresources file
+dunstcolors # Start dunst with colors
+internetcolors # Change the colors for vivaldi browser and the startpage

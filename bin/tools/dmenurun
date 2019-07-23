@@ -1,9 +1,5 @@
 #!/bin/sh
 # Run dmenu with colors from pywal
 
-# Import colors
 . "${HOME}/.cache/wal/colors.sh"
-
-# Run dmenu
 dmenu_run -nb $color1 -nf $color7 -sb $color0 -sf $color1
-

@@ -1,7 +1,5 @@
-# 
-# !/bin/sh
+#!/bin/sh
 # Get the battery level to put the icon
-#
 
 # Get the percentage and the state of the battery
 state=$(cat /sys/class/power_supply/BAT0/status) || exit
@@ -33,4 +31,3 @@ else
 fi
 
 printf "%s" "$icon"
-

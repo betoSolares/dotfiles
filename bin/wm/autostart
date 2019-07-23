@@ -1,11 +1,6 @@
-# !/bin/sh
-# Do something automatically
+#!/bin/sh
+# Functions that qtile run in start
 
-# Generate the color scheme
-colorscheme RECOVERY
-
-# Initialize compton
-compton --config ~/.config/compton/compton.conf &
-
-# Hide cursor idle
-unclutter &
+colorscheme RECOVERY # Generate the color scheme
+compton --config ~/.config/compton/compton.conf & # Initialize compton
+unclutter & # Hide cursor idle

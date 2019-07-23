@@ -1,9 +1,6 @@
-#
-# !/bin/sh
+#!/bin/sh
 # See the free memory
-#
 
 total="$(free -h | awk '/^Mem:/ { print $2 }')"
 actual="$(free -h | awk '/^Mem:/ { print $3 }')"
 printf "%s / %s" "$actual" "$total"
-
