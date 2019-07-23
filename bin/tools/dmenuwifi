@@ -2,53 +2,70 @@
 # Check and connect to different networks.
 # Requires dmenu and wpa_cli
 
-. "$HOME/.cache/wal/colors.sh"
-interface="wlo1"
-scan_result=$(wpa_cli scan &>/dev/null && wpa_cli -i "$interface" scan_results \
-	| awk 'NR>1 { print $5 }' \
-	| dmenu -i -p "Network to connect:" -l 5 -nb $color0 -nf $color7 -sb $color0 -sf $color1)
+. "$HOME/.cache/wal/colors.sh" # Read colors from pywal
 
-if [[ "$scan_result" != "" ]]; then
-	list_networks=$(wpa_cli -i "$interface" list_networks | awk 'NR>1 { print $2 }')
-	network=$(echo "$scan_result" | cut -d " " -f 1)
-	if echo "$list_networks" | grep -q "$network"; then
-		if wpa_cli -i "$interface" select_network "$network" | grep -q "OK"; then
-			wpa_cli -i "$interface" save_config &>/dev/null
-			notify-send -a Dmenuwifi "Trying to connect to $network"
+interface=wlo1
+scan_result=$(wpa_cli scan &>/dev/null && wpa_cli -i "$interface" scan_results | awk 'NR>1 { print $5 }')
+network=$(echo "$scan_result" | dmenu -i -p "Select network" -nb $color1 -nf $color7 -sb $color0 -sf $color1)
+
+# Notification for connection
+Connecting() {
+	notify-send -i /home/beto/.icons/dmenuwifi/wifi.png -a Dmenuwifi "Trying to connect to $network"
+}
+
+# Error message
+Error() {
+	notify-send -i /home/beto/.icons/dmenuwifi/error.png -a Dmenuwifi "$1"
+}
+
+# Try to save the configuration
+SaveConfiguration() {
+	if wpa_cli -i "$interface" save_config | grep -q "FAIL"; then
+		Error "An error ocurred trying to save the configuration"
+	fi
+}
+
+# Enable the network added
+EnableNetwork() {
+	if wpa_cli enable_network "$ID" | grep -q "OK"; then
+		if wpa_cli select_network "$ID" | grep -q "OK"; then
+			Connecting && SaveConfiguration
 		else
-			notify-send -a Dmenuwifi "An error occurred selecting the network"
+			Error "An error ocurred selecting the network"
+		fi
+	else
+		Error "An error ocurred enabling the network"
+	fi
+}
+
+# Main Program
+if [ "$network" != "" ] && echo "$scan_result" | grep -q "$network"; then
+	list_networks=$(wpa_cli -i "$interface" list_networks | awk 'NR>1 { print $2 }')
+	if echo "$list_networks" | grep -q "$network"; then 
+		if wpa_cli -i "$interface" select_network "$network"; then
+			Connecting && SaveConfiguration
+		else
+			Error "An error ocurred selecting the network"
 		fi
 	else
 		ID=$(wpa_cli -i "$interface" add_network)
 		if wpa_cli -i "$interface" set_network "$ID" ssid '"'$network'"' | grep -q "OK"; then
-			psk=$(cat /dev/null | dmenu -p "Password:" -nb $color0 -nf $color7 -sb $color0 -sf $color1)
+			psk=$(cat /dev/null | dmenu -p "Password:" -nb $color1 -nf $color7 -sb $color0 -sf $color1)
 			if [[ "$psk" = "" ]]; then
 				if wpa_cli -i "$interface" set_network "$ID" key_mgmt NONE | grep -q "OK"; then
-					wpa_cli enable_network "$ID" &>/dev/null
-					if wpa_cli select_network "$ID" | grep -q "OK"; then
-						wpa_cli -i "$interface" save_config &>/dev/null
-						notify-send -a Dmenuwifi "Trying to connect to $network"
-					else
-						notify-send -a Dmenuwifi "An error ocurred trying to connect."
-					fi
+					EnableNetwork
 				else
-					notify-send -a Dmenuwifi "An error occurred seting the password."
+					Error "An error occurred seting the password"
 				fi
 			else
 				if wpa_cli -i "$interface" set_network "$ID" psk '"'$psk'"' | grep -q "OK"; then
-					wpa_cli enable_network "$ID" &>/dev/null
-					if wpa_cli select_network "$ID" | grep -q "OK"; then
-						wpa_cli -i "$interface" save_config &>/dev/null
-						notify-send -a Dmenuwifi "Trying to connect to $network"
-					else
-						notify-send -a Dmenuwifi "An error ocurred trying to connect."
-					fi
+					EnableNetwork
 				else
-					notify-send -a Dmenuwifi "An error occurred seting the password."
+					Error "An error occurred seting the password"
 				fi
 			fi
 		else
-			notify-send -a Dmenuwifi "An error ocurred seting the ssid."
+			Error "An error ocurred seting the ssid"
 		fi
 	fi
 fi

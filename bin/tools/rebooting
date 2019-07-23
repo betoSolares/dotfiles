@@ -2,4 +2,4 @@
 # Ask for reboot
 
 . "${HOME}/.cache/wal/colors.sh"
-[ $(echo -e "No\nYes" | dmenu -i -p "Are you sure you want to reboot?" -nb $color0 -nf $color7 -sb $color0 -sf $color1) == "Yes" ] && reboot
+[ $(echo -e "No\nYes" | dmenu -i -p "Are you sure you want to reboot?" -nb $color1 -nf $color7 -sb $color0 -sf $color1) == "Yes" ] && reboot
