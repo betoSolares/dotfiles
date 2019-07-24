@@ -1,6 +1,14 @@
-#!/bin/sh
-# See the free memory
+#!/bin/bash
+# Get the memmory usage like pywal
+# Source: https://github.com/dylanaraps/neofetch/commit/82d9f80f0da72b01ab7245aad43e42dc4b1b7362
 
-total="$(free -h | awk '/^Mem:/ { print $2 }')"
-actual="$(free -h | awk '/^Mem:/ { print $3 }')"
-printf "%s / %s" "$actual" "$total"
+while IFS=":" read -r a b; do
+	case "$a" in
+		"MemTotal") memused="$((memused+=${b/kB}))"; memtotal="${b/kB}" ;;
+		"Shmem") memused="$((memused+=${b/kB}))"  ;;
+		"MemFree" | "Buffers" | "Cached" | "SReclaimable") memused="$((memused-=${b/kB}))" ;;
+	esac
+done < /proc/meminfo
+memused="$((memused / 1024))"
+memtotal="$((memtotal / 1024))"
+printf "%sMiB / %sMiB" "$memused" "$memtotal"

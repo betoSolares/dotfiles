@@ -42,7 +42,7 @@ EnableNetwork() {
 if [ "$network" != "" ] && echo "$scan_result" | grep -q "$network"; then
 	list_networks=$(wpa_cli -i "$interface" list_networks | awk 'NR>1 { print $2 }')
 	if echo "$list_networks" | grep -q "$network"; then 
-		if wpa_cli -i "$interface" select_network "$network"; then
+		if wpa_cli -i "$interface" select_network "$network" | grep -q "OK"; then
 			Connecting && SaveConfiguration
 		else
 			Error "An error ocurred selecting the network"
