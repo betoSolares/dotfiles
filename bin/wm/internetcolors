@@ -1,5 +1,0 @@
-#!/bin/sh
-# Create the colorscheme for vivaldi and qutebrowser startpage
-
-cp -f ${HOME}/.cache/wal/colors.css /opt/vivaldi/resources/vivaldi/style
-cp -f ${HOME}/.cache/wal/colors.css ${HOME}/.config/qutebrowser/startpage

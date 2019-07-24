@@ -11,4 +11,3 @@ fi
 gengtk # Create and set the gtk theme
 cp -f ~/.cache/wal/colors.Xresources ~/.Xresources # Update the Xresources file
 dunstcolors # Start dunst with colors
-internetcolors # Change the colors for vivaldi browser and the startpage

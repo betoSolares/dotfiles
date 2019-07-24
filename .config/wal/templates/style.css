@@ -1,48 +1,46 @@
-@import "colors.css";
+body {{
+    background-color: {color0};
+    color: {color7};
+}}
 
-body {
-    background-color: var(--color0);
-    color: var(--color7);
-}
-
-.container {
-    background-color: var(--color0);
+.container {{
+    background-color: {color0};
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(auto-fill, 250px);
     justify-content: center;
     margin: 100px;
-}
+}}
 
-.item {
+.item {{
     height: 180px;
     padding: 12px;
     width: 222px;
-}
+}}
 
-.item img {
+.item img {{
     border-radius: 10px;
     max-width: 100%;
-}
+}}
 
-.item p {
+.item p {{
     display: none;
     text-align: center;
     font-size: 14px;
     margin: 1px;
-}
+}}
 
-.item:hover p {
+.item:hover p {{
     display: block;
     animation: fadeIn 0.7s;
-}
+}}
 
-@keyframes fadeIn {
-    from {
+@keyframes fadeIn {{
+    from {{
         opacity: 0;
-    }
-    to {
+    }}
+    to {{
         opacity: 1;
-    }
-}
+    }}
+}}
 
