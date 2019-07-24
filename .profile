@@ -1,7 +1,5 @@
-#
-# !/bin/bash
+#!/bin/sh
 # File reads on login
-#
 
 # Export own scripts to $PATH
 export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':')"
