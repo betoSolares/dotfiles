@@ -5,7 +5,9 @@
 [[ $- != *i* ]] && return
 
 # Aliases
-alias ls='ls --color=auto'
+alias oldls='/usr/bin/ls --color=auto'
+alias ls='colorls'
+alias ll='colorls -la'
 alias lynx='lynx -cfg=/home/beto/.config/lynx/lynx.cfg'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
