@@ -3,11 +3,10 @@
 
 # Set the background using wal
 if [[ "$1" = "RECOVERY" ]]; then
-	wal -R
+	wpg -r && wal -R
 else
-	wal -i $1
+	wal -i $1 && wpg -a $1 && wpg -n -s $1 && wal -R
 fi
 
-gengtk # Create and set the gtk theme
 cp -f ~/.cache/wal/colors.Xresources ~/.Xresources # Update the Xresources file
 dunstcolors # Start dunst with colors
