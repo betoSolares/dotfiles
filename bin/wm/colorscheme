@@ -3,7 +3,7 @@
 
 # Set the background using wal
 if [[ "$1" = "RECOVERY" ]]; then
-	wpg -r && wal -R
+	wal -R
 else
 	wal -i $1 && wpg -a $1 && wpg -n -s $1 && wal -R
 fi
