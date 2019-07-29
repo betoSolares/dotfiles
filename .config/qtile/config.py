@@ -29,7 +29,7 @@ import subprocess
 from libqtile import hook, layout
 from layouts import layouts
 from groups import groups
-from keys import keys
+from keys import keys, mouse
 from screens import screens
 
 # Variables

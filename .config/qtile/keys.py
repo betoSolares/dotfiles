@@ -16,14 +16,16 @@ mouse = [
 keys = [
     # Applications
     Key([mod], "Return", lazy.spawn("st")),
-    Key([mod], "v", lazy.spawn("vivaldi-stable")),
-    Key([mod, "shift"], "v", lazy.spawn("vivaldi-stable --incognito")), 
+    Key([mod], "b", lazy.spawn("vivaldi-stable")),
+    Key([mod, "shift"], "b", lazy.spawn("vivaldi-stable --incognito")), 
     Key([mod], "d", lazy.spawn("dmenurun")), 
     Key([mod, "control"], "r", lazy.spawn("rofi -show run")), 
     Key([mod], "q", lazy.spawn("qute")),
     Key([mod], "e", lazy.spawn("rofiunicode")),
     Key([mod, "shift"], "e", lazy.spawn("rofikaomoji")),
     Key([mod], "w", lazy.spawn("dmenuwifi")),
+    Key([mod], "v", lazy.spawn("st -e vim")),
+    Key([mod], "s", lazy.spawn("sr-menu")),
 
     # Audio Control
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q -c 1 sset Master 1%-")),
