@@ -26,6 +26,7 @@ keys = [
     Key([mod], "w", lazy.spawn("dmenuwifi")),
     Key([mod], "v", lazy.spawn("st -e vim")),
     Key([mod], "s", lazy.spawn("sr-menu")),
+    Key([mod], "plus", lazy.spawn("xzoom")),
 
     # Audio Control
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q -c 1 sset Master 1%-")),
