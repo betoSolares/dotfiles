@@ -1,0 +1,31 @@
+[user]
+	email = betosolaresgar@gmail.com
+	name = Roberto Solares
+	signingkey = ADB926EA80CAC135
+[core]
+	editor = vim
+	pager = less
+	autocrlf = input
+	whitespace = fix
+[alias]
+	d = difftool
+	cs = commit -S
+	lg = log --oneline --decorate --all --graph
+	s = status
+[gpg]
+	program = gpg
+[help]
+	autocorrect = 5
+[color]
+	ui = auto
+[column]
+	ui = auto
+[push]
+	default = current
+	followTags = true
+[fetch]
+	prune = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
