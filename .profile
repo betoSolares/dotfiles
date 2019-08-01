@@ -10,6 +10,7 @@ export EDITOR="vim"
 export TERMINAL="st"
 export LS_COLORS="su=30;41:ow=30;42:st=30;44:"
 export BC_ENV_ARGS=~/.config/bc/bc.conf
+export GPG_TTY=$(tty)
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
 	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
@@ -25,6 +26,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+export LESSHISTSIZE=0
 
 # Call the bashrc
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
