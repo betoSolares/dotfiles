@@ -15,6 +15,8 @@ alias ll='lsd -la'
 alias bc='bc -l'
 alias find='find-fzf'
 
+export GPG_TTY=$(tty) # GPG
+
 PS1='[\u@\h \W]\$ '
 
 neofetch
