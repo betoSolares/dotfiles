@@ -10,6 +10,7 @@ export EDITOR="vim"
 export TERMINAL="st"
 export LS_COLORS="su=30;41:ow=30;42:st=30;44:"
 export BC_ENV_ARGS=~/.config/bc/bc.conf
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export GPG_TTY=$(tty)
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
