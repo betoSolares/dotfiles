@@ -1,0 +1,4 @@
+#!/bin/sh
+# Use tmux with the specify config file
+
+tmux -f ~/.config/tmux/tmux.conf
