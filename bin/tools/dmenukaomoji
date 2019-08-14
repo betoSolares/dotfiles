@@ -1,0 +1,12 @@
+#!/bin/sh
+# Display emojis in rofi
+
+. ${HOME}/.cache/wal/colors.sh
+emojis=$(cat "$HOME/.local/share/emoji/kaomojis.txt" | grep -v '#' | grep -v '^[[:space:]]*$')
+chosen=$(echo "$emojis" | dmenu -i -p Emoji -l 15 -nb $color1 -nf $color7 -sb $color0 -sf $color1)
+
+if [[ "$chosen" != "" ]]; then
+	kaomoji=$(echo "$chosen" | cut -f 1)
+	echo -n "$kaomoji" | xclip -selection clipboard
+	notify-send -a Kaomoji "$kaomoji copied to clipboard"
+fi

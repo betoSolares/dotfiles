@@ -1,0 +1,13 @@
+#!/bin/sh
+# Display emojis in rofi
+# Source: https://gist.github.com/Tadly/0741821d3694deaec1ee454a95c591fa
+
+. ${HOME}/.cache/wal/colors.sh
+emojis=$(cat $HOME/.local/share/emoji/emojis.txt $HOME/.local/share/emoji/unicode.txt | grep -v '#' | grep -v '^[[:space:]]*$')
+chosen=$(echo "$emojis" | dmenu -i -p Emoji -l 15 -nb $color1 -nf $color7 -sb $color0 -sf $color1)
+
+if [[ "$chosen" != "" ]]; then
+	emoji=${chosen:0:1}
+	echo -n "$emoji" | xclip -selection clipboard
+	notify-send -a Emoji "$emoji copied to clipboard"
+fi
