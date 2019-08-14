@@ -1,7 +1,7 @@
 [user]
 	email = betosolaresgar@gmail.com
 	name = Roberto Solares
-	signingkey = ADB926EA80CAC135
+	signingkey = 6E7FB0D0FB5B52EB
 [core]
 	editor = vim
 	pager = less
