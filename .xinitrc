@@ -9,5 +9,7 @@ if [[ -f ~/.bash_history ]]; then
 	> ~/.bash_history
 fi
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 # Execute qtile
 exec qtile
