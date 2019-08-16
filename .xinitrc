@@ -9,7 +9,8 @@ if [[ -f ~/.bash_history ]]; then
 	> ~/.bash_history
 fi
 
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+# Keyboard adjustment
+setxkbmap -option caps:swapescape
 
 # Execute qtile
 exec qtile
