@@ -16,6 +16,7 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias null='/dev/null'
 alias cls='clear'
+alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 
 # GPG ask in tty
 export GPG_TTY=$(tty)

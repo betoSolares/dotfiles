@@ -1,0 +1,4 @@
+#!/bin/sh
+# Start tmux or log in into a previous session
+
+tmux a || tmux
