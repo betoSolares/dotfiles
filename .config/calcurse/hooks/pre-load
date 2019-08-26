@@ -1,0 +1,31 @@
+#!/usr/bin/sh
+# Load items from todoist
+
+# API token
+token=a66f5ce177e92b752069509d18a9f62ea31e961e
+
+# Save todoist data
+curl https://api.todoist.com/sync/v8/sync \
+	-d token=$token \
+	-d sync_token='*' \
+	-d resource_types='["items"]' > /tmp/todoist.json
+
+# Parse json
+IFS=$'\n' read -r -d '' -a priority <<< "$(cat /tmp/todoist.json | jq '.items | .[].priority')"
+IFS=$'\n' read -r -d '' -a content <<< "$(cat /tmp/todoist.json | jq '.items | .[].content')"
+IFS=$'\n' read -r -d '' -a date <<< "$(cat /tmp/todoist.json | jq '.items | .[].due.date')"
+IFS=$'\n' read -r -d '' -a id <<< "$(cat /tmp/todoist.json | jq '.items | .[].id')"
+
+# Create new todo file
+if [[ "${#priority[@]}" == "${#content[@]}" ]]; then
+	> ${HOME}/.local/share/calcurse/todo
+	today_date=$(date "+%F")
+	for (( i=0; i<"${#priority[@]}"; i++ )); do
+		new_date=$(echo "${date[$i]}" | cut -d '"' -f 2)
+		if [[ $new_date == $today_date ]]; then
+			new_content=$(echo "${content[$i]}" | cut -d '"' -f 2)
+			echo "[${priority[$i]}] ${new_content} (${id})" >> ${HOME}/.local/share/calcurse/todo
+		fi
+	done
+	cp -f ${HOME}/.local/share/calcurse/todo /tmp/todo_original
+fi
