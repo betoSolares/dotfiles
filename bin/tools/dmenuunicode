@@ -1,13 +1,17 @@
-#!/bin/sh
+#!/usr/bin/sh
 # Display emojis in rofi
-# Source: https://gist.github.com/Tadly/0741821d3694deaec1ee454a95c591fa
+# Source: https://github.com/LukeSmithxyz/voidrice/blob/archi3/.local/bin/i3cmds/dmenuunicode
 
 . ${HOME}/.cache/wal/colors.sh
 emojis=$(cat $HOME/.local/share/emoji/emojis.txt $HOME/.local/share/emoji/unicode.txt | grep -v '#' | grep -v '^[[:space:]]*$')
 chosen=$(echo "$emojis" | dmenu -i -p Emoji -l 15 -nb $color1 -nf $color7 -sb $color0 -sf $color1)
 
-if [[ "$chosen" != "" ]]; then
-	emoji=${chosen:0:1}
-	echo -n "$emoji" | xclip -selection clipboard
-	notify-send -a Emoji "$emoji copied to clipboard"
-fi
+[ "$chosen" != "" ] || exit
+
+c=$(echo "$chosen" | sed "s/ .*//")
+echo "$c" | tr -d '\n' | xclip -selection clipboard
+notify-send "'$c' copied to clipboard." &
+
+s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
+echo "$s" | tr -d '\n' | xclip
+notify-send "'$s' copied to primary." &

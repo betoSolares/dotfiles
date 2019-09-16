@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/usr/bin/sh
 # Ask for shutdown
 
 . "${HOME}/.cache/wal/colors.sh"
-[ $(echo -e "No\nYes" | dmenu -i -p "Are you sure you want to shut down?" -nb $color1 -nf $color7 -sb $color0 -sf $color1) == "Yes" ] && shutdown -P now
+[ $(printf "No\nYes" | dmenu -i -p "Are you sure you want to shut down?" -nb $color1 -nf $color7 -sb $color0 -sf $color1) == "Yes" ] && shutdown -P now

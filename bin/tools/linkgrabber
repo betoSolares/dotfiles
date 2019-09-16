@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 # List the urls on the screen with dmenu and open selection with
 # $BROWSER. This script is alternative to copyurl st patch.
 # Source: https://github.com/rudyghill/dotfiles/blob/master/scripts/.scripts/linkgrabber

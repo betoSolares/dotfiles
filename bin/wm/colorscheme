@@ -2,7 +2,7 @@
 # Genereate a color scheme
 
 # Set the background using wal
-if [[ "$1" = "RECOVERY" ]]; then
+if [ "$1" = "RECOVERY" ]; then
 	wal -R
 else
 	wal -i $1 && wpg -a $1 && wpg -n -s $1 && wal -R

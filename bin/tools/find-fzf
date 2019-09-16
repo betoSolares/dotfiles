@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 # Find with fzf
 
 USAGE() { printf "%s" "\
@@ -46,16 +46,16 @@ while [ "$1" != "" ]; do
 done
 
 # Check errors
-if [[ ! -d "$dir" ]]; then
+if [ ! -d "$dir" ]; then
 	printf "The directory $dir dosn't exist.\n" && exit 1;
 fi 
 
-if [[ ! "$filetype" =~ (b|c|d|p|f|l|s|d) ]]; then 
+if [ ! "$filetype" =~ (b|c|d|p|f|l|s|d) ]; then 
 	printf "The file type must be b, c, d, p, f, l, s or d.\n" && exit 1;
 fi
 
 # Run program
-if [[ -z "$name" ]]; then
+if [ -z "$name" ]; then
 	find "$dir" -type "$filetype" 2>/dev/null | fzf 
 else
 	find "$dir" -type "$filetype" 2>/dev/null | fzf -q "$name"

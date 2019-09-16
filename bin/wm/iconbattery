@@ -8,23 +8,23 @@ percentage=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 # Icon for the panel
 [ "$state" = "Charging" ] && printf "" && exit
 
-if [[ "$percentage" < 10 ]]; then
+if [ "$percentage" < 10 ]; then
 	icon=""
-elif [[ "$percentage" < 20 ]]; then
+elif [ "$percentage" < 20 ]; then
 	icon=""
-elif [[ "$percentage" < 30 ]]; then
+elif [ "$percentage" < 30 ]; then
 	icon=""
-elif [[ "$percentage" < 40 ]]; then
+elif [ "$percentage" < 40 ]; then
 	icon=""
-elif [[ "$percentage" < 50 ]]; then
+elif [ "$percentage" < 50 ]; then
 	icon=""
-elif [[ "$percentage" < 60 ]]; then
+elif [ "$percentage" < 60 ]; then
 	icon=""
-elif [[ "$percentage" < 70 ]]; then 
+elif [ "$percentage" < 70 ]; then 
 	icon=""
-elif [[ "$percentage" < 80 ]]; then
+elif [ "$percentage" < 80 ]; then
 	icon=""
-elif [[ "$percentage" < 90 ]]; then
+elif [ "$percentage" < 90 ]; then
 	icon=""
 else
 	icon=""
