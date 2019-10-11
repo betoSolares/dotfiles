@@ -1,0 +1,88 @@
+" Set environment
+set directory=$HOME/.cache/vim
+set backupdir=$HOME/.cache/vim
+set viminfo-=i$HOME/.cache/vim/viminfo
+set runtimepath=$HOME/.config/vim,$VIM,$VIMRUNTIME
+let $MYVIMRC="$HOME/.config/vim/vimrc"
+
+" Set compatibility to Vim only
+set nocompatible
+
+" Basic configuration
+let mapleader=","
+set encoding=utf-8
+set wrap
+
+" UI
+set laststatus=2
+set lazyredraw
+set number
+set ruler
+set showmatch
+set title
+set wildmenu
+syntax enable
+
+" Enable the use of the mouse
+if has("gui_running")
+    set mouse=a
+else
+    set mouse=
+endif
+
+" File saving shortcuts
+map <silent> <leader>wq :wq<cr>
+map <silent> <leader>ww :w<cr>
+
+" Quit operations
+map <silent> <leader>qa :qa<cr>
+
+" Copy/Paste from X11 clipboard
+vnoremap <C-c> :!xclip -f -sel clip<CR>
+map <C-v> mz:-1r !xclip -o -sel clip<CR>`z
+
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Spell checking
+:map <F5> :setlocal spell! spelllang=en_us<CR>
+:map <F6> :setlocal spell! spelllang=es<CR>
+set spellfile=$HOME/.local/vim/spell/en.utf-8.add,$HOME/.local/vim/spell/es.utf-8.add
+
+" Split
+set splitbelow splitright
+nmap <leader>sp :sp<CR>
+nmap <leader>vp :vsp<CR>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Search
+set ignorecase
+set incsearch
+set hlsearch
+nnoremap <leader><leader> :nohlsearch<CR>
+
+" New line with same indentation
+set autoindent
+set smartindent
+
+" Tab characters
+set list
+set listchars=nbsp:¬,tab:»·,trail:·,extends:>
+nnoremap <F3> :set list!<CR>
+
+" Toggle line numbers
+nmap <C-N><C-N> :set invnumber<CR>
+
+" Unix or Dos file format
+map <leader>unix :set fileformat=unix<CR>
+map <leader>dos :set fileformat=dos<CR>
+
+" Write file if you forgot to give it sudo permission
+map <leader>sudo :w !sudo tee % <CR><CR>
+
+" Remove all trailing spaces
+noremap <leader>rt :%s/\s\+$//g<CR>
+autocmd BufWritePre * %s/\s\+$//e
