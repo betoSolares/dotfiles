@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 # Display emojis in rofi
 # Source: https://github.com/LukeSmithxyz/voidrice/blob/archi3/.local/bin/i3cmds/dmenuunicode
 

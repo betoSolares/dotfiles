@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 # Source: https://github.com/LukeSmithxyz/voidrice/blob/archi3/.local/bin/i3cmds/maimpick
 
 . ${HOME}/.cache/wal/colors.sh

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Get the memmory usage like pywal
 # Source: https://github.com/dylanaraps/neofetch/commit/82d9f80f0da72b01ab7245aad43e42dc4b1b7362
 
