@@ -2,11 +2,12 @@
 # File reads on login
 
 # Export own scripts to $PATH
-export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':')"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
 
 # Some Default Variables
 export BROWSER="qutebrowser"
 export EDITOR="vim"
+export VIMINIT="source $HOME/.config/vim/vimrc"
 export TERMINAL="st"
 export LS_COLORS="su=30;41:ow=30;42:st=30;44:"
 export BC_ENV_ARGS=~/.config/bc/bc.conf
