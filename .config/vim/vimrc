@@ -2,11 +2,23 @@
 set directory=$HOME/.cache/vim
 set backupdir=$HOME/.cache/vim
 set viminfo-=i$HOME/.cache/vim/viminfo
-set runtimepath=$HOME/.config/vim,$VIM,$VIMRUNTIME
+set runtimepath=$HOME/.local/vim,$VIM,$VIMRUNTIME
 let $MYVIMRC="$HOME/.config/vim/vimrc"
 
 " Set compatibility to Vim only
 set nocompatible
+
+" Plugins
+call plug#begin('~/.local/vim/plugged')
+Plug 'tpope/vim-surround' " Surrounding more easy
+Plug 'junegunn/goyo.vim' " Distraction free writing
+Plug 'xolox/vim-misc' " Dependency for vim-session
+Plug 'xolox/vim-session' " Better manage of sessions
+Plug 'justincampbell/vim-eighties' " Auto resize windows
+Plug 'dylanaraps/wal.vim' " Pywal colorscheme
+Plug 'reedes/vim-colors-pencil' " Colorscheme for goyo
+Plug 'morhetz/gruvbox' " Gruvbox colorscheme
+call plug#end()
 
 " Basic configuration
 let mapleader=","
@@ -14,6 +26,7 @@ set encoding=utf-8
 set wrap
 
 " UI
+set background=dark
 set laststatus=2
 set lazyredraw
 set number
@@ -22,6 +35,7 @@ set showmatch
 set title
 set wildmenu
 syntax enable
+colorscheme wal
 
 " Enable the use of the mouse
 if has("gui_running")
@@ -39,7 +53,7 @@ map <silent> <leader>qa :qa<cr>
 
 " Copy/Paste from X11 clipboard
 vnoremap <C-c> :!xclip -f -sel clip<CR>
-map <C-v> mz:-1r !xclip -o -sel clip<CR>`z
+map <C-v><C-v> mz:-1r !xclip -o -sel clip<CR>`z
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -74,7 +88,7 @@ set listchars=nbsp:¬,tab:»·,trail:·,extends:>
 nnoremap <F3> :set list!<CR>
 
 " Toggle line numbers
-nmap <C-N><C-N> :set invnumber<CR>
+nmap <leader>n :set invnumber<CR>
 
 " Unix or Dos file format
 map <leader>unix :set fileformat=unix<CR>
@@ -86,3 +100,12 @@ map <leader>sudo :w !sudo tee % <CR><CR>
 " Remove all trailing spaces
 noremap <leader>rt :%s/\s\+$//g<CR>
 autocmd BufWritePre * %s/\s\+$//e
+
+" Vim Sessions
+let g:session_autosave='no'
+let g:session_directory='~/.local/vim/session'
+map <leader>save :SaveSession
+map <leader>open :OpenSession
+
+" Vim Eighties
+let g:eighties_enabled = 1
