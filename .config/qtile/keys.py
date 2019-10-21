@@ -1,10 +1,10 @@
-from libqtile.config import Drag, Click, Key 
+from libqtile.config import Drag, Click, Key
 from libqtile.command import lazy
 from groups import groups
 
 mod = "mod4"
 
-# Mouse bindings 
+# Mouse bindings
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
@@ -16,14 +16,13 @@ mouse = [
 keys = [
     # Applications
     Key([mod], "Return", lazy.spawn("st")),
-    Key([mod], "b", lazy.spawn("vivaldi-stable")),
-    Key([mod, "shift"], "b", lazy.spawn("vivaldi-stable --incognito")), 
-    Key([mod], "d", lazy.spawn("dmenurun")), 
-    Key([mod, "control"], "r", lazy.spawn("rofi -show run")), 
+    Key([mod], "b", lazy.spawn("chromium")),
+    Key([mod, "shift"], "b", lazy.spawn("chromium --incognito")),
+    Key([mod], "d", lazy.spawn("dmenurun")),
     Key([mod], "q", lazy.spawn("qute")),
-    Key([mod], "e", lazy.spawn("rofiunicode")),
-    Key([mod, "shift"], "e", lazy.spawn("rofikaomoji")),
-    Key([mod], "w", lazy.spawn("dmenuwifi")),
+    Key([mod], "e", lazy.spawn("dmenuunicode")),
+    Key([mod, "shift"], "e", lazy.spawn("dmenukaomoji")),
+    Key([mod], "w", lazy.spawn("wpa-cute")),
     Key([mod], "v", lazy.spawn("st -e vim")),
     Key([mod], "s", lazy.spawn("sr-menu")),
     Key([mod], "plus", lazy.spawn("xzoom")),
@@ -35,10 +34,10 @@ keys = [
 
     # Backlight Control
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 1")),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 1")), 
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 1")),
 
     # ScreenShot
-    Key([], "Print", lazy.spawn("screenshot")),
+    Key([], "Print", lazy.spawn("maimpicture")),
 
     # System Control
     Key([mod, "shift"], "q", lazy.spawn("shuttingdown")),
@@ -49,14 +48,13 @@ keys = [
 
     # Window Controls
     Key([mod], "F11", lazy.window.toggle_fullscreen()),
-    Key([mod], "b", lazy.hide_show_bar()), 
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod, "shift"], "Tab", lazy.prev_layout()),
     Key([mod, "shift"], "c", lazy.window.kill()),
 
     #ScratchPad
     Key([mod, "shift"], "d", lazy.group["ScratchPad"].dropdown_toggle("term")),
-    
+
     # Layout Controls
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
@@ -76,7 +74,7 @@ keys = [
 
 # Keybandings to change the group
 for index, group in enumerate(groups[:10]):
-    i = 0 if index == 9 else index + 1  
+    i = 0 if index == 9 else index + 1
     keys.append(Key([mod], str(i), lazy.group[group.name].toscreen()))
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(group.name)))
 

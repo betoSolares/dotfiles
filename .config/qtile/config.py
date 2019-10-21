@@ -69,6 +69,6 @@ wmname = "Qtile"
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/bin/wm/autostart')
+    home = os.path.expanduser('~/.local/bin/wm/autostart')
     subprocess.call(['sh', home])
 

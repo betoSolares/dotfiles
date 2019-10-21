@@ -17,6 +17,7 @@ alias mkdir='mkdir -pv'
 alias null='/dev/null'
 alias cls='clear'
 alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+alias ext='extract'
 
 # GPG ask in tty
 export GPG_TTY=$(tty)
@@ -110,7 +111,5 @@ export PS1='\[\e[1;93m\]\u \[\e[1;90m\]at \[\e[1;91m\]\h \[\e[1;94m\]on \[\e[1;9
 
 stty -ixon # Disable ctrl-s and ctrl-q
 shopt -s autocd # cd by typing the name
-shopt -s cdspell # Correct minor errors in cd 
+shopt -s cdspell # Correct minor errors in cd
 shopt -s cmdhist # Save multiline commands in single line
-
-neofetch

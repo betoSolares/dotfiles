@@ -5,31 +5,52 @@ set viminfo-=i$HOME/.cache/vim/viminfo
 set runtimepath=$HOME/.local/vim,$VIM,$VIMRUNTIME
 let $MYVIMRC="$HOME/.config/vim/vimrc"
 
+" Install vim-plug
+if empty(glob('~/.local/vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/vim/autoload/plug.vim --create-dirs
+       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync
+endif
+
 " Set compatibility to Vim only
 set nocompatible
 
 " Plugins
 call plug#begin('~/.local/vim/plugged')
+Plug 'myusuf3/numbers.vim' " Better line numbers
 Plug 'tpope/vim-surround' " Surrounding more easy
 Plug 'junegunn/goyo.vim' " Distraction free writing
 Plug 'xolox/vim-misc' " Dependency for vim-session
 Plug 'xolox/vim-session' " Better manage of sessions
+Plug 'Asheq/close-buffers.vim' " Quickly close buffers
 Plug 'justincampbell/vim-eighties' " Auto resize windows
+Plug 'tpope/vim-commentary' " Comment stuff out
+Plug 'ryanoasis/vim-devicons' " File type icons
+Plug 'scrooloose/nerdtree' " Tree explorer
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for NERDTree
+Plug 'jiangmiao/auto-pairs' " Insert or delete in pairs
+Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'gcmt/taboo.vim' " Utils for tabs
+Plug 'vim-airline/vim-airline' " Status line
+Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
 Plug 'dylanaraps/wal.vim' " Pywal colorscheme
 Plug 'reedes/vim-colors-pencil' " Colorscheme for goyo
 Plug 'morhetz/gruvbox' " Gruvbox colorscheme
+Plug 'huyvohcmc/atlas.vim' " All white colorshceme
 call plug#end()
 
 " Basic configuration
 let mapleader=","
 set encoding=utf-8
+set hidden
+set lazyredraw
 set wrap
 
 " UI
 set background=dark
+set fillchars+=vert:│
 set laststatus=2
-set lazyredraw
-set number
 set ruler
 set showmatch
 set title
@@ -54,13 +75,14 @@ map <silent> <leader>qa :qa<cr>
 " Copy/Paste from X11 clipboard
 vnoremap <C-c> :!xclip -f -sel clip<CR>
 map <C-v><C-v> mz:-1r !xclip -o -sel clip<CR>`z
+map <F2> :set paste!<CR>
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 " Spell checking
-:map <F5> :setlocal spell! spelllang=en_us<CR>
-:map <F6> :setlocal spell! spelllang=es<CR>
+map <F5> :setlocal spell! spelllang=en_us<CR>
+map <F6> :setlocal spell! spelllang=es<CR>
 set spellfile=$HOME/.local/vim/spell/en.utf-8.add,$HOME/.local/vim/spell/es.utf-8.add
 
 " Split
@@ -82,13 +104,19 @@ nnoremap <leader><leader> :nohlsearch<CR>
 set autoindent
 set smartindent
 
+" Buffer managment
+map <leader>d :CloseThisBuffer<CR>
+map <leader>dh :CloseHiddenBuffer<CR>
+map <leader>bn :bnext<CR>
+map <leader>bb :bprevious<CR>
+
 " Tab characters
 set list
 set listchars=nbsp:¬,tab:»·,trail:·,extends:>
 nnoremap <F3> :set list!<CR>
 
 " Toggle line numbers
-nmap <leader>n :set invnumber<CR>
+nmap <leader>n :NumbersOnOff<CR> <bar> :NumbersToggle<CR>
 
 " Unix or Dos file format
 map <leader>unix :set fileformat=unix<CR>
@@ -98,14 +126,59 @@ map <leader>dos :set fileformat=dos<CR>
 map <leader>sudo :w !sudo tee % <CR><CR>
 
 " Remove all trailing spaces
-noremap <leader>rt :%s/\s\+$//g<CR>
+noremap <leader>ts :%s/\s\+$//g<CR>
 autocmd BufWritePre * %s/\s\+$//e
 
 " Vim Sessions
 let g:session_autosave='no'
 let g:session_directory='~/.local/vim/session'
-map <leader>save :SaveSession
-map <leader>open :OpenSession
+map <leader>save :SaveSession<space>
+map <leader>open :OpenSession<space>
 
 " Vim Eighties
 let g:eighties_enabled = 1
+let g:eighties_minimum_width = 120
+
+" Nerd Tree
+let g:NERDTreeCaseSensitiveSort=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeIgnore = ['\.pyc$', '__pycache__', '.git$']
+map <leader>t :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Nerd Tree Highlight
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+" Vim Airline
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols_branch = ''
+let g:airline_symbols_readonly = ''
+let g:airline_symbols_linenr = '☰'
+let g:airline_symbols_maxlinenr = ''
+let g:airline_symbols_dirty='⚡'
+let g:airline_section_x = '%{WebDevIconsGetFileTypeSymbol()}'
+
+" Use fd for ctrlp.
+if executable('fd')
+    let g:ctrlp_user_command = 'fd -c never "" %s'
+    let g:ctrlp_use_caching = 0
+endif
+map <C-p><C-b> :CtrlPBuffer<CR>
+
+" Taboo
+let g:taboo_modified_tab_flag='+'
+let g:taboo_tab_format=' [%m%f - %W] '
+let g:taboo_renamed_tab_format=' [%l%m - %W] '
+set sessionoptions+=tabpages,globals
+map <leader>r :TabooRename<space>

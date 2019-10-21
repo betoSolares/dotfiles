@@ -1,6 +1,6 @@
-# 
+#
 # Custom widget for qtile
-# 
+#
 
 # Imports
 import os
@@ -12,7 +12,7 @@ class Script(base.ThreadedPollText):
     orientations = base.ORIENTATION_HORIZONTAL
     defaults = [
         ('name', None, 'Script name'),
-        ('directory', os.path.expanduser('~/bin/wm/'), 'PATH to the script'),
+        ('directory', os.path.expanduser('~/.local/bin/wm/'), 'PATH to the script'),
     ]
 
     def __init__(self, **config):
