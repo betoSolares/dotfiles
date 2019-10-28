@@ -7,6 +7,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
 # Some Default Variables
 export BROWSER="qutebrowser"
 export EDITOR="vim"
+export READER="zathura"
 export VIMINIT="source $HOME/.config/vim/vimrc"
 export TERMINAL="st"
 export LS_COLORS="su=30;41:ow=30;42:st=30;44:"
@@ -15,8 +16,7 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
 	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
-	--color info:7,prompt:2,spinner:1,pointer:232,marker:1
-'
+	--color info:7,prompt:2,spinner:1,pointer:232,marker:1'
 
 # Less more friendly
 export LESS='-R -F -g -i -J -M -W -x2'
