@@ -7,6 +7,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
 # Some Default Variables
 export BROWSER="qutebrowser"
 export EDITOR="vim"
+export FILE="ranger"
 export READER="zathura"
 export VIMINIT="source $HOME/.config/vim/vimrc"
 export TERMINAL="st"
