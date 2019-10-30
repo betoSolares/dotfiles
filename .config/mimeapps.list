@@ -1,0 +1,8 @@
+[Default Applications]
+application/directory=ranger.desktop
+text/plain=vim.desktop;
+text/x-shellscript=vim.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+x-scheme-handler/http=qute.desktop
+x-scheme-handler/https=qute.desktop
+text/html=qute.desktop
