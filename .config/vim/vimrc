@@ -34,9 +34,9 @@ Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
 Plug 'dylanaraps/wal.vim' " Pywal colorscheme
-Plug 'reedes/vim-colors-pencil' " Colorscheme for goyo
-Plug 'morhetz/gruvbox' " Gruvbox colorscheme
-Plug 'huyvohcmc/atlas.vim' " All white colorshceme
+Plug 'aswathkk/DarkScene.vim' " Dark theme
+Plug 'atelierbram/vim-colors_atelier-schemes' " Atelier schemes
+Plug 'brafales/vim-desert256' " Deseert theme
 call plug#end()
 
 " Basic configuration
@@ -94,10 +94,16 @@ set spellfile=$HOME/.local/vim/spell/en.utf-8.add,$HOME/.local/vim/spell/es.utf-
 set splitbelow splitright
 nmap <leader>sp :sp<CR>
 nmap <leader>vp :vsp<CR>
+nmap <leader>sp :sp<CR>
+nmap <leader>vp :vsp<CR>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+vmap <C-h> <C-w>h
+vmap <C-j> <C-w>j
+vmap <C-k> <C-w>k
+vmap <C-l> <C-w>l
 
 " Search
 set ignorecase
