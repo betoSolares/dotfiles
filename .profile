@@ -11,6 +11,7 @@ export FILE="ranger"
 export READER="zathura"
 export VIMINIT="source $HOME/.config/vim/vimrc"
 export TERMINAL="st"
+export INPUTRC="$HOME/.config/input/inputrc"
 export LS_COLORS="su=30;41:ow=30;42:st=30;44:"
 export BC_ENV_ARGS=~/.config/bc/bc.conf
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
@@ -29,6 +30,8 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export LESSHISTFILE=/dev/null
+
+mpd >/dev/null 2>&1 &
 
 # Call the bashrc
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
