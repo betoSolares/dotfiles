@@ -1,0 +1,38 @@
+ncmpcpp_directory = "~/.config/ncmpcpp"
+lyrics_directory = "~/.local/share/lyrics"
+
+[mpd]
+mpd_music_dir = "~/Music/"
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_crossfade_time = "2"
+
+[visualizer]
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_in_stereo = "no"
+visualizer_type = "spectrum"
+visualizer_output_name = "my_fifo"
+visualizer_look = "●┃"
+
+[header]
+header_visibility = "no"
+header_window_color = "default"
+playlist_shorten_total_times = "yes"
+volume_color = "default"
+state_line_color = "default"
+titles_visibility = "yes"
+
+[statusbar]
+progressbar_look = "━━─"
+progressbar_color = "default"
+progressbar_elapsed_color = 7
+statusbar_visibility = "yes"
+statusbar_color = "default"
+song_status_format = "{{%a{ - %t }}|{ - %f }{ - %b{ (%y) } }}"
+
+[global]
+colors_enabled = "yes"
+main_window_color = "default"
+centered_cursor = "yes"
+enable_window_title = "yes"
+external_editor = "vim"
