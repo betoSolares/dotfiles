@@ -1,0 +1,9 @@
+source ~/.config/mutt/settings
+source ~/.config/mutt/bindings
+source ~/.config/mutt/colors
+
+source ~/.config/mutt/accounts/mailo
+source ~/.config/mutt/accounts/gmail
+
+folder-hook 'mailo' 'source ~/.config/mutt/accounts/mailo'
+folder-hook 'gmail' 'source ~/.config/mutt/accounts/gmail'

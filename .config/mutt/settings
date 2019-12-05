@@ -1,0 +1,17 @@
+set date_format="%y/%m/%d %I:%M%p"
+set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set sort = 'reverse-date'
+set wait_key = no
+set fast_reply
+set fcc_attach
+set forward_format = "Fwd: %s"
+set forward_quote
+set reverse_name
+set include
+set mail_check=60
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/plain text/enriched text/html
+bind index,pager i noop
+bind index,pager g noop
+bind index \Cf noop
