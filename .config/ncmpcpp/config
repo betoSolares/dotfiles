@@ -9,7 +9,8 @@ mpd_crossfade_time = "2"
 
 [visualizer]
 visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_in_stereo = "no"
+visualizer_in_stereo = "yes"
+visualizer_sync_interval = "35"
 visualizer_type = "spectrum"
 visualizer_output_name = "my_fifo"
 visualizer_look = "●┃"
