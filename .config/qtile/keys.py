@@ -4,7 +4,6 @@ from groups import groups
 
 mod = "mod4"
 
-# Mouse bindings
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
@@ -12,7 +11,6 @@ mouse = [
     Click([mod, "shift"], "Button2", lazy.window.kill()),
 ]
 
-# Keybandings
 keys = [
     # Applications
     Key([mod], "Return", lazy.spawn("st")),
@@ -24,8 +22,18 @@ keys = [
     Key([mod, "shift"], "e", lazy.spawn("dmenukaomoji")),
     Key([mod], "w", lazy.spawn("wpa-cute")),
     Key([mod], "v", lazy.spawn("st -e vim")),
-    Key([mod], "s", lazy.spawn("sr-menu")),
+    Key([mod, "shift"], "s", lazy.spawn("sr-menu")),
+    Key([mod], "f", lazy.spawn("st -e ranger")),
+    Key([mod], "w", lazy.spawn("st -e weechat")),
+    Key([mod], "m", lazy.spawn("st -e ncmpcpp")),
+    Key([mod], "c", lazy.spawn("st -e cava")),
+    Key([mod], "s", lazy.spawn("slack")),
+    Key([mod], "n", lazy.spawn("st -e neomutt")),
+    Key([mod, "shift"], "m", lazy.spawn("dmenumount")),
+    Key([mod, "shift"], "u", lazy.spawn("dmenuunmount")),
     Key([mod], "plus", lazy.spawn("xzoom")),
+    Key([mod], "F8", lazy.spawn("recorder")),
+    Key([], "F1", lazy.spawn("/dev/null")),
 
     # Audio Control
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q -c 1 sset Master 1%-")),
@@ -43,8 +51,6 @@ keys = [
     Key([mod, "shift"], "q", lazy.spawn("shuttingdown")),
     Key([mod, "shift"], "r", lazy.spawn("rebooting")),
     Key([mod], "r", lazy.restart()),
-    Key([mod], "Left", lazy.screen.prev_group()),
-    Key([mod], "Right", lazy.screen.next_group()),
 
     # Window Controls
     Key([mod], "F11", lazy.window.toggle_fullscreen()),
@@ -70,6 +76,8 @@ keys = [
     Key([mod], "i", lazy.layout.grow_down()),
     Key([mod], "space", lazy.layout.flip()),
     Key([mod, "shift"], "n", lazy.layout.normalize()),
+    Key([mod], "Left", lazy.screen.prev_group()),
+    Key([mod], "Right", lazy.screen.next_group()),
 ]
 
 # Keybandings to change the group

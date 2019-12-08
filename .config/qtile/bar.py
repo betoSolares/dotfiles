@@ -39,45 +39,6 @@ bar = bar.Bar([
         margin_x = 0,
         margin_y = 0
     ),
-    widget.Spacer(length = 5),
-    widget.TextBox(
-        text = "",
-        font = "monospace",
-        fontsize = 16,
-        foreground = colors['color0'],
-        padding = 3,
-        margin_x = 0,
-        margin_y = 0
-    ),
-    Script(
-        name = "homeusage",
-        update_interval = 1,
-        font = "monospace",
-        fontsize = 10,
-        foreground = colors['color7'],
-        padding = 3,
-        margin_x = 0,
-        margin_y = 0
-    ),
-    widget.TextBox(
-        text = "",
-        font = "monospace",
-        fontsize = 16,
-        foreground = colors['color0'],
-        padding = 3,
-        margin_x = 0,
-        margin_y = 0
-    ),
-    Script(
-        name = "rootusage",
-        update_interval = 1,
-        font = "monospace",
-        fontsize = 10,
-        foreground = colors['color7'],
-        padding = 3,
-        margin_x = 0,
-        margin_y = 0
-    ),
     widget.TextBox(
         text = "",
         font = "monospace",
