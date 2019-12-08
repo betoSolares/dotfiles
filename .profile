@@ -18,6 +18,9 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export GNUPGHOME="$HOME/.local/share/gnupg"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export XINITRC="$HOME/.config/X11/xinitrc"
+export HISTFILE="$HOME/.local/share/bash/history"
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
 	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
@@ -41,5 +44,5 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 
 # Start graphical server
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep qtile || exec startx
+	pgrep qtile || exec startx "$HOME/.config/X11/xinitrc"
 fi
