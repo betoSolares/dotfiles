@@ -17,6 +17,7 @@ export BC_ENV_ARGS=~/.config/bc/bc.conf
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
+export GNUPGHOME="$HOME/.local/share/gnupg"
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
 	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
