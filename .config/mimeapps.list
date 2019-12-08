@@ -1,8 +1,16 @@
 [Default Applications]
 application/directory=ranger.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+image/bmp=img.desktop
+image/gif=img.desktop;
+image/jpeg=img.desktop;
+image/jpg=img.desktop;
+image/png=img.desktop;
+image/tiff=img.desktop
+image/x-bmp=img.desktop
 text/plain=vim.desktop;
 text/x-shellscript=vim.desktop;
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+text/html=qute.desktop
 x-scheme-handler/http=qute.desktop
 x-scheme-handler/https=qute.desktop
-text/html=qute.desktop
+x-scheme-handler/mailto=mail.desktop;
