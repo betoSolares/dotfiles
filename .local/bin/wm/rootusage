@@ -1,5 +1,0 @@
-#!/bin/sh
-# Print disk usage
-
-usage=$(df -hP / | awk 'NR>1 { print $5 }')
-printf "%s" "$usage"

@@ -1,0 +1,6 @@
+#!/bin/sh
+# This script is the SUDO_ASKPASS variable, meaning that it will be used as a
+# password prompt if needed.
+
+. "${HOME}/.cache/wal/colors.sh"
+dmenu -nb $color1 -nf $color7 -sb $color0 -sf $color1 -fn Monospace-12 -p "$1" <&- && echo
