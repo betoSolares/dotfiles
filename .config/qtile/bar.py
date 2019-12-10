@@ -39,6 +39,15 @@ bar = bar.Bar([
         margin_x = 0,
         margin_y = 0
     ),
+    widget.Mpd(
+        do_color_progress = True,
+        fmt_playing = " %f",
+        fmt_stopped = "",
+        font = "monospace",
+        padding = 3,
+        margin_x = 0,
+        margin_y = 0
+    ),
     widget.TextBox(
         text = "",
         font = "monospace",
