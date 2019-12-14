@@ -35,8 +35,7 @@ Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
 Plug 'dylanaraps/wal.vim' " Pywal colorscheme
 Plug 'aswathkk/DarkScene.vim' " Dark theme
-Plug 'atelierbram/vim-colors_atelier-schemes' " Atelier schemes
-Plug 'brafales/vim-desert256' " Deseert theme
+Plug 'brafales/vim-desert256' " Desert theme
 call plug#end()
 
 " Basic configuration
@@ -45,6 +44,8 @@ set encoding=utf-8
 set hidden
 set lazyredraw
 set wrap
+syntax on
+filetype plugin indent on
 
 " UI
 set background=dark
@@ -54,7 +55,6 @@ set ruler
 set showmatch
 set title
 set wildmenu
-syntax enable
 colorscheme wal
 
 " Enable the use of the mouse
@@ -94,16 +94,10 @@ set spellfile=$HOME/.local/vim/spell/en.utf-8.add,$HOME/.local/vim/spell/es.utf-
 set splitbelow splitright
 nmap <leader>sp :sp<CR>
 nmap <leader>vp :vsp<CR>
-nmap <leader>sp :sp<CR>
-nmap <leader>vp :vsp<CR>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-vmap <C-h> <C-w>h
-vmap <C-j> <C-w>j
-vmap <C-k> <C-w>k
-vmap <C-l> <C-w>l
 
 " Search
 set ignorecase
@@ -190,7 +184,7 @@ if executable('fd')
     let g:ctrlp_user_command = 'fd -c never "" %s'
     let g:ctrlp_use_caching = 0
 endif
-map <C-p><C-b> :CtrlPBuffer<CR>
+map <C-b> :CtrlPBuffer<CR>
 
 " Taboo
 let g:taboo_modified_tab_flag='+'
@@ -198,6 +192,16 @@ let g:taboo_tab_format=' [%m%f - %W] '
 let g:taboo_renamed_tab_format=' [%l%m - %W] '
 set sessionoptions+=tabpages,globals
 map <leader>r :TabooRename<space>
+
+" Map sort function to a key
+vnoremap <leader>s :sort<CR>
+
+" Easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
+" Folding with space
+nnoremap <space> za
 
 "" LaTeX
 autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
@@ -219,3 +223,21 @@ autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
 autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 autocmd VimLeave *.tex !texclear %
+
+"" Python
+autocmd BufNewFile,BufRead *.py inoremap ,she #!/usr/bin/env python<Esc>o
+autocmd BufNewFile,BufRead *.py inoremap ,fr from <++> import <++><Esc>0f<cw
+autocmd BufNewFile,BufRead *.py inoremap ,wh while :<Enter><++><Esc>k0f:i
+autocmd BufNewFile,BufRead *.py inoremap ,cl class (<++>):<Enter><++><Esc>k0f(i
+autocmd BufNewFile,BufRead *.py inoremap ,def def (<++>):<Enter><++><Esc>k0f(i
+autocmd BufNewFile,BufRead *.py inoremap ,adef async def (<++>):<Enter><++><Esc>k0f(i
+autocmd BufNewFile,BufRead *.py inoremap ,if if :<Enter><++><Esc>k0f:i
+autocmd BufNewFile,BufRead *.py inoremap ,el else:<Enter>
+autocmd BufNewFile,BufRead *.py inoremap ,ei elif :<Enter><++><Esc>k0f:i
+autocmd BufNewFile,BufRead *.py inoremap ,for for <++> in <++>:<Enter><++><Esc>k0f<cw
+autocmd BufNewFile,BufRead *.py set tabstop=8
+autocmd BufNewFile,BufRead *.py set expandtab
+autocmd BufNewFile,BufRead *.py set softtabstop=4
+autocmd BufNewFile,BufRead *.py set shiftwidth=4
+autocmd BufNewFile,BufRead *.py set foldmethod=indent
+autocmd BufNewFile,BufRead *.py set colorcolumn=80
