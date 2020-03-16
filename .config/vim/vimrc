@@ -36,8 +36,8 @@ Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'dense-analysis/ale' " Linting
 Plug 'dylanaraps/wal.vim' " Pywal colorscheme
-Plug 'aswathkk/DarkScene.vim' " Dark theme
 Plug 'brafales/vim-desert256' " Desert theme
+Plug 'jaredgorski/spacecamp' " Spacecamp theme
 call plug#end()
 
 " Basic configuration
@@ -58,6 +58,8 @@ set showmatch
 set title
 set wildmenu
 colorscheme wal
+highlight ColorColumn ctermbg=magenta
+highlight WhiteOnRed ctermbg=red ctermfg=white
 
 " Enable the use of the mouse
 if has("gui_running")
@@ -74,7 +76,7 @@ map <silent> <leader>wq :wq<cr>
 map <silent> <leader>ww :w<cr>
 
 " Quit operations
-map <silent> <leader>qa :qa<cr>
+map <silent> <leader>q :qall!<cr>
 
 " Compile a document
 map <leader>c :w! \| !compiler <c-r>%<CR>
@@ -105,7 +107,24 @@ map <C-l> <C-w>l
 set ignorecase
 set incsearch
 set hlsearch
+nnoremap <silent> n n:call HLNext(0.4)<cr>
+nnoremap <silent> N N:call HLNext(0.4)<cr>
 nnoremap <leader><leader> :nohlsearch<CR>
+
+function! HLNext(blinktime)
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/)))
+    let target_pat = '\c\%#'.@/
+    let blinks = 3
+    for n in range(1,blinks)
+        let red = matchadd('WhiteOnRed', target_pat, 101)
+        redraw
+        exec 'sleep' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
+        call matchdelete(red)
+        redraw
+        exec 'sleep' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
+    endfor
+endfunction
 
 " New line with same indentation
 set autoindent
@@ -214,7 +233,7 @@ let g:ale_fixers = {
       \    'python': ['standardrb'],
 \}
 
-nmap <F10> :ALEFix<CR>
+nmap <F10> :ALEToggle<CR>
 let g:ale_fix_on_save = 0
 
 "" LaTeX
@@ -254,4 +273,4 @@ autocmd BufNewFile,BufRead *.py set expandtab
 autocmd BufNewFile,BufRead *.py set softtabstop=4
 autocmd BufNewFile,BufRead *.py set shiftwidth=4
 autocmd BufNewFile,BufRead *.py set foldmethod=indent
-autocmd BufNewFile,BufRead *.py set colorcolumn=80
+autocmd BufNewFile,BufRead *.py call matchadd('ColorColumn', '\%80v', 100)
