@@ -8,10 +8,11 @@
 	autocrlf = input
 	whitespace = fix
 [alias]
-	d = difftool
 	cs = commit -S
-	lg = log --oneline --decorate --all --graph
+	l = log --oneline --decorate --all --graph
 	s = status
+	p = push
+	a = add
 [gpg]
 	program = gpg
 [help]
@@ -25,7 +26,3 @@
 	followTags = true
 [fetch]
 	prune = true
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
