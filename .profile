@@ -5,7 +5,7 @@
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
 
 # Some Default Variables
-export BROWSER="qutebrowser"
+export BROWSER="qute"
 export EDITOR="vim"
 export FILE="ranger"
 export READER="zathura"
@@ -21,6 +21,7 @@ export GNUPGHOME="$HOME/.local/share/gnupg"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$HOME/.config/X11/xinitrc"
 export HISTFILE="$HOME/.local/share/bash/history"
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
 	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255

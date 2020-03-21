@@ -1,0 +1,7 @@
+prefix=${HOME}/.local/share/npm
+cache=${HOME}/.cache/npm
+tmp=${XDG_RUNTIME_DIR}/npm
+init.author.name=Roberto Solares
+init.author.email=betosolaresgar@gmail.com
+init.version=0.1
+loglevel=silent

@@ -12,7 +12,6 @@
 	l = log --oneline --decorate --all --graph
 	s = status
 	p = push
-	a = add
 [gpg]
 	program = gpg
 [help]
