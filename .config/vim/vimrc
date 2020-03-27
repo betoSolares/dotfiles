@@ -25,8 +25,6 @@ Plug 'Asheq/close-buffers.vim' " Quickly close buffers
 Plug 'justincampbell/vim-eighties' " Auto resize windows
 Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'ryanoasis/vim-devicons' " File type icons
-Plug 'scrooloose/nerdtree' " Tree explorer
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for NERDTree
 Plug 'jiangmiao/auto-pairs' " Insert or delete in pairs
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'gcmt/taboo.vim' " Utils for tabs
@@ -34,7 +32,6 @@ Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
 Plug 'sheerun/vim-polyglot' " Syntax highlight
-Plug 'dense-analysis/ale' " Linting
 Plug 'dylanaraps/wal.vim' " Pywal colorscheme
 Plug 'brafales/vim-desert256' " Desert theme
 Plug 'jaredgorski/spacecamp' " Spacecamp theme
@@ -170,23 +167,6 @@ map <leader>open :OpenSession<space>
 let g:eighties_enabled = 1
 let g:eighties_minimum_width = 120
 
-" Nerd Tree
-let g:NERDTreeCaseSensitiveSort=1
-let g:NERDTreeShowHidden=1
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeIgnore = ['\.pyc$', '__pycache__', '.git$']
-map <leader>t :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-" Nerd Tree Highlight
-let g:NERDTreeHighlightFolders = 1
-let g:NERDTreeHighlightFoldersFullName = 1
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-
 " Vim Airline
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
@@ -223,18 +203,6 @@ vnoremap > >gv
 
 " Folding with space
 nnoremap <space> za
-
-" ALE
-let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
-\}
-
-let g:ale_fixers = {
-      \    'python': ['standardrb'],
-\}
-
-nmap <F10> :ALEToggle<CR>
-let g:ale_fix_on_save = 0
 
 "" LaTeX
 autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
@@ -273,4 +241,4 @@ autocmd BufNewFile,BufRead *.py set expandtab
 autocmd BufNewFile,BufRead *.py set softtabstop=4
 autocmd BufNewFile,BufRead *.py set shiftwidth=4
 autocmd BufNewFile,BufRead *.py set foldmethod=indent
-autocmd BufNewFile,BufRead *.py call matchadd('ColorColumn', '\%80v', 100)
+autocmd BufNewFile,BufRead *.py call matchadd('ColorColumn', '\%81v', 100)
