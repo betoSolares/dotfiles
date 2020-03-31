@@ -9,4 +9,4 @@ else
 fi
 
 dunstcolors # Start dunst with colors
-betterlockscreen -u $(cat $HOME/.cache/wal/wal) # Set lock screen wallpaper
+betterlockscreen -u "$(cat $HOME/.cache/wal/wal)" # Set lock screen wallpaper

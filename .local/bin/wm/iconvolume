@@ -4,9 +4,9 @@
 [ "$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $6 }')" == "off" ] && printf "婢" && exit
 volume=$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $2+0 }')
 if [ "$volume" -gt "70" ]; then
-	printf ""
+	printf " "
 elif [ "$volume" -lt "30" ]; then
-	printf ""
+	printf " "
 else
-	printf ""
+	printf " "
 fi

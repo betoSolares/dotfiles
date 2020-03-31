@@ -6,6 +6,6 @@
 NAME=~/Pictures/Screenshots/screnshoot-$(date '+%y%m%d-%H%M-%S').png
 case "$(printf "a selected area\\ncurrent window\\nfull screen" | dmenu -l 6 -i -p "Screenshot which area?" -nb $color1 -nf $color7 -sb $color0 -sf $color1)" in
 	"a selected area") maim -s $NAME && notify-send -i $NAME -a maimpicture "Screenshot taken" ;;
-	"current window") maim -i "$(xdotool getactivewindow)" $NAME && notify-send -i $NAME -a maimpicture "Screenshot taken" ;;
-	"full screen") maim $NAME && notify-send -i $NAME -a maimpicture "Screenshot taken" ;;
+	"current window") sleep 1s && maim -i "$(xdotool getactivewindow)" $NAME && notify-send -i $NAME -a maimpicture "Screenshot taken" ;;
+	"full screen") sleep 1s && maim $NAME && notify-send -i $NAME -a maimpicture "Screenshot taken" ;;
 esac
