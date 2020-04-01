@@ -16,7 +16,6 @@ alias mkdir='mkdir -pv'
 alias null='/dev/null'
 alias cls='clear'
 alias tmux='tmux -f ~/.config/tmux/tmux.conf'
-alias ext='extract'
 alias open='xdg-open'
 
 # GPG ask in tty
