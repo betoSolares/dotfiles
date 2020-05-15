@@ -1,0 +1,6 @@
+#!/bin/sh
+
+color=$(colorpicker --short --one-shot)
+convert -size 100x100 xc:$color /tmp/picker.png
+echo "$color" | xclip -selection clipboard
+notify-send -i /tmp/picker.png -a colorpicker "Color copied to clipboard"
