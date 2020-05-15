@@ -36,9 +36,9 @@ keys = [
     Key([], "F1", lazy.spawn("/dev/null")),
 
     # Audio Control
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q -c 1 sset Master 1%-")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q -c 1 sset Master 1%+")),
-    Key([], "XF86AudioMute", lazy.spawn("amixer -q -c 1 sset Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -1%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +1%")),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
 
     # Backlight Control
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 1")),

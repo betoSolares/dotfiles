@@ -1,6 +1,6 @@
 #!/bin/sh
 # Get the current volume
 
-[ "$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $6 }')" == "off" ] && exit
-volume=$(amixer -c 1 sget Master | awk -F"[][]" '/dB/ { print $2 }')
+pactl list sinks | grep -q "Mute: yes" && exit
+volume=$(pactl list sinks | grep '[0-9]\+%' | sed "s,.* \([0-9]\+\)%.*,\1,;1q")
 printf "%s" "$volume"
