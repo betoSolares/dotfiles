@@ -20,7 +20,7 @@ keys = [
     Key([mod], "q", lazy.spawn("qute")),
     Key([mod], "e", lazy.spawn("dmenuunicode")),
     Key([mod, "shift"], "e", lazy.spawn("dmenukaomoji")),
-    Key([mod], "w", lazy.spawn("wpa-cute")),
+    Key([mod, "shift"], "w", lazy.spawn("wpa-cute")),
     Key([mod], "v", lazy.spawn("st -e vim")),
     Key([mod, "shift"], "s", lazy.spawn("sr-menu")),
     Key([mod], "f", lazy.spawn("st -e ranger")),
@@ -45,7 +45,7 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 1")),
 
     # ScreenShot
-    Key([], "Print", lazy.spawn("maimpicture")),
+    Key([], "Print", lazy.spawn("flameshot gui")),
 
     # System Control
     Key([mod, "shift"], "q", lazy.spawn("shuttingdown")),

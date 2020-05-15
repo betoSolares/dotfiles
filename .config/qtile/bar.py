@@ -13,7 +13,7 @@ bar = bar.Bar([
        inactive = colors['color7'],
        padding = 0,
        margin_x = 0,
-       margin_y = 0,
+       margin_y = 2,
        this_current_screen_border = colors['color0']
     ),
     widget.Spacer(length = 5),
@@ -36,15 +36,6 @@ bar = bar.Bar([
     widget.Systray(
         icon_size = 15,
         padding = 5,
-        margin_x = 0,
-        margin_y = 0
-    ),
-    widget.Mpd(
-        do_color_progress = True,
-        fmt_playing = " %f",
-        fmt_stopped = "",
-        font = "monospace",
-        padding = 3,
         margin_x = 0,
         margin_y = 0
     ),
@@ -85,7 +76,7 @@ bar = bar.Bar([
         margin_y = 0
     ),
     widget.TextBox(
-        text = "",
+        text = " ",
         font = "monospace",
         fontsize = 16,
         foreground = colors['color0'],
@@ -123,7 +114,7 @@ bar = bar.Bar([
         colour_no_updates = colors['color7'],
         custom_command = "checkupdates-aur",
         display_format = "{updates}",
-        update_interval = 10,
+        update_interval = 60,
         padding = 3,
         margin_x = 0,
         margin_y = 0
@@ -167,7 +158,7 @@ bar = bar.Bar([
         margin_y = 0
     ),
     widget.TextBox(
-        text = "",
+        text = " ",
         font = "monospace",
         fontsize = 16,
         foreground = colors['color0'],
@@ -207,7 +198,7 @@ bar = bar.Bar([
         margin_y = 0
     ),
     widget.TextBox(
-        text = "",
+        text = " ",
         font = "monospace",
         fontsize = 16,
         foreground = colors['color0'],

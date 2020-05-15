@@ -8,4 +8,4 @@
 setxkbmap -option caps:swapescape
 
 # Execute wm
-exec qtile
+exec dbus-launch qtile
