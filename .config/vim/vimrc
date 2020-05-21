@@ -28,8 +28,6 @@ Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'itchyny/landscape.vim'
-Plug 'mrkn/mrkn256.vim'
-Plug 'vim-scripts/The-Vim-Gardener'
 call plug#end()
 
 " Basic configuration
@@ -41,6 +39,7 @@ set path+=**
 set wrap
 set autoindent
 set smartindent
+set tabstop=8
 syntax enable
 set relativenumber
 set backspace=indent,eol,start
@@ -57,6 +56,7 @@ set wildmenu
 highlight ColorColumn ctermbg=magenta
 highlight WhiteOnRed ctermbg=red ctermfg=white
 map <leader>dark :highlight Normal ctermbg=232<CR>
+map <leader>f :find
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -65,6 +65,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 map <silent> <leader>wq :wq<cr>
 map <silent> <leader>ww :w<cr>
 map <silent> <leader>q :qall!<cr>
+map <silent> <leader>x :q!<cr>
 map <leader>sudo :w !sudo tee % <CR><CR>
 
 " Copy/Paste from X11 clipboard
@@ -198,9 +199,20 @@ autocmd BufNewFile,BufRead *.py inoremap ,if if :<Enter><++><Esc>k0f:i
 autocmd BufNewFile,BufRead *.py inoremap ,el else:<Enter>
 autocmd BufNewFile,BufRead *.py inoremap ,ei elif :<Enter><++><Esc>k0f:i
 autocmd BufNewFile,BufRead *.py inoremap ,for for <++> in <++>:<Enter><++><Esc>k0f<cw
-autocmd BufNewFile,BufRead *.py set tabstop=8
 autocmd BufNewFile,BufRead *.py set expandtab
 autocmd BufNewFile,BufRead *.py set softtabstop=4
 autocmd BufNewFile,BufRead *.py set shiftwidth=4
 autocmd BufNewFile,BufRead *.py set foldmethod=indent
 autocmd BufNewFile,BufRead *.py call matchadd('ColorColumn', '\%81v', 100)
+
+"" Shell
+autocmd FileType sh inoremap ,bash #!/usr/bin/env bash<Esc>o
+autocmd FileType sh inoremap ,sh #!/bin/sh<Esc>o
+autocmd FileType sh inoremap ,case case "<++>" in<Enter><++><Enter>esac<Esc>2k0f"ci"
+autocmd FileType sh inoremap ,if if [[<++>]]; then<Enter><++><Enter>fi<Esc>2k0f[lci[
+autocmd FileType sh inoremap ,wh while [[<++>]]; do<Enter><++><Enter>done<Esc>2k0f[lci[
+autocmd FileType sh inoremap ,for for <++> in "<++>"; do<Enter><++><Enter>done<Esc>2k0f<cw
+autocmd FileType sh set expandtab
+autocmd FileType sh set softtabstop=2
+autocmd FileType sh set shiftwidth=2
+autocmd FileType sh call matchadd('ColorColumn', '\%80v', 100)
