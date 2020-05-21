@@ -1,0 +1,63 @@
+DefaultFont "xft:Monospace:Regular:size=10:antialias=True"
+
+# Desktops
+DesktopName 0 
+DesktopName 1 
+DesktopName 2 
+DesktopName 3 曆
+DesktopName 4 
+DesktopName 5 
+DesktopName 6 
+DesktopName 7 
+DesktopName 8 
+DesktopName 9 
+DesktopSize 1x1
+
+EdgeScroll 0 0
+EdgeResistance -1
+EdgeThickness 1
+EwmhBaseStruts 100 0 0 40
+
+# Focus and Position
+Style * EdgeMoveDelay 350
+Style * EdgeMoveResistance 350
+Style * ClickToFocus
+Style * MouseFocusClickRaises
+Style * PositionPlacement Center
+Style * GarbFocusOff
+Style * !UsePPosition
+Style * ResizeHintOverride
+OpaqueMoveSize unlimited
+Style * ResizeOpaque
+
+# Transient Windows (such as open file windows)
+Style * DecorateTransient
+Style * StackTransientParent
+Style * !FPGrabFocusTransient
+Style * FPReleaseFocusTransient
+
+# WindowShade
+Style * WindowShadeScrolls
+Style * WindowShadeSteps 10
+
+# Decor Styles
+Style * BorderWidth 0
+Style * HandleWidth 0
+Style * RoundedCorners
+Style * Colorset 1, HilightColorset 2
+Style * BorderColorset 3, HilightBorderColorset 4
+
+# Disable Icons from appearing on desktop.
+Style * !Icon
+
+# Panel
+Style * EWMHUseStackingOrderHints
+Style polybar !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocus, StaysOnTop, RoundedCorners, UsePPosition
+Style LeftPanel !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocus, StaysOnTop, RoundedCorners, UsePPosition
+Style RightPanel !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocus, StaysOnTop, RoundedCorners, UsePPosition
+
+# Window Specific Styles
+Style FvwmIdent WindowListSkip
+
+# Thumbnails
+Style * IconBox 80x718+10+10, IconGrid 15 15, IconFill top left, !IconTitle, IconBackgroundRelief 0

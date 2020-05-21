@@ -1,0 +1,17 @@
+Colorset 0  fg {color7}, bg {color1}, hi, sh, Plain, NoShape
+
+Colorset 1  fg {color7}, bg {color1}, hi, sh, Plain, NoShape
+Colorset 2  fg {color7}, bg {color1}, hi, sh, Plain, NoShape
+Colorset 3  fg {color7}, bg {color1}, hi {color7}, sh {color1}, Plain, NoShape
+Colorset 4  fg black, bg #2d2d2d, hi #474747, sh #101010, Plain, NoShape
+Colorset 5  fg {color7}, bg {color1}, hi, sh, Plain, NoShape
+Colorset 6  fg {color0}, bg {color7}, hi, sh, Plain, NoShape
+Colorset 7  fg {color7}, bg {color1}, hi, sh, Plain, NoShape
+Colorset 8  fg {color7}, bg {color1}, hi, sh, Plain, NoShape
+Colorset 10 fg {color7}, bg {color1}, hi #aaaaaa, sh #999999, Plain, NoShape
+
+Colorset 11 fg {color0}, bg {color1}, hi #ffffff, sh #ffffff, Plain, NoShape
+Colorset 12 fg {color1}, bg {color7}, hi, sh, Plain, NoShape
+
+Colorset 13 fg {color7}, bg #006c6c, hi, sh, Plain, NoShape
+Colorset 14 fg #{color7}, bg {color1}, hi #aaaaaa, sh #999999, Plain, NoShape

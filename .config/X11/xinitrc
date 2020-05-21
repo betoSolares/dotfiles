@@ -8,4 +8,8 @@
 setxkbmap -option caps:swapescape
 
 # Execute wm
-exec dbus-launch qtile
+if [ "${WM}" = "fvwm" ]; then
+  exec dbus-launch fvwm -f ${HOME}/.config/fvwm/config
+else
+  exec dbus-launch "${WM}"
+fi

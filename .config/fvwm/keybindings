@@ -1,0 +1,105 @@
+# Ignore Numlock and other modifiers for bindings
+IgnoreModifiers L25
+
+# Applications
+Silent Key Return A 4 Exec $[TERMINAL]
+Silent Key b A 4 Exec chromium
+Silent Key b A 4s Exec chromium --incognito
+Silent Key d A 4 Exec dmenurun
+Silent Key q A 4 Exec qute
+Silent Key e A 4 Exec dmenuunicode
+Silent Key e A 4s Exec dmenukaomoji
+Silent Key w A 4s Exec wpa-cute
+Silent Key v A 4 Exec $[TERMINAL] -e vim
+Silent Key f A 4 Exec $[TERMINAL] -e ranger
+Silent Key w A 4 Exec $[TERMINAL] -e weechat
+Silent Key m A 4 Exec $[TERMINAL] -e ncmpcpp
+Silent Key c A 4 Exec $[TERMINAL] -e cava
+Silent Key s A 4 Exec slack
+Silent Key n A 4 Exec $[TERMINAL] -e neomutt
+Silent Key m A 4s Exec dmenumount
+Silent Key u A 4s Exec dmenuunmount
+Silent Key plus A 4 Exec xzoom
+Silent Key F8 A 4 Exec recorder
+Silent Key Print A N Exec flameshot gui
+Silent Key F1 A N Exec /dev/null
+
+# Audio Control
+Silent Key XF86AudioLowerVolume A N Exec pactl set-sink-volume 0 -1%
+Silent Key XF86AudioRaiseVolume A N Exec pactl set-sink-volume 0 +1%
+Silent Key XF86AudioMute A N Exec pactl set-sink-mute 0 toggle
+
+# Backlight Control
+Silent Key XF86MonBrightnessDown A N Exec xbacklight -dec 1
+Silent Key XF86MonBrightnessUp A N Exec xbacklight -inc 1
+
+# System
+Silent Key r A 4s Exec rebooting
+Silent Key q A 4s Exec shuttingdown
+Silent Key r A 4 Restart
+
+# Windows Control
+Silent Key F11 WT 4s Thumbnail
+Silent Key F11 WT 4 Maximize 100 100
+Silent Key Up WT 4 Maximize 100 100
+Silent Key Down WT 4 Thumbnail
+Silent Key c WT 4s Close
+Silent Key Tab A M SwitchWindow
+Silent Key h WT 4 TileLeft
+Silent Key j WT 4 TileBottom
+Silent Key k WT 4 TileTop
+Silent Key l WT 4 TileRight
+Silent Key u WT 4 Resize w-1 keep
+Silent Key i WT 4 Resize keep w-1
+Silent Key o WT 4 Resize keep w+1
+Silent Key p WT 4 Resize w+1 keep
+Silent Key h WT 4s Move w-1 keep
+Silent Key j WT 4s Move keep w+1
+Silent Key k WT 4s Move keep w-1
+Silent Key l WT 4s Move w+1 keep
+
+# Change Desk
+Silent Key 1 A 4 GoToDesk 0 0
+Silent Key 2 A 4 GoToDesk 0 1
+Silent Key 3 A 4 GoToDesk 0 2
+Silent Key 4 A 4 GoToDesk 0 3
+Silent Key 5 A 4 GoToDesk 0 4
+Silent Key 6 A 4 GoToDesk 0 5
+Silent Key 7 A 4 GoToDesk 0 6
+Silent Key 8 A 4 GoToDesk 0 7
+Silent Key 9 A 4 GoToDesk 0 8
+Silent Key 0 A 4 GoToDesk 0 9
+
+# Send to Desk
+Silent Key 1 WT 4s MoveToDesk 0 0
+Silent Key 2 WT 4s MoveToDesk 0 1
+Silent Key 3 WT 4s MoveToDesk 0 2
+Silent Key 4 WT 4s MoveToDesk 0 3
+Silent Key 5 WT 4s MoveToDesk 0 4
+Silent Key 6 WT 4s MoveToDesk 0 5
+Silent Key 7 WT 4s MoveToDesk 0 6
+Silent Key 8 WT 4s MoveToDesk 0 7
+Silent Key 9 WT 4s MoveToDesk 0 8
+Silent Key 0 WT 4s MoveToDesk 0 9
+
+# Titlebar Buttons
+Mouse 1 1 A Menu MenuWindowOps Delete
+Mouse 1 2 A Close
+Mouse 1 4 A Maximize
+Mouse 1 6 A Thumbnail
+
+# Titlebar Itself
+Mouse 1 T A RaiseMoveX Move Maximize
+Mouse 1 FS A RaiseMove Resize
+Mouse 4 T A WindowShade True
+Mouse 5 T A WindowShade False
+Mouse 3 T A Menu MenuWindowOps
+
+# Rootmenu on The Desktop
+Mouse 1 R A Menu MenuFvwmRoot
+Mouse 2 R A WindowList
+Mouse 3 R A Menu MenuWindowOpsLong
+
+# On minimized windows
+Mouse 1 I A Iconify off
+Mouse 3 I A Menu MenuIconOps

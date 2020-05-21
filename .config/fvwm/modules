@@ -1,0 +1,44 @@
+# Fvwm Identifier
+DestroyModuleConfig FvwmIdent:*
+*FvwmIdent: Colorset 10
+*FvwmIdent: Font "xft:Monospace:size=10:antialias=True"
+
+# FvwmScript
+DestroyModuleConfig FvwmScript:*
+*FvwmScript: DefaultColorset 10
+
+# Change wich desktop is highlighted
+DestroyModuleConfig EventNewDesk:*
+*EventNewDesk: PassID
+*EventNewDesk: new_desk ChangeDesk
+
+DestroyModuleConfig AutoFocus:*
+*AutoFocus: new_page "Focus-Previous CurrentPage NoWarp"
+*AutoFocus: new_desk "Focus-Previous CurrentDesk"
+
+# Panel
+# Adjust geometry to screen resolution
+DestroyModuleConfig LeftPanel:*
+*LeftPanel: Geometry 300x20+20-10
+*LeftPanel: Colorset 10
+*LeftPanel: Rows 1
+*LeftPanel: Columns 10
+*LeftPanel: Font "xft:Monospace:Bold:size=10:antialias=True"
+*LeftPanel: (30x1, Id desk0, Title " ", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk1, Title " ", Action (Mouse 1) GotoDesk 0 1, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk2, Title " ", Action (Mouse 1) GotoDesk 0 2, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk3, Title "曆", Action (Mouse 1) GotoDesk 0 3, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk4, Title " ", Action (Mouse 1) GotoDesk 0 4, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk5, Title " ", Action (Mouse 1) GotoDesk 0 5, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk6, Title " ", Action (Mouse 1) GotoDesk 0 6, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk7, Title " ", Action (Mouse 1) GotoDesk 0 7, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk8, Title " ", Action (Mouse 1) GotoDesk 0 8, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x1, Id desk9, Title " ", Action (Mouse 1) GotoDesk 0 9, Colorset 11, ActiveColorset 12, Frame 0)
+
+DestroyModuleConfig RightPanel:*
+*RightPanel: Geometry 400x20+946-10
+*RightPanel: Colorset 10
+*RightPanel: Rows 1
+*RightPanel: Columns 400
+*RightPanel: Font "xft:Monospace:Bold:size=10:antialias=True"
+*RightPanel: (400x1, Swallow *polybar* "Exec launch-poly")

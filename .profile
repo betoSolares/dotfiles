@@ -43,7 +43,11 @@ mpd >/dev/null 2>&1 &
 # Call the bashrc
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
+# Window Manager
+#export WM="qtile"
+export WM="fvwm"
+
 # Start graphical server
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep qtile || exec startx "$HOME/.config/X11/xinitrc"
+	pgrep "${WM}" || exec startx "$HOME/.config/X11/xinitrc"
 fi

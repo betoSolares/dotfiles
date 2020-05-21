@@ -8,5 +8,8 @@ else
 	wal -i $1
 fi
 
+cp -f "${HOME}"/.cache/wal/colors.Xresources "${HOME}"/.Xresources
+cp -f "${HOME}"/.cache/wal/fvwm "${HOME}"/.config/fvwm/colorset
+
 dunstcolors # Start dunst with colors
 betterlockscreen -u "$(cat $HOME/.cache/wal/wal)" # Set lock screen wallpaper

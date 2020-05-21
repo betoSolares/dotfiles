@@ -4,6 +4,6 @@
 colorscheme RECOVERY # Generate the color scheme
 compton --config ~/.config/compton/compton.conf & # Initialize compton
 unclutter & # Hide cursor idle
-wpa-cute -t & # Graphical client for wpa_supplicant
+wpa-cute -t -q & # Graphical client for wpa_supplicant
 betterlockscreen -u $(cat $HOME/.cache/wal/wal) # Set lock screen wallpaper
 xautolock -time 5 -locker 'betterlockscreen -l dimblur' & # Lock automatic

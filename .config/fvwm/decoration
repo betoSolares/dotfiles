@@ -1,0 +1,35 @@
+TitleStyle Centered Height 25 -- Flat
+ButtonStyle Reset
+ButtonStyle All -- Flat
+ButtonStyle All -- UseTitleStyle
+
+# Inactive buttons
+ButtonStyle All ToggledInactive Vector 5 40x40@3 60x40@3 60x60@3 \
+                                         40x60@3 40x40@3 -- Flat
+
+ButtonStyle All Inactive Vector 5 40x40@3 60x40@3 60x60@3 40x60@3 \
+                                  40x40@3 -- Flat
+
+# Options
+AddButtonStyle 1 Active Vector 18 30x34@3 70x34@3 70x35@4 30x35@3 \
+                                  30x36@4 70x36@3 30x49@4 70x49@3 \
+                                  70x50@4 30x50@3 30x51@4 70x51@3 \
+                                  30x64@4 70x64@3 70x65@4 30x65@3 \
+                                  30x66@4 70x66@3
+
+# Close
+AddButtonStyle 2 Active Vector 4 35x35@3 65x65@3 65x35@4 35x65@3
+
+# Maximize
+AddButtonStyle 4 Active Vector 11 70x30@1 50x30@3 56x36@3 36x56@3 \
+                                  30x50@3 30x70@3 50x70@3 44x64@3 \
+                                  64x44@3 70x50@3 70x30@3
+
+AddButtonStyle 4 ToggledActiveUp Vector 11 70x30@1 50x30@3 56x36@3 \
+                                           36x56@3 30x50@3 30x70@3 \
+                                           50x70@3 44x64@3 64x44@3 \
+                                           70x50@3 70x30@3
+
+# Minimize
+AddButtonStyle 6 Active Vector 8 70x45@3 50x45@3 50x30@3 30x50@3 \
+                                 50x70@3 50x55@3 70x55@3 70x45@3
