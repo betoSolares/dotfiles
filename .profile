@@ -20,8 +20,9 @@ export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$HOME/.config/X11/xinitrc"
-export HISTFILE="$HOME/.local/share/bash/history"
+export HISTFILE="$HOME/.local/share/hist/history"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+export ZDOTDIR="$HOME/.config/zsh"
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
 	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
@@ -40,8 +41,12 @@ export LESSHISTFILE=/dev/null
 
 mpd >/dev/null 2>&1 &
 
-# Call the bashrc
-echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
+# Call the rc
+if [ "${SHELL}" = "/bin/bash" ]; then
+  echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
+else
+  echo "$0" | grep "zsh$" >/dev/null && [ -f ~/.config/zsh/.zshrc ] && source "$HOME/.config/zsh/.zshrc"
+fi
 
 # Window Manager
 #export WM="qtile"
