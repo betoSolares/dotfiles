@@ -25,3 +25,5 @@
 	followTags = true
 [fetch]
 	prune = true
+[commit]
+	template = /home/beto/.config/git/gitmessage

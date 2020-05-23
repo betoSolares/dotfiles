@@ -1,0 +1,21 @@
+# Strcuture
+#     [<type>]: <subject>
+#     <BLANK LINE>
+#     <body>
+#     <BLANK LINE>
+#     <footer>
+#
+# HEADER
+#  - The HEADER is a single line of max. 50 characters that
+#    contains a succinct description of the change. It contains a
+#    type and a subject. The subject has to be written in imperative
+#    mode, whit the a capitalised first letter and no dot at the end
+[TYPE]: SUBJECT
+
+#  - The BODY should respond on what and why instead of how
+BODY
+
+#  - The FOOTER should contain any information about Breaking
+#    Changes and is also the place to reference GitHub issues that
+#    this commit closes
+#
