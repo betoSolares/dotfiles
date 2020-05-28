@@ -56,14 +56,14 @@ set wildmenu
 highlight ColorColumn ctermbg=magenta
 highlight WhiteOnRed ctermbg=red ctermfg=white
 map <leader>dark :highlight Normal ctermbg=232<CR>
-map <leader>f :find
+map <leader>f :find<space>
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " File saving shortcuts
 map <silent> <leader>wq :wq<cr>
-map <silent> <leader>ww :w<cr>
+map <silent> <leader>ww :wall!<cr>
 map <silent> <leader>q :qall!<cr>
 map <silent> <leader>x :q!<cr>
 map <leader>sudo :w !sudo tee % <CR><CR>
@@ -117,7 +117,7 @@ let g:netrw_altv=1
 
 " Sessions management
 let session_directory='~/.local/vim/session/'
-map <expr> <leader>save ':mksession ' . session_directory
+map <expr> <leader>save ':mksession! ' . session_directory
 map <expr> <leader>open ':source ' . session_directory
 
 " Search
