@@ -21,12 +21,12 @@ Plug 'junegunn/goyo.vim' " Distraction free writing
 Plug 'justincampbell/vim-eighties' " Auto resize windows
 Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'ryanoasis/vim-devicons' " File type icons
-Plug 'jiangmiao/auto-pairs' " Insert or delete in pairs
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'gcmt/taboo.vim' " Utils for tabs
 Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'sheerun/vim-polyglot' " Syntax highlight
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'itchyny/landscape.vim'
 call plug#end()
 
@@ -40,7 +40,7 @@ set wrap
 set autoindent
 set smartindent
 set tabstop=8
-syntax enable
+syntax on
 set relativenumber
 set backspace=indent,eol,start
 filetype plugin indent on
@@ -53,10 +53,10 @@ set ruler
 set showmatch
 set title
 set wildmenu
-highlight ColorColumn ctermbg=magenta
-highlight WhiteOnRed ctermbg=red ctermfg=white
 map <leader>dark :highlight Normal ctermbg=232<CR>
 map <leader>f :find<space>
+highlight WhiteOnRed ctermbg=red ctermfg=white
+highlight ColorColumn ctermbg=magenta
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -165,7 +165,36 @@ let g:taboo_modified_tab_flag='+'
 let g:taboo_tab_format=' [%m%f - %W] '
 let g:taboo_renamed_tab_format=' [%l%m - %W] '
 set sessionoptions+=tabpages,globals
-map <leader>r :TabooRename<space>
+map <leader>tr :TabooRename<space>
+map <leader>tn :TabooOpen<space>
+
+" Coc
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=3000
+let g:coc_diagnostic_disable=1
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <NUL> coc#refresh()
+
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>r <Plug>(coc-rename)
+set signcolumn=no
 
 "" LaTeX
 autocmd BufNewFile,BufRead *.tex inoremap ,em \emph{}<++><Esc>T{i
