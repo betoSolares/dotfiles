@@ -27,3 +27,5 @@
 	prune = true
 [commit]
 	template = /home/beto/.config/git/gitmessage
+[pull]
+	rebase = true
