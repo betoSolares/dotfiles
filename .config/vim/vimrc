@@ -117,6 +117,7 @@ let g:netrw_altv=1
 
 " Sessions management
 let session_directory='~/.local/vim/session/'
+set sessionoptions-=options
 map <expr> <leader>save ':mksession! ' . session_directory
 map <expr> <leader>open ':source ' . session_directory
 
@@ -166,7 +167,9 @@ let g:taboo_tab_format=' [%m%f - %W] '
 let g:taboo_renamed_tab_format=' [%l%m - %W] '
 set sessionoptions+=tabpages,globals
 map <leader>tr :TabooRename<space>
-map <leader>tn :TabooOpen<space>
+map <leader>t :TabooOpen<space>
+map <leader>h :tabprevious<CR>
+map <leader>l :tabnext<CR>
 
 " Coc
 set nobackup
