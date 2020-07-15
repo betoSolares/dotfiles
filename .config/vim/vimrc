@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround' " Surrounding more easy
 Plug 'junegunn/goyo.vim' " Distraction free writing
 Plug 'justincampbell/vim-eighties' " Auto resize windows
 Plug 'tpope/vim-commentary' " Comment stuff out
+Plug 'jiangmiao/auto-pairs' " insert or delete brackets, parens, quotes in pair
 Plug 'ryanoasis/vim-devicons' " File type icons
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'gcmt/taboo.vim' " Utils for tabs
