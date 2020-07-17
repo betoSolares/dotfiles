@@ -48,6 +48,7 @@ filetype plugin indent on
 
 " UI
 set background=dark
+colorscheme neon-dark-256
 set fillchars+=vert:│
 set laststatus=2
 set ruler
