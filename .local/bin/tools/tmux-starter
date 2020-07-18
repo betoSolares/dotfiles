@@ -1,0 +1,5 @@
+#!/bin/sh
+# Connect to previous session or crete a new one on tmux.
+
+NAME="${1:-base}"
+tmux a -t ${NAME} || tmux new -s ${NAME}
