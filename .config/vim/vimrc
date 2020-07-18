@@ -58,7 +58,7 @@ set wildmenu
 map <leader>dark :highlight Normal ctermbg=232<CR>
 map <leader>f :find<space>
 highlight WhiteOnRed ctermbg=red ctermfg=white
-highlight ColorColumn ctermbg=magenta
+highlight ColorColumn ctermbg=124 ctermfg=white
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
