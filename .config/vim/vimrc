@@ -42,6 +42,7 @@ set smartindent
 set tabstop=8
 syntax on
 set relativenumber
+set fixendofline
 set backspace=indent,eol,start
 filetype plugin indent on
 
@@ -104,11 +105,6 @@ nnoremap <space> za
 
 " Remove all trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
-
-" Navigating with guides
-inoremap <leader><TAB> <Esc>/<++><Enter>
-vnoremap <leader><TAB> <Esc>/<++><Enter>
-map <leader><TAB> <Esc>/<++><Enter>
 
 " File browser
 let g:netrw_banner=0
@@ -201,37 +197,9 @@ nmap <silent> <leader>r <Plug>(coc-rename)
 set signcolumn=no
 
 "" LaTeX
-autocmd BufNewFile,BufRead *.tex inoremap ,em \emph{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,bf \textbf{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,it \textit{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
-autocmd BufNewFile,BufRead *.tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
-autocmd BufNewFile,BufRead *.tex inoremap ,li <Enter>\item<Space>
-autocmd BufNewFile,BufRead *.tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
-autocmd BufNewFile,BufRead *.tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
-autocmd BufNewFile,BufRead *.tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
-autocmd BufNewFile,BufRead *.tex inoremap ,beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
-autocmd BufNewFile,BufRead *.tex inoremap ,lab \label{}<Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,ref \ref{}<Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,ct \textcite{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,cp \parencite{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,ct \textcite{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,cp \parencite{}<++><Esc>T{i
-autocmd BufNewFile,BufRead *.tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
-autocmd BufNewFile,BufRead *.tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 autocmd VimLeave *.tex !texclear %
 
 "" Python
-autocmd BufNewFile,BufRead *.py inoremap ,she #!/usr/bin/env python<Esc>o
-autocmd BufNewFile,BufRead *.py inoremap ,fr from <++> import <++><Esc>0f<cw
-autocmd BufNewFile,BufRead *.py inoremap ,wh while :<Enter><++><Esc>k0f:i
-autocmd BufNewFile,BufRead *.py inoremap ,cl class (<++>):<Enter><++><Esc>k0f(i
-autocmd BufNewFile,BufRead *.py inoremap ,def def (<++>):<Enter><++><Esc>k0f(i
-autocmd BufNewFile,BufRead *.py inoremap ,adef async def (<++>):<Enter><++><Esc>k0f(i
-autocmd BufNewFile,BufRead *.py inoremap ,if if :<Enter><++><Esc>k0f:i
-autocmd BufNewFile,BufRead *.py inoremap ,el else:<Enter>
-autocmd BufNewFile,BufRead *.py inoremap ,ei elif :<Enter><++><Esc>k0f:i
-autocmd BufNewFile,BufRead *.py inoremap ,for for <++> in <++>:<Enter><++><Esc>k0f<cw
 autocmd BufNewFile,BufRead *.py set expandtab
 autocmd BufNewFile,BufRead *.py set softtabstop=4
 autocmd BufNewFile,BufRead *.py set shiftwidth=4
@@ -239,13 +207,13 @@ autocmd BufNewFile,BufRead *.py set foldmethod=indent
 autocmd BufNewFile,BufRead *.py call matchadd('ColorColumn', '\%81v', 100)
 
 "" Shell
-autocmd FileType sh inoremap ,bash #!/usr/bin/env bash<Esc>o
-autocmd FileType sh inoremap ,sh #!/bin/sh<Esc>o
-autocmd FileType sh inoremap ,case case "<++>" in<Enter><++><Enter>esac<Esc>2k0f"ci"
-autocmd FileType sh inoremap ,if if [[<++>]]; then<Enter><++><Enter>fi<Esc>2k0f[lci[
-autocmd FileType sh inoremap ,wh while [[<++>]]; do<Enter><++><Enter>done<Esc>2k0f[lci[
-autocmd FileType sh inoremap ,for for <++> in "<++>"; do<Enter><++><Enter>done<Esc>2k0f<cw
 autocmd FileType sh set expandtab
 autocmd FileType sh set softtabstop=2
 autocmd FileType sh set shiftwidth=2
 autocmd FileType sh call matchadd('ColorColumn', '\%80v', 100)
+
+"" JavaScript
+autocmd FileType js set expandtab
+autocmd FileType js set softtabstop=2
+autocmd FileType js set shiftwidth=2
+autocmd FileType js call matchadd('ColorColumn', '\%80v', 100)
