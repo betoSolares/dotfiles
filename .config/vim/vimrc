@@ -17,10 +17,10 @@ endif
 " Plugins
 call plug#begin('~/.local/vim/plugged')
 Plug 'tpope/vim-surround' " Surrounding more easy
-Plug 'junegunn/goyo.vim' " Distraction free writing
 Plug 'justincampbell/vim-eighties' " Auto resize windows
 Plug 'tpope/vim-commentary' " Comment stuff out
-Plug 'jiangmiao/auto-pairs' " insert or delete brackets, parens, quotes in pair
+Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
+Plug 'editorconfig/editorconfig-vim' " EditorConfig support
 Plug 'ryanoasis/vim-devicons' " File type icons
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'gcmt/taboo.vim' " Utils for tabs
@@ -28,7 +28,6 @@ Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
-Plug 'itchyny/landscape.vim'
 call plug#end()
 
 " Basic configuration
