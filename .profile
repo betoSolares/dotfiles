@@ -22,6 +22,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$HOME/.config/X11/xinitrc"
 export HISTFILE="$HOME/.local/share/hist/history"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+export TMUXP_CONFIGDIR="$HOME/.local/share/tmuxp"
 export ZDOTDIR="$HOME/.config/zsh"
 export FZF_DEFAULT_OPTS='
 	--height 50% --reverse --border
