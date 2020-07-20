@@ -16,9 +16,8 @@ endif
 
 " Plugins
 call plug#begin('~/.local/vim/plugged')
-Plug 'tpope/vim-surround' " Surrounding more easy
 Plug 'justincampbell/vim-eighties' " Auto resize windows
-Plug 'tpope/vim-commentary' " Comment stuff out
+Plug 'preservim/nerdcommenter' " Comment stuff out
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'editorconfig/editorconfig-vim' " EditorConfig support
 Plug 'ryanoasis/vim-devicons' " File type icons
@@ -168,6 +167,25 @@ map <leader>t :TabooOpen<space>
 map <leader>h :tabprevious<CR>
 map <leader>l :tabnext<CR>
 
+" NERD commenter
+let g:NERDAllowAnyVisualDelims=1
+let g:NERDCommentEmptyLines=1
+let g:NERDCompactSexyComs=0
+let g:NERDCreateDefaultMappings=0
+let g:NERDDefaultAlign='left'
+let g:NERDSpaceDelims=1
+let g:NERDToggleCheckAllLines=1
+let g:NERDTrimTrailingWhitespace=1
+let g:NERDCustomDelimiters={
+	\ 'javascript': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+	\ 'python': { 'left': '#', 'leftAlt': '"""', 'rightAlt': '"""' },
+	\ 'sh': { 'left': '#' }
+\ }
+
+nmap <silent> gcc <Plug>NERDCommenterToggle
+vmap <silent> gc <Plug>NERDCommenterSexy
+vmap <silent> gd <Plug>NERDCommenterUncomment
+
 " Coc
 set nobackup
 set nowritebackup
@@ -200,11 +218,12 @@ set signcolumn=no
 autocmd VimLeave *.tex !texclear %
 
 "" Python
-autocmd BufNewFile,BufRead *.py set expandtab
-autocmd BufNewFile,BufRead *.py set softtabstop=4
-autocmd BufNewFile,BufRead *.py set shiftwidth=4
-autocmd BufNewFile,BufRead *.py set foldmethod=indent
-autocmd BufNewFile,BufRead *.py call matchadd('ColorColumn', '\%81v', 100)
+autocmd FileType python set expandtab
+autocmd FileType python set softtabstop=4
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set foldmethod=indent
+autocmd FileType python call matchadd('ColorColumn', '\%81v', 100)
+autocmd FileType python setlocal commentstring=#\ %s
 
 "" Shell
 autocmd FileType sh set expandtab
@@ -213,7 +232,7 @@ autocmd FileType sh set shiftwidth=2
 autocmd FileType sh call matchadd('ColorColumn', '\%80v', 100)
 
 "" JavaScript
-autocmd FileType js set expandtab
-autocmd FileType js set softtabstop=2
-autocmd FileType js set shiftwidth=2
-autocmd FileType js call matchadd('ColorColumn', '\%80v', 100)
+autocmd FileType javascript set expandtab
+autocmd FileType javascript set softtabstop=2
+autocmd FileType javascript set shiftwidth=2
+autocmd FileType javascript call matchadd('ColorColumn', '\%80v', 100)
