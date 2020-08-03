@@ -18,7 +18,7 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export GNUPGHOME="$HOME/.local/share/gnupg"
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export XAUTHORITY="/tmp/Xauthority"
 export XINITRC="$HOME/.config/X11/xinitrc"
 export HISTFILE="$HOME/.local/share/hist/history"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
@@ -40,8 +40,6 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export LESSHISTFILE=/dev/null
 
-mpd >/dev/null 2>&1 &
-
 # Call the rc
 if [ "${SHELL}" = "/bin/bash" ]; then
   echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
@@ -51,9 +49,10 @@ fi
 
 # Window Manager
 #export WM="qtile"
-export WM="fvwm"
+#export WM="fvwm"
+export WM="dwm"
 
 # Start graphical server
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep "${WM}" || exec startx "$HOME/.config/X11/xinitrc"
+	pgrep "${WM}" || exec startx "$HOME/.config/X11/xinitrc" &> /dev/null
 fi
