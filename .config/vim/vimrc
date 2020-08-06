@@ -61,6 +61,12 @@ highlight ColorColumn ctermbg=124 ctermfg=white
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Auto reload on external change
+set autoread
+set updatetime=2000
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
+
 " File saving shortcuts
 map <silent> <leader>wq :wq<cr>
 map <silent> <leader>ww :wall!<cr>
@@ -196,7 +202,6 @@ vmap <silent> gd <Plug>NERDCommenterUncomment
 set nobackup
 set nowritebackup
 set cmdheight=2
-set updatetime=3000
 let g:coc_diagnostic_disable=1
 
 function! s:check_back_space() abort
