@@ -120,6 +120,12 @@ let g:netrw_altv=1
 if executable('fd')
 	let $FZF_DEFAULT_COMMAND='fd --type f'
 endif
+let $FZF_DEFAULT_OPTS='
+	\ --reverse
+	\ --color=fg:#d7ff00,bg:#000000,hl:#d7ff00
+	\ --color=fg+:#00d700,bg+:#005f00,hl+:#00d700
+	\ --color=info:#ff5f00,prompt:#ff005f,pointer:#ff0000
+	\ --color=marker:#ff5f00,spinner:#ff005f,header:#EEEEEE'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8  }  }
 nnoremap <silent> <Leader>f :Files<CR>
 
