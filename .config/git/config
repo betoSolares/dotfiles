@@ -7,13 +7,14 @@
 	pager = less
 	autocrlf = input
 	whitespace = fix
+	excludesfile = /home/beto/.config/git/gitignore
 [alias]
 	cs = commit -S
 	l = log --oneline --decorate --all --graph
 	s = status
 	p = push
 [gpg]
-	program = gpg
+	program = gpg2
 [help]
 	autocorrect = 5
 [color]
