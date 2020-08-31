@@ -29,6 +29,7 @@ Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy Finding
 Plug 'junegunn/fzf.vim' " Fuzzy Finding
+Plug 'tmux-plugins/vim-tmux-focus-events' " Catch window focus on tmux
 call plug#end()
 
 " Basic configuration
@@ -47,7 +48,8 @@ filetype plugin indent on
 
 " UI
 set background=dark
-colorscheme neon-dark-256
+set t_Co=256
+colorscheme neon
 set fillchars+=vert:│
 set laststatus=2
 set ruler
@@ -60,6 +62,9 @@ highlight ColorColumn ctermbg=124 ctermfg=white
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Not show file on buflist when close
+autocmd BufReadPost * set bufhidden=wipe
 
 " Auto reload on external change
 set autoread
@@ -122,10 +127,10 @@ if executable('fd')
 endif
 let $FZF_DEFAULT_OPTS='
 	\ --reverse
-	\ --color=fg:#d7ff00,bg:#000000,hl:#d7ff00
-	\ --color=fg+:#00d700,bg+:#005f00,hl+:#00d700
-	\ --color=info:#ff5f00,prompt:#ff005f,pointer:#ff0000
-	\ --color=marker:#ff5f00,spinner:#ff005f,header:#EEEEEE'
+	\ --color=fg:#ff5f00,bg:#080808,hl:#ff5f00
+	\ --color=fg+:#00ff00,bg+:#000087,hl+:#00ff00
+	\ --color=info:#af5fff,prompt:#ffff00,pointer:#00a2ff
+	\ --color=marker:#ff0000,spinner:#0087ff,header:#ffffff'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8  }  }
 nnoremap <silent> <Leader>f :Files<CR>
 
@@ -238,7 +243,6 @@ autocmd VimLeave *.tex !texclear %
 autocmd FileType python set expandtab
 autocmd FileType python set softtabstop=4
 autocmd FileType python set shiftwidth=4
-autocmd FileType python set foldmethod=indent
 autocmd FileType python call matchadd('ColorColumn', '\%81v', 100)
 
 "" Shell
