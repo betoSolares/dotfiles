@@ -24,7 +24,6 @@ Plug 'ryanoasis/vim-devicons' " File type icons
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'gcmt/taboo.vim' " Utils for tabs
 Plug 'vim-airline/vim-airline' " Status line
-Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy Finding
@@ -71,6 +70,10 @@ set autoread
 set updatetime=2000
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
+
+" Better scrolling
+noremap J <C-d>
+noremap K <C-u>
 
 " File saving shortcuts
 map <silent> <leader>wq :wq<cr>
@@ -138,7 +141,7 @@ nnoremap <silent> <Leader>f :Files<CR>
 let session_directory='~/.local/vim/session/'
 set sessionoptions-=options
 map <expr> <leader>save ':mksession! ' . session_directory
-map <expr> <leader>open ':source ' . session_directory
+
 
 " Search
 set ignorecase
