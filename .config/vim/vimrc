@@ -32,6 +32,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " Catch window focus on tmux
 call plug#end()
 
 " Basic configuration
+set noswapfile
 let mapleader=","
 set encoding=utf-8
 set lazyredraw
@@ -120,9 +121,10 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " File browser
 let g:netrw_banner=0
-let g:netrw_browse_split=4
+let g:netrw_browse_split=0
 let g:netrw_liststyle=3
 let g:netrw_altv=1
+nnoremap <leader><TAB> :Explore<CR>
 
 " Fuzzy finding
 if executable('fd')
@@ -141,7 +143,7 @@ nnoremap <silent> <Leader>f :Files<CR>
 let session_directory='~/.local/vim/session/'
 set sessionoptions-=options
 map <expr> <leader>save ':mksession! ' . session_directory
-
+map <expr> <leader>load ':source ' . session_directory
 
 " Search
 set ignorecase
@@ -216,7 +218,8 @@ vmap <silent> gd <Plug>NERDCommenterUncomment
 set nobackup
 set nowritebackup
 set cmdheight=2
-let g:coc_diagnostic_disable=1
+set shortmess+=c
+set signcolumn=no
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -237,7 +240,39 @@ nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>r <Plug>(coc-rename)
-set signcolumn=no
+
+nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+call coc#config('languageserver', {
+	\ 'ccls': {
+	\   'command': 'ccls',
+	\   'filetypes': [
+	\     'c',
+	\     'cpp',
+	\     'objc',
+	\     'objcpp'
+	\   ],
+	\   'rootPatterns': [
+	\     '.ccls',
+	\     'compile_commands.json',
+	\     '.vim/',
+	\     '.git/',
+	\     '.hg/'
+	\   ],
+	\   'initializationOptions': {
+	\     'cache': {
+	\       'directory': '/tmp/ccls'
+	\     }
+	\   }
+	\ }
+	\})
 
 "" LaTeX
 autocmd VimLeave *.tex !texclear %
@@ -248,14 +283,12 @@ autocmd FileType python set softtabstop=4
 autocmd FileType python set shiftwidth=4
 autocmd FileType python call matchadd('ColorColumn', '\%81v', 100)
 
-"" Shell
-autocmd FileType sh set expandtab
-autocmd FileType sh set softtabstop=2
-autocmd FileType sh set shiftwidth=2
-autocmd FileType sh call matchadd('ColorColumn', '\%80v', 100)
+"" Shell and JS
+autocmd FileType sh,javascript set expandtab
+autocmd FileType sh,javascript set softtabstop=2
+autocmd FileType sh,javascript set shiftwidth=2
+autocmd FileType sh,javascript call matchadd('ColorColumn', '\%80v', 100)
 
-"" JavaScript
-autocmd FileType javascript set expandtab
-autocmd FileType javascript set softtabstop=2
-autocmd FileType javascript set shiftwidth=2
-autocmd FileType javascript call matchadd('ColorColumn', '\%80v', 100)
+"" C/C++
+autocmd FileType c,cpp call matchadd('ColorColumn', '\%79v', 100)
+
