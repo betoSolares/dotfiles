@@ -1,0 +1,12 @@
+#!/bin/sh
+# Make a bootable usb
+
+if [ -z $1 ] && [-z $2]; then
+  echo "No arguments."
+  exit 1
+fi
+
+input=$1
+output=$2
+
+sudo dd bs=4M if="${input}" of="${output}" status=progress && sync

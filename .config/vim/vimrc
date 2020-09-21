@@ -106,9 +106,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Compile a document
-map <leader>c :w! \| !compiler <c-r>%<CR>
-
 " Easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv

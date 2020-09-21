@@ -1,0 +1,15 @@
+#!/bin/sh
+# Wipe all the data from the usb
+
+if [ -z $1 ] && [-z $2]; then
+  echo "No arguments."
+  exit 1
+fi
+
+usb=$1
+label=$2
+
+sudo wipefs --all "${usb}"
+echo "Select dos for label type"
+sudo cfdisk "${usb}"
+sudo mkfs.vfat -n "${label}" "${usb}"1
