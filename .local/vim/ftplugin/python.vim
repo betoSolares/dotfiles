@@ -10,5 +10,17 @@ setlocal softtabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
 
+" Folding
+setlocal foldmethod=indent
+
 " Ruler
 set colorcolumn=81
+
+" Coc server
+call coc#config('python', {
+	\ 'jediEnabled': v:true,
+	\ 'linting.enabled': v:true,
+	\ 'linting.pylintEnabled': v:false,
+	\ 'linting.flake8Enabled': v:true,
+	\ 'envFile': '${workspaceFolder}/.venv'
+\ })
