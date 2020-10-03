@@ -49,7 +49,7 @@ filetype plugin indent on
 " UI
 set background=dark
 set t_Co=256
-colorscheme neon
+colorscheme simpleblack
 set fillchars+=vert:│
 set laststatus=2
 set ruler
@@ -58,13 +58,9 @@ set title
 set wildmenu
 map <leader>dark :highlight Normal ctermbg=232<CR>
 highlight WhiteOnRed ctermbg=red ctermfg=white
-highlight ColorColumn ctermbg=124 ctermfg=white
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Not show file on buflist when close
-autocmd BufReadPost * set bufhidden=wipe
 
 " Auto reload on external change
 set autoread
@@ -77,8 +73,6 @@ noremap J <C-d>
 noremap K <C-u>
 
 " File saving shortcuts
-map <silent> <leader>wq :wq<cr>
-map <silent> <leader>ww :wall!<cr>
 map <silent> <leader>q :qall!<cr>
 map <silent> <leader>x :q!<cr>
 map <leader>sudo :w !sudo tee % <CR><CR>
@@ -99,7 +93,7 @@ nnoremap <F3> :set list!<CR>
 
 " Split
 set splitbelow splitright
-nmap <leader>hs :sp<CR>
+nmap <leader>cs :sp<CR>
 nmap <leader>vs :vsp<CR>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -113,9 +107,6 @@ vnoremap > >gv
 " Folding with space
 nnoremap <space> za
 
-" Remove all trailing spaces
-autocmd BufWritePre * %s/\s\+$//e
-
 " File browser
 let g:netrw_banner=0
 let g:netrw_browse_split=0
@@ -127,12 +118,6 @@ nnoremap <leader><TAB> :Explore<CR>
 if executable('fd')
 	let $FZF_DEFAULT_COMMAND='fd --type f'
 endif
-let $FZF_DEFAULT_OPTS='
-	\ --reverse
-	\ --color=fg:#ff5f00,bg:#080808,hl:#ff5f00
-	\ --color=fg+:#00ff00,bg+:#000087,hl+:#00ff00
-	\ --color=info:#af5fff,prompt:#ffff00,pointer:#00a2ff
-	\ --color=marker:#ff0000,spinner:#0087ff,header:#ffffff'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8  }  }
 nnoremap <silent> <Leader>f :Files<CR>
 
@@ -146,24 +131,7 @@ map <expr> <leader>load ':source ' . session_directory
 set ignorecase
 set incsearch
 set hlsearch
-nnoremap <silent> n n:call HLNext(0.4)<CR>
-nnoremap <silent> N N:call HLNext(0.4)<CR>
 nnoremap <leader><leader> :nohlsearch<CR>
-
-function! HLNext(blinktime)
-    let [bufnum, lnum, col, off] = getpos('.')
-    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    let target_pat = '\c\%#'.@/
-    let blinks = 3
-    for n in range(1,blinks)
-        let red = matchadd('WhiteOnRed', target_pat, 101)
-        redraw
-        exec 'sleep' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
-        call matchdelete(red)
-        redraw
-        exec 'sleep' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
-    endfor
-endfunction
 
 " Vim Eighties
 let g:eighties_enabled = 1
@@ -189,8 +157,6 @@ let g:taboo_renamed_tab_format=' [%l%m - %W] '
 set sessionoptions+=tabpages,globals
 map <leader>tr :TabooRename<space>
 map <leader>t :TabooOpen<space>
-map <leader>h :tabprevious<CR>
-map <leader>l :tabnext<CR>
 
 " NERD commenter
 let g:NERDAllowAnyVisualDelims=1
@@ -201,11 +167,6 @@ let g:NERDDefaultAlign='left'
 let g:NERDSpaceDelims=1
 let g:NERDToggleCheckAllLines=1
 let g:NERDTrimTrailingWhitespace=1
-let g:NERDCustomDelimiters={
-	\ 'javascript': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
-	\ 'python': { 'left': '#', 'leftAlt': '"""', 'rightAlt': '"""' },
-	\ 'sh': { 'left': '#' }
-\ }
 
 nmap <silent> gcc <Plug>NERDCommenterToggle
 vmap <silent> gc <Plug>NERDCommenterSexy
@@ -246,46 +207,3 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-call coc#config('languageserver', {
-	\ 'ccls': {
-	\   'command': 'ccls',
-	\   'filetypes': [
-	\     'c',
-	\     'cpp',
-	\     'objc',
-	\     'objcpp'
-	\   ],
-	\   'rootPatterns': [
-	\     '.ccls',
-	\     'compile_commands.json',
-	\     '.vim/',
-	\     '.git/',
-	\     '.hg/'
-	\   ],
-	\   'initializationOptions': {
-	\     'cache': {
-	\       'directory': '/tmp/ccls'
-	\     }
-	\   }
-	\ }
-	\})
-
-"" LaTeX
-autocmd VimLeave *.tex !texclear %
-
-"" Python
-autocmd FileType python set expandtab
-autocmd FileType python set softtabstop=4
-autocmd FileType python set shiftwidth=4
-autocmd FileType python call matchadd('ColorColumn', '\%81v', 100)
-
-"" Shell and JS
-autocmd FileType sh,javascript set expandtab
-autocmd FileType sh,javascript set softtabstop=2
-autocmd FileType sh,javascript set shiftwidth=2
-autocmd FileType sh,javascript call matchadd('ColorColumn', '\%80v', 100)
-
-"" C/C++
-autocmd FileType c,cpp call matchadd('ColorColumn', '\%79v', 100)
-
