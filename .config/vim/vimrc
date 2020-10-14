@@ -76,6 +76,7 @@ noremap K <C-u>
 map <silent> <leader>q :qall!<cr>
 map <silent> <leader>x :q!<cr>
 map <leader>sudo :w !sudo tee % <CR><CR>
+cmap W w
 
 " Copy/Paste from X11 clipboard
 vnoremap <C-c> :!xclip -f -sel clip<CR>
