@@ -19,6 +19,7 @@ call plug#begin('~/.local/vim/plugged')
 Plug 'justincampbell/vim-eighties' " Auto resize windows
 Plug 'preservim/nerdcommenter' " Comment stuff out
 Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
+Plug 'wellle/targets.vim' " Addditional text objects
 Plug 'editorconfig/editorconfig-vim' " EditorConfig support
 Plug 'ryanoasis/vim-devicons' " File type icons
 Plug 'tpope/vim-fugitive' " Git wrapper
