@@ -5,7 +5,7 @@
 
 # Read the colors from wal
 import json
-with open ("/home/beto/.cache/wal/colors.json") as f:
+with open("/home/beto/.cache/wal/colors.json") as f:
     colors = json.load(f)
 
 # Uncomment this to still load settings configured via autoconfig.yml
@@ -123,7 +123,7 @@ c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 
 # User agent to send.
-c.content.headers.user_agent = None
+#c.content.headers.user_agent = None
 
 # Enable host blocking.
 c.content.host_blocking.enabled = False
@@ -179,12 +179,12 @@ c.content.local_content_can_access_remote_urls = True
 c.content.local_storage = True
 
 # Allow websites to record audio/video.
-c.content.media_capture = "ask"
+#c.content.media_capture = "ask"
 
 # Allow websites to lock your mouse pointer.
 c.content.mouse_lock = "ask"
 
-# Automatically mute tabs. 
+# Automatically mute tabs.
 c.content.mute = False
 
 # Netrc-file for HTTP authentication.
@@ -193,7 +193,7 @@ c.content.netrc_file = None
 # Allow websites to show notifications.
 c.content.notifications = "ask"
 
-# Allow pdf.js to view PDF files in the browser. 
+# Allow pdf.js to view PDF files in the browser.
 c.content.pdfjs = True
 
 # Allow websites to request persistent storage quota via navigator.webkitPersistentStorage.requestQuota.
@@ -230,9 +230,9 @@ c.content.webgl = True
 c.content.webrtc_ip_handling_policy = "all-interfaces"
 
 # Limit fullscreen to the browser window (does not expand to fill the screen).
-c.content.windowed_fullscreen = False
+c.content.fullscreen.window = False
 
-# Monitor load requests for cross-site scripting attempts. 
+# Monitor load requests for cross-site scripting attempts.
 c.content.xss_auditing = True
 
 # Directory to save downloads to.
@@ -289,17 +289,14 @@ c.fonts.messages.info = "10pt monospace"
 # Font used for warning messages.
 c.fonts.messages.warning = "10pt monospace"
 
-# Default monospace fonts.
-c.fonts.monospace = "monospace"
+# Default font family.
+c.fonts.default_family = "monospace"
 
 # Font used for prompts.
 c.fonts.prompts = "10pt monospace"
 
 # Font used in the statusbar.
 c.fonts.statusbar = "bold 10pt monospace"
-
-# Font used in the tab bar.
-c.fonts.tabs = "bold 10pt monospace"
 
 # Font family for cursive fonts.
 c.fonts.web.family.cursive = None
@@ -388,16 +385,16 @@ c.input.insert_mode.plugins = False
 # Include hyperlinks in the keyboard focus chain when tabbing.
 c.input.links_included_in_focus_chain = True
 
-# Timeout (in milliseconds) for partially typed key bindings. 
+# Timeout (in milliseconds) for partially typed key bindings.
 c.input.partial_timeout = 5000
 
 # Enable Opera-like mouse rocker gestures. This disables the context menu.
-c.input.rocker_gestures = False
+c.input.mouse.rocker_gestures = False
 
 # Enable spatial navigation.
 c.input.spatial_navigation = False
 
-# Keychains that shouldn’t be shown in the keyhint dialog. 
+# Keychains that shouldn’t be shown in the keyhint dialog.
 c.keyhint.blacklist = []
 
 # Time (in milliseconds) from pressing a key to seeing the keyhint dialog.
@@ -460,9 +457,6 @@ c.session.lazy_restore = False
 # Languages to use for spell checking.
 c.spellcheck.languages = []
 
-# Hide the statusbar unless a message is shown.
-c.statusbar.hide = False
-
 # Padding (in pixels) for the statusbar.
 c.statusbar.padding = {
     "bottom": 1,
@@ -509,10 +503,10 @@ c.tabs.last_close = "startpage"
 # Maximum width (in pixels) of tabs (-1 for no maximum).
 c.tabs.max_width = -1
 
-# Minimum width (in pixels) of tabs (-1 for the default minimum size behavior). 
+# Minimum width (in pixels) of tabs (-1 for the default minimum size behavior).
 c.tabs.min_width = -1
 
-# Minimum width (in pixels) of tabs (-1 for the default minimum size behavior). 
+# Minimum width (in pixels) of tabs (-1 for the default minimum size behavior).
 c.tabs.mode_on_change = "normal"
 
 # Switch between tabs using the mouse wheel.
@@ -521,7 +515,7 @@ c.tabs.mousewheel_switching = True
 # Position of new tabs opened from another tab.
 c.tabs.new_position.related = "next"
 
-# Stack related tabs on top of each other when opened consecutively. 
+# Stack related tabs on top of each other when opened consecutively.
 c.tabs.new_position.stacking = True
 
 # Position of new tabs which are not opened from another tab.
@@ -626,4 +620,7 @@ config.bind('<Alt-l>', 'forward')
 config.bind('<Ctrl-m>', 'quickmark-save')
 config.bind('<Alt-r>', 'reload -f')
 config.bind('<Ctrl-i>', 'inspector')
+
+# Enable dark mode
+config.set("colors.webpage.darkmode.enabled", True)
 
