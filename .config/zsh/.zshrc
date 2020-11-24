@@ -18,6 +18,9 @@ alias ts='tmux-starter'
 alias open='xdg-open'
 alias tree='lsd --tree'
 alias vi='vim'
+alias drm='docker rm -vf $(docker ps -a -q)'
+alias drmi='docker rmi $(docker images -a -q)'
+alias cz='cz -S'
 
 # GPG ask in tty
 export GPG_TTY=$(tty)
@@ -146,4 +149,4 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+. /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

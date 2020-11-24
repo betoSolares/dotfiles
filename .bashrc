@@ -19,6 +19,9 @@ alias ts='tmux-starter'
 alias open='xdg-open'
 alias tree='lsd --tree'
 alias vi='vim'
+alias drm='docker rm -vf $(docker ps -a -q)'
+alias drmi='docker rmi $(docker images -a -q)'
+alias cz='cz -S'
 
 # GPG ask in tty
 export GPG_TTY=$(tty)
