@@ -29,6 +29,7 @@ menu [WM_NAME] [OPTIONS]
 
 WM_NAME:
   FVWM    The F Virtual Window Manager
+  PEKWM   Window manager that once upon a time was based on the aewm++ window manager
 
 OPTIONS:
   -i, --icons   Add icons to the menu
@@ -210,6 +211,78 @@ AddToMenu   ScriptMenu${cont}"
   done
 }
 
+# Write the menu for PEKWM.
+# Globlas: DATA, VALUES.
+# Arguments: If the menu has icons.
+# Returns: The menu to stdout.
+pekwm() {
+  echo "RootMenu = \"PekWM\" {"
+
+  for key in "${!DATA[@]}"; do
+    echo "  Submenu = \"${key}\" {"
+
+    while IFS= read -r value; do
+      local sub
+      local icon
+      local execute
+
+      readarray -t sub <<< $(echo "${VALUES[${value}]}" | sed -e "s/°!#=%/\n/g")
+      execute=$(correct_executable "${sub[1]}")
+
+      if [[ "$1" == "true" ]]; then
+        icon=$(correct_icon "${sub[0]}")
+        echo "    Entry = \"${value}\" { Icon = \"${icon}\"; Actions  = \"Exec ${execute} &\"}"
+      else
+        echo "    Entry = \"${value}\" { Actions  = \"Exec ${execute} &\"}"
+      fi
+
+    done <<< $(echo "${DATA[${key}]}" | sed -e "s/°!#=%/\n/g")
+
+    echo "  }
+    "
+
+  done
+
+  echo "  Separator {}
+
+  Entry = \"Refresh\" { Actions = \"Restart\" }
+  Entry = \"Reboot\" { Actions = \"Exec rebooting &\" }
+  Entry = \"Poweroff\" { Actions = \"Exec shuttingdown &\" }
+}
+
+WindowMenu = \"Window Menu\" {
+  Entry = \"(Un)Stick\" { Actions = \"Toggle Sticky\" }
+  Entry = \"(Un)Shade\" { Actions = \"Toggle Shaded\" }
+  Entry = \"Iconify\" { Actions = \"Set Iconified\" }
+
+  Submenu = \"Maximize\" {
+    Entry = \"Toggle Full\" { Actions = \"Toggle Maximized True True\" }
+    Entry = \"Toggle Horizontal\" { Actions = \"Toggle Maximized True False\" }
+    Entry = \"Toggle Vertical\" { Actions = \"Toggle Maximized False True\" }
+  }
+  Submenu = \"Fill\" {
+    Entry = \"Full\" { Actions = \"MaxFill True True\" }
+    Entry = \"Horizontal\" { Actions = \"MaxFill True False\" }
+    Entry = \"Vertical\" { Actions = \"MaxFill False True\" }
+  }
+  Submenu = \"Stacking\" {
+    Entry = \"Raise\" { Actions = \"Raise\" }
+    Entry = \"Lower\" { Actions = \"Lower\" }
+    Entry = \"Toggle Always On Top\" { Actions = \"Toggle AlwaysOnTop\" }
+    Entry = \"Toggle Always Below\" { Actions = \"Toggle AlwaysBelow\" }
+  }
+  Submenu = \"Decorations\" {
+    Entry = \"Toggle Decorations\" { Actions = \"Toggle DecorBorder; Toggle DecorTitlebar\" }
+    Entry = \"Toggle Borders\" { Actions = \"Toggle DecorBorder\" }
+    Entry = \"Toggle Titlebar\" { Actions = \"Toggle DecorTitlebar\" }
+  }
+  Separator {}
+  Entry = \"Close\" { Actions = \"Close\" }
+  Submenu = \"Kill\" { Entry = \"Kill application\" { Actions = \"Kill\" } }
+}
+"
+}
+
 # MAIN
 if [[ -z "$1" ]]; then
   usage && exit 1
@@ -231,6 +304,8 @@ else
 
   if [[ "$wm" == "FVWM" ]]; then
     get_data && fvwm "${icons}"
+  elif [[ "$wm" == "PEKWM" ]]; then
+    get_data && pekwm "${icons}"
   else
     echo "Not a supported window manager"
     usage && exit 1
