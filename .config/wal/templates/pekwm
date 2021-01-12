@@ -1,0 +1,219 @@
+$FONT = "XFT#Monospace:size=11#Left"
+$FONT_TITLE = "XFT#Monospace:size=11#Center"
+
+Require {{
+  Templates = "True"
+}}
+
+Define = "BaseDecor" {{
+	Height = "16"
+	Pad = "2 5 5 0"
+	Focused = "Solid {color1} 4x4"
+	Unfocused = "Solid {color2} 4x4"
+
+	Tab {{
+		Focused = "Solid {color1} 4x4"
+		FocusedSelected = "Solid {color1} 4x4"
+		Unfocused = "Solid {color2} 4x4"
+		UnfocusedSelected = "Solid {color2} 4x4"
+	}}
+
+	Separator {{
+		Focused = "Solid {color1} 4x4"
+		Unfocused = "Solid {color2} 4x4"
+	}}
+
+	Font {{
+		Focused = "$FONT_TITLE"
+	}}
+
+	FontColor {{
+		Focused = "{color0}"
+		FocusedSelected = "{color0}"
+		Unfocused = "{color7}"
+		UnfocusedSelected = "{color7}"
+	}}
+
+	Border {{
+		Focused {{
+			TopLeft = "Solid {color1} 0x0"
+			Top = "Solid {color1} 0x0"
+			TopRight = "Solid {color1} 0x0"
+			Left =  "Solid {color1} 3x3"
+			Right = "Solid {color1} 3x3"
+			BottomLeft = "Solid {color1} 4x3"
+			Bottom = "Solid {color1} 3x3"
+			BottomRight = "Solid {color1} 3x3"
+		}}
+
+		Unfocused {{
+			TopLeft = "Solid {color2} 0x0"
+			Top = "Solid {color2} 0x0"
+			TopRight = "Solid {color2} 0x0"
+			Left =  "Solid {color2} 3x3"
+			Right = "Solid {color2} 3x3"
+			BottomLeft = "Solid {color2} 4x3"
+			Bottom = "Solid {color2} 3x3"
+			BottomRight = "Solid {color2} 3x3"
+		}}
+	}}
+}}
+
+Define = "BaseButtons" {{
+	Buttons {{
+		Left = "Close" {{
+			Focused = "Image close.png"
+			Unfocused = "Image button.png"
+			Hoover = "Image close.png"
+			Pressed = "Image close.png"
+			Button = "1" {{ Actions = "Close" }}
+			Button = "3" {{ Actions = "Kill" }}
+		}}
+
+		Left = "Maximize" {{
+			Focused = "Image maximize.png"
+			Unfocused = "Image button.png"
+			Hoover = "Image maximize.png"
+			Pressed = "Image maximize.png"
+			Button = "1" {{ Actions = "Toggle Maximized 1 1" }}
+		}}
+
+		Left = "Iconify" {{
+			Focused = "Image minimize.png"
+			Unfocused = "Image button.png"
+			Hoover = "Image minimize.png"
+			Pressed = "Image minimize.png"
+			Button = "1" {{ Actions = "Set Iconified" }}
+		}}
+	}}
+}}
+
+Define = "EmptyDecor" {{
+	Focused = "Empty"
+	Unfocused = "Empty"
+
+	Tab {{
+		Focused = "Empty"
+		FocusedSelected = "Empty"
+		Unfocused = "Empty"
+		UnfocusedSelected = "Empty"
+	}}
+
+	Separator {{
+		Focused = "Empty"
+		Unfocused = "Empty"
+	}}
+
+	Font {{
+		Focused = "Empty"
+	}}
+
+	FontColor {{
+		Focused = "Empty"
+		FocusedSelected = "Empty"
+		Unfocused = "Empty"
+		UnfocusedSelected = "Empty"
+	}}
+
+	Border {{
+		Focused {{
+			TopLeft = "Empty"
+			Top = "Empty"
+			TopRight = "Empty"
+			Left =  "Empty"
+			Right = "Empty"
+			BottomLeft = "Empty"
+			Bottom = "Empty"
+			BottomRight = "Empty"
+		}}
+
+		Unfocused {{
+			TopLeft = "Empty"
+			Top = "Empty"
+			TopRight = "Empty"
+			Left =  "Empty"
+			Right = "Empty"
+			BottomLeft = "Empty"
+			Bottom = "Empty"
+			BottomRight = "Empty"
+		}}
+	}}
+}}
+
+PDecor {{
+	Decor = "Default" {{
+		Title {{
+			@BaseDecor
+			@BaseButtons
+		}}
+	}}
+
+	Decor = "Menu" {{
+		Title {{
+			@BaseDecor
+		}}
+	}}
+
+	Decor = "Titlebarless" {{
+		Title {{
+			@EmptyDecor
+		}}
+	}}
+
+	Decor = "Statuswindow" {{
+		Title {{
+			@EmptyDecor
+		}}
+	}}
+}}
+
+Menu {{
+	Pad = "2 0 4 4" 
+
+	Focused {{
+		Font = "$FONT"
+		Background = "Solid {color2}"
+		Item = "Empty"
+		Text = "{color7}" 
+		Separator = "Solid {color1} 4x4"
+	}}
+
+	Unfocused {{
+		Font = "$FONT"
+		Background = "Solid {color1}"
+		Item = "Empty"
+		Text = "{color7}"
+		Separator = "Solid {color2} 4x4"
+	}}
+
+	Selected {{
+		Font = "$FONT"
+		Background = "Solid {color1}"
+		Item = "Empty"
+		Text = "{color0}"
+	}}
+}}
+
+CmdDialog {{
+	Font = "$FONT"
+	Texture = "Solid {color1}"
+	Text = "{color0}"
+	Pad = "3 0 1 10"
+}}
+
+Status {{
+	Font = "$FONT"
+	Texture = "Solid {color2}"
+	Text = "{color7}"
+	Pad = "2 2 10 10"
+}}
+
+WorkspaceIndicator {{
+	Font = "$FONT_TITLE"
+	Background = "{color2}"
+	Text = "{color0}"
+}}
+
+Harbour {{
+	Texture = "Solid #f9f9f9"
+}}
