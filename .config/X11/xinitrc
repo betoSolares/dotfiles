@@ -2,14 +2,14 @@
 # X11 read this file in startup
 
 # Load and merge the resources file
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
 # Keyboard adjustment
 setxkbmap -option caps:swapescape
 
 # Execute wm
-if [ "${WM}" = "fvwm" ]; then
-  exec dbus-launch fvwm -f ${HOME}/.config/fvwm/config
-else
-  exec dbus-launch "${WM}"
-fi
+case "${WM}" in
+  fvwm) exec dbus-launch fvwm -f ${HOME}/.config/fvwm/config ;;
+  pekwm) exec dbus-launch pekwm --config ${HOME}/.config/pekwm/config ;;
+  *) exec "${WM}" ;;
+esac

@@ -50,7 +50,8 @@ fi
 # Window Manager
 #export WM="qtile"
 #export WM="fvwm"
-export WM="dwm"
+#export WM="dwm"
+export WM="pekwm"
 
 # Start graphical server
 if [[ "$(tty)" = "/dev/tty1" ]]; then
