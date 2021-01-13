@@ -1,0 +1,241 @@
+# Bar
+rounded = 0
+border_width = 0
+border_sides = 
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+background_color = {color1} 100
+border_color = #000000 0
+background_color_hover = #000000 0
+border_color_hover = #000000 0
+background_color_pressed = #000000 0
+border_color_pressed = #000000 0
+
+# Desktop Name
+rounded = 0
+border_width = 0
+border_sides = 
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+background_color = {color3} 100
+border_color = #000000 0
+background_color_hover = #000000 0
+border_color_hover = #000000 0
+background_color_pressed = #000000 0
+border_color_pressed = #000000 0
+
+# No selected task
+rounded = 0
+border_width = 0
+border_sides = 
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+background_color = #FFFFFF 10
+border_color = #FFFFFF 62
+background_color_hover = #000000 0
+border_color_hover = #000000 0
+background_color_pressed = #000000 0
+border_color_pressed = #000000 0
+
+# Selected task
+rounded = 0
+border_width = 1
+border_sides = TLBR
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+background_color = {color1} 100
+border_color = {color0} 100
+background_color_hover = #000000 0
+border_color_hover = #000000 0
+background_color_pressed = #000000 0
+border_color_pressed = #000000 0
+
+# Panel
+panel_items = ECEEEBTEEEEEE
+panel_monitor = all
+panel_position = top center horizontal
+panel_size = 99% 25
+scale_relative_to_dpi = 0
+scale_relative_to_screen_height = 0
+panel_shrink = 0
+panel_margin = 0 -1
+panel_padding = 0 0 0
+font_shadow = 0
+panel_background_id = 1
+wm_menu = 0
+panel_dock = 0
+panel_layer = top
+strut_policy = follow_size
+panel_window_name = tint2
+disable_transparency = 0
+mouse_effects = 0
+mouse_hover_icon_asb = 100 0 10
+mouse_pressed_icon_asb = 100 0 0
+autohide = 0
+autohide_show_timeout = 0
+autohide_hide_timeout = 0
+autohide_height = 1
+
+# Taskbar
+taskbar_mode = single_desktop
+taskbar_distribute_size = 0
+taskbar_hide_if_empty = 0
+taskbar_padding = 0 0 4
+taskbar_background_id = 1
+taskbar_active_background_id = 1
+taskbar_hide_inactive_tasks = 0
+taskbar_hide_different_monitor = 0
+taskbar_hide_different_desktop = 0
+taskbar_always_show_all_desktop_tasks = 0
+taskbar_sort_order = none
+task_align = left
+taskbar_name = 1
+taskbar_name_padding = 6 3
+taskbar_name_background_id = 2
+taskbar_name_active_background_id = 2
+taskbar_name_font = Hack Nerd Font 10
+taskbar_name_font_color = {color7} 100
+taskbar_name_active_font_color = {color7} 100
+
+# Tasks
+task_icon = 0
+task_text = 1
+task_centered = 1
+task_tooltip = 0
+task_thumbnail = 0
+task_maximum_size = 175 25
+task_padding = 3 2
+urgent_nb_of_blink = 8
+task_font = Hack Nerd Font 9
+task_font_color = {color0} 100
+task_icon_asb = 70 0 0
+task_background_id = 3
+task_active_font_color = {color0} 100
+task_urgent_font_color = {color0} 100
+task_iconified_font_color = {color0} 100
+task_active_icon_asb = 100 0 0
+task_urgent_icon_asb = 100 0 0
+task_iconified_icon_asb = 70 0 0
+task_active_background_id = 4
+task_urgent_background_id = 2
+task_iconified_background_id = 3
+mouse_left = toggle_iconify
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = none
+mouse_scroll_down = none
+
+# Date icon
+execp = new
+execp_command = echo " "
+execp_interval = 0
+execp_continuous = 0
+execp_font = Hack Nerd Font 10
+execp_font_color = {color7} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Date
+time1_format = %a %-d
+time1_font = Hack Nerd Font 9
+clock_font_color = {color0} 100
+clock_padding = 2 1
+clock_background_id = 2
+
+# Clock icon
+execp = new
+execp_command = echo " "
+execp_interval = 0
+execp_continuous = 0
+execp_font = Hack Nerd Font 10
+execp_font_color = {color7} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Clock
+execp = new
+execp_command = date +"%H:%M"
+execp_interval = 60
+execp_continuous = 0
+execp_font = Hack Nerd Font 9
+execp_font_color = {color0} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Battery icon
+execp = new
+execp_command = iconbattery
+execp_interval = 0
+execp_continuous = 0
+execp_font = Hack Nerd Font 10
+execp_font_color = {color7} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Battery
+battery_hide = never
+bat1_font = Hack Nerd Font 9
+bat1_format = %p
+battery_font_color = {color0} 100
+battery_padding = 2 1
+battery_background_id = 2
+
+# Volume icon
+execp = new
+execp_command = iconvolume
+execp_interval = 0
+execp_continuous = 0
+execp_font = Hack Nerd Font 10
+execp_font_color = {color7} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Volume
+execp = new
+execp_command = volume
+execp_interval = 1
+execp_continuous = 0
+execp_font = Hack Nerd Font 9
+execp_font_color = {color0} 100
+execp_padding = 3 1
+execp_background_id = 2
+
+# Backlight icon
+execp = new
+execp_command = echo "盛 "
+execp_interval = 0
+execp_continuous = 0
+execp_font = Hack Nerd Font 10
+execp_font_color = {color7} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Backlight
+execp = new
+execp_command = light
+execp_interval = 1
+execp_continuous = 0
+execp_font = Hack Nerd Font 9
+execp_font_color = {color0} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Network icon
+execp = new
+execp_command = echo " "
+execp_interval = 0
+execp_continuous = 0
+execp_font = Hack Nerd Font 10
+execp_font_color = {color7} 100
+execp_padding = 2 1
+execp_background_id = 2
+
+# Network
+execp = new
+execp_command = net
+execp_interval = 1
+execp_continuous = 0
+execp_font = Hack Nerd Font 9
+execp_font_color = {color0} 100
+execp_padding = 2 1
+execp_background_id = 2
