@@ -6,7 +6,7 @@ Require {{
 }}
 
 Define = "BaseDecor" {{
-	Height = "16"
+	Height = "20"
 	Pad = "2 5 5 0"
 	Focused = "Solid {color1} 4x4"
 	Unfocused = "Solid {color2} 4x4"
