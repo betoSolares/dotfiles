@@ -1,0 +1,107 @@
+ Global {
+  # Applications
+  KeyPress = "Mod4 Return" { Actions = "Exec st" }
+  KeyPress = "Mod4 X" { Actions = "Exec xterm" }
+  KeyPress = "Mod4 B" { Actions = "Exec chromium" }
+  KeyPress = "Mod4 Shift B" { Actions = "Exec chromium --incognito" }
+  KeyPress = "Mod4 D" { Actions = "Exec dmenurun" }
+  KeyPress = "Mod4 Q" { Actions = "Exec qute" }
+  KeyPress = "Mod4 E" { Actions = "Exec dmenuunicode" }
+  KeyPress = "Mod4 Shift E" { Actions = "Exec dmenukaomoji" }
+  KeyPress = "Mod4 Shift W" { Actions = "Exec wpa_gui" }
+  KeyPress = "Mod4 V" { Actions = "Exec st -e vim" }
+  KeyPress = "Mod4 F" { Actions = "Exec st -e ranger" }
+  KeyPress = "Mod4 W" { Actions = "Exec st -e weechat" }
+  KeyPress = "Mod4 C" { Actions = "Exec st -e cava" }
+  KeyPress = "Mod4 S" { Actions = "Exec st -e slack" }
+  KeyPress = "Mod4 N" { Actions = "Exec st -e neomutt" }
+  KeyPress = "Mod4 Shift M" { Actions = "Exec dmenumount" }
+  KeyPress = "Mod4 Shift U" { Actions = "Exec dmenuunmount" }
+  KeyPress = "Mod4 U" { Actions = "Exec dmenuunmount" }
+  KeyPress = "Mod4 F8" { Actions = "Exec recorder" }
+  KeyPress = "Print" { Actions = "Exec flameshot gui" }
+  KeyPress = "F1" { Actions = "Exec /dev/null" },
+
+  # Audio control
+  KeyPress = "XF86AudioLowerVolume" { Actions = "Exec pactl set-sink-volume 0 -1%" }
+  KeyPress = "XF86AudioRaiseVolume" { Actions = "Exec pactl set-sink-volume 0 +1%" }
+  KeyPress = "XF86AudioMute" { Actions = "Exec pactl set-sink-mute 0 toggle" },
+
+  # Backlight control
+  KeyPress = "XF86MonBrightnessDown" { Actions = "Exec xbacklight -dec 1" }
+  KeyPress = "XF86MonBrightnessUp" { Actions = "Exec xbacklight -inc 1" },
+
+  # System control
+  KeyPress = "Mod4 Shift R" { Actions = "Exec rebooting" }
+  KeyPress = "Mod4 Shift Q" { Actions = "Exec shuttingdown" }
+  KeyPress = "Mod4 R" { Actions = "Restart" }
+
+  # Window Management
+  KeyPress = "F11" { Actions = "Toggle Maximized True True" }
+  KeyPress = "Mod4 F11" { Actions = "Set Iconified" }
+  KeyPress = "Mod4 M" { Actions = "MoveResize" }
+  KeyPress = "Mod4 Shift C" { Actions = "Close" }
+  KeyPress = "Mod4 Tab" { Actions = "NextFrame EndRaise" }
+  KeyPress = "Mod4 Shift Tab" { Actions = "PrevFrame EndRaise" }
+  KeyPress = "Mod4 Ctrl Tab" { Actions = "NextFrameMRU EndRaise" }
+  KeyPress = "Mod4 Ctrl Shift Tab" { Actions = "PrevFrameMRU EndRaise" }
+  KeyPress = "Mod4 H" { Actions = "MoveToEdge LeftCenterEdge" }
+  KeyPress = "Mod4 L" { Actions = "MoveToEdge RightCenterEdge" }
+  KeyPress = "Mod4 K" { Actions = "MoveToEdge TopCenterEdge" }
+  KeyPress = "Mod4 J" { Actions = "MoveToEdge BottomCenterEdge" }
+
+  # Change Desk
+  KeyPress = "Mod4 1" { Actions = "GotoWorkspace 1" }
+  KeyPress = "Mod4 2" { Actions = "GotoWorkspace 2" }
+  KeyPress = "Mod4 3" { Actions = "GotoWorkspace 3" }
+  KeyPress = "Mod4 4" { Actions = "GotoWorkspace 4" }
+  KeyPress = "Mod4 5" { Actions = "GotoWorkspace 5" }
+  KeyPress = "Mod4 6" { Actions = "GotoWorkspace 6" }
+  KeyPress = "Mod4 Left" { Actions = "GotoWorkspace prev" }
+  KeyPress = "Mod4 Right" { Actions = "GotoWorkspace next" }
+
+  # Sent to desk
+  KeyPress = "Mod4 Shift 1" { Actions = "SendToWorkspace 1" }
+  KeyPress = "Mod4 Shift 2" { Actions = "SendToWorkspace 2" }
+  KeyPress = "Mod4 Shift 3" { Actions = "SendToWorkspace 3" }
+  KeyPress = "Mod4 Shift 4" { Actions = "SendToWorkspace 4" }
+  KeyPress = "Mod4 Shift 5" { Actions = "SendToWorkspace 5" }
+  KeyPress = "Mod4 Shift 6" { Actions = "SendToWorkspace 6" }
+  KeyPress = "Mod4 Shift Left" { Actions = "SendToWorkwpace prev" }
+  KeyPress = "Mod4 Shift Right" { Actions = "SendToWorkspace next" }
+}
+
+MoveResize {
+  KeyPress = "H" { Actions = "MoveHorizontal -25" }
+  KeyPress = "L" { Actions = "MoveHorizontal 25" }
+  KeyPress = "K" { Actions = "MoveVertical -25" }
+  KeyPress = "J" { Actions = "MoveVertical 25" }
+  Keypress = "Mod4 H" { Actions = "ResizeHorizontal -25" }
+  Keypress = "Mod4 L" { Actions = "ResizeHorizontal 25" }
+  Keypress = "Mod4 K" { Actions = "ResizeVertical -25" }
+  Keypress = "Mod4 J" { Actions = "ResizeVertical 25" }
+  Keypress = "S" { Actions = "MoveSnap" }
+  Keypress = "Escape" { Actions = "Cancel" }
+  Keypress = "Return" { Actions = "End" }
+}
+
+Menu {
+  KeyPress = "J" { Actions = "NextItem" }
+  KeyPress = "K" { Actions = "PrevItem" }
+  KeyPress = "H" { Actions = "LeaveSubmenu" }
+  KeyPress = "L" { Actions = "EnterSubmenu" }
+  KeyPress = "Return" { Actions = "Select" }
+  KeyPress = "Escape" { Actions = "Close" }
+}
+
+InputDialog {
+  KeyPress = "BackSpace" { Actions = "Erase" }
+  KeyPress = "Right" { Actions = "CursNext" }
+  KeyPress = "Left" { Actions = "CursPrev" }
+  KeyPress = "Up" { Actions = "HistPrev" }
+  KeyPress = "Down" { Actions = "HistNext" }
+  KeyPress = "Delete" { Actions = "Clear" }
+  KeyPress = "Return" { Actions = "Exec" }
+  KeyPress = "Escape" { Actions = "Close" }
+  KeyPress = "Any Any" { Actions = "Insert" }
+}

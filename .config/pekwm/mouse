@@ -1,0 +1,79 @@
+FrameTitle {
+  ButtonRelease = "1" { Actions = "Raise; Focus; ActivateClient" }
+  ButtonRelease = "2" { Actions = "Raise; Focus; ActivateClient" }
+  ButtonRelease = "3" { Actions = "Close" }
+  DoubleClick = "2" { Actions = "Toggle Shaded" }
+  DoubleClick = "1" { Actions = "Toggle Maximized True True" }
+  Motion = "1" { Threshold = "4"; Actions = "Raise; Focus; Move" }
+  Motion = "2" { Actions = "Raise; Focus; Resize" }
+}
+
+OtherTitle {
+  ButtonRelease = "1" { Actions = "Raise; Focus; ActivateClient" }
+  ButtonRelease = "2" { Actions = "Raise; Focus; ActivateClient" }
+  ButtonRelease = "3" { Actions = "Close" }
+  DoubleClick = "2" { Actions = "Toggle Shaded" }
+  DoubleClick = "1" { Actions = "Toggle Maximized True True" }
+  Motion = "1" { Threshold = "4"; Actions = "Raise; Focus; Move" }
+  Motion = "2" { Actions = "Raise; Focus; Resize" }
+}
+
+Border {
+ TopLeft     { ButtonPress = "1" { Actions = "Raise; Focus; Resize TopLeft" } }
+ Top         { ButtonPress = "1" { Actions = "Raise; Focus; Move" } }
+ TopRight    { ButtonPress = "1" { Actions = "Raise; Focus; Resize TopRight" } }
+ Left        { ButtonPress = "1" { Actions = "Raise; Focus; Resize Left" } }
+ Right       { ButtonPress = "1" { Actions = "Raise; Focus; Resize Right" } }
+ BottomLeft  { ButtonPress = "1" { Actions = "Raise; Focus; Resize BottomLeft" } }
+ Bottom      { ButtonPress = "1" { Actions = "Raise; Focus; Resize Bottom" } }
+ BottomRight { ButtonPress = "1" { Actions = "Raise; Focus; Resize BottomRight" } }
+}
+
+ScreenEdge {
+  Down {
+    ButtonRelease = "3" { Actions = "ShowMenu Root" }
+    ButtonRelease = "2" { Actions = "ShowMenu Root" }
+  }
+
+  Up {
+    ButtonRelease = "3" { Actions = "ShowMenu Root" }
+    ButtonRelease = "2" { Actions = "ShowMenu Root" }
+  }
+
+  Left {
+    ButtonRelease = "3" { Actions = "ShowMenu Root" }
+    ButtonRelease = "2" { Actions = "ShowMenu Root" }
+  }
+
+  Right {
+    ButtonRelease = "3" { Actions = "ShowMenu Root" }
+    ButtonRelease = "2" { Actions = "ShowMenu Root" }
+  }
+}
+
+Client {
+  ButtonRelease = "Mod4 1" { Actions = "Raise; Focus" }
+  ButtonRelease = "Mod4 2" { Actions = "Raise; Focus" }
+  ButtonRelease = "Mod4 3" { Actions = "Close" }
+  Motion = "Mod4 1" { Actions = "Raise; Focus; Move" }
+  Motion = "Mod4 2" { Actions = "Raise; Focus; Resize" }
+}
+
+Root {
+  ButtonRelease = "3" { Actions = "ShowMenu Root" }
+  ButtonRelease = "2" { Actions = "ShowMenu Root" }
+  ButtonRelease = "1" { Actions = "HideAllMenus" }
+}
+
+Menu {
+  Enter = "Any Any" { Actions = "Focus" }
+  ButtonRelease = "2" { Actions = "Toggle Sticky" }
+  Motion = "1" { Threshold = "10"; Actions = "Move" }
+  ButtonRelease = "3" { Actions = "Close" }
+}
+
+Other {
+  ButtonRelease = "Mod4 3" { Actions = "Close" }
+  Motion = "1" { Actions = "Focus; Raise; Move" }
+  Motion = "Mod1 1" { Actions = "Focus; Raise; Move" }
+}
