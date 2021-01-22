@@ -5,4 +5,5 @@ colorscheme RECOVERY # Generate the color scheme
 compton --config ~/.config/compton/"${WM}".conf & # Initialize compton
 unclutter & # Hide cursor idle
 betterlockscreen -u $(cat $HOME/.cache/wal/wal) # Set lock screen wallpaper
-xautolock -time 5 -locker 'betterlockscreen -l dimblur' & # Lock automatic
+#xautolock -time 5 -locker 'betterlockscreen -l dimblur' & # Lock automatic
+xautolock -time 5 -locker 'slock' & # Lock automatic
