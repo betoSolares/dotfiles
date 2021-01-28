@@ -53,7 +53,6 @@ set showmatch
 set title
 set wildmenu
 set noshowmode
-set noshowcmd
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -126,12 +125,17 @@ nnoremap <leader><leader> :nohlsearch<CR>
 
 " Statusline
 function! GitBranch()
-    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+    let l:is_git_dir = system('echo -n $(git rev-parse --is-inside-work-tree)')
+
+    if l:is_git_dir is# 'true'
+        let g:git_branch = trim(system('git rev-parse --abbrev-ref HEAD'))
+    else
+        let g:git_branch = ''
+    endif
 endfunction
 
 function! StatuslineGit()
-    let l:branchname = GitBranch()
-    return strlen(l:branchname) > 0?' ['.l:branchname.'] ':''
+    return strlen(g:git_branch) > 0?' ['.g:git_branch.'] ':''
 endfunction
 
 let g:currentmode={
@@ -144,6 +148,8 @@ let g:currentmode={
     \ 'Rv' : 'V·Replace ',
     \ 'c'  : 'Command ',
 \}
+
+autocmd BufEnter * call GitBranch()
 
 set statusline=
 set statusline+=%#PmenuSel#
@@ -167,7 +173,7 @@ let g:eighties_minimum_width = 120
 " Coc
 set nobackup
 set nowritebackup
-set shortmess+=c
+set shortmess+=cF
 set signcolumn=number
 
 function! s:check_back_space() abort
