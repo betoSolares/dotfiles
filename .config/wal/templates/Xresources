@@ -20,7 +20,7 @@
 
 ! Simple black
 *.foreground: #dadada
-*.background: #121212
+*.background: #080808
 *.color0: #080808
 *.color1: #ff0000
 *.color2: #5faf5f

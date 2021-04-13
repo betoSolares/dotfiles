@@ -6,12 +6,9 @@ alias lynx='lynx -cfg=/home/beto/.config/lynx/lynx.cfg'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias calcurse='calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse'
-alias oldls='/usr/bin/ls --color=auto'
 alias ls='lsd'
 alias ll='lsd -lA'
 alias bc='bc -l'
-alias cp='cp -iv'
-alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias null='/dev/null'
 alias cls='clear'
@@ -19,9 +16,6 @@ alias ts='tmux-starter'
 alias open='xdg-open'
 alias tree='lsd --tree'
 alias vi='vim'
-alias drm='docker rm -vf $(docker ps -a -q)'
-alias drmi='docker rmi $(docker images -a -q)'
-alias cz='cz -S'
 
 # GPG ask in tty
 export GPG_TTY=$(tty)
@@ -67,8 +61,8 @@ function get_hg_root {
 	local CURRENT_DIR=$(pwd)
 	while [ "$CURRENT_DIR" != "/" ]; do
 		if [ -d "$CURRENT_DIR/.hg" ]; then
-	    		echo "$CURRENT_DIR/.hg"
-	    		return
+			echo "$CURRENT_DIR/.hg"
+			return
 		fi
 		CURRENT_DIR=$(dirname $CURRENT_DIR)
 	done
