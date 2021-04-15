@@ -1,0 +1,6 @@
+#!/bin/sh
+# Try to delete a tmux session
+
+if [ $# -eq 1  ]; then
+  tmux kill-session -t $1 2>/dev/null || echo "Session not found"
+fi
