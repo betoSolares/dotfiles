@@ -101,11 +101,18 @@ function svn_prompt_info {
 function scm_prompt {
 	scm_info
 	if [[ $SCM != 'NONE' ]]; then
-		echo -ne ":  ${SCM_BRANCH} ${SCM_STATE}"
+		echo -ne ":  ${SCM_BRANCH} ${SCM_STATE} "
 	fi
 }
 
-export PS1='\[\e[1;93m\]\u \[\e[1;90m\]at \[\e[1;91m\]\h \[\e[1;94m\]on \[\e[1;92m\]\w\[\e[1;97m\]$(scm_prompt)\[\e[1;96m\]  \[\e[1;97m\]$\[\e[0m\] '
+function show_host {
+	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+		echo -ne "\[\e[1;91m\]\u\[\e[1;94m\]@\[\e[1;92m\]\h"
+	fi
+}
+
+PROMPT_DIRTRIM=2
+export PS1='$(show_host)\[\e[1;93m\]\w \[\e[1;90m\]$(scm_prompt)\[\e[1;97m\]\$\[\e[0m\] '
 
 stty -ixon # Disable ctrl-s and ctrl-q
 shopt -s autocd # cd by typing the name
