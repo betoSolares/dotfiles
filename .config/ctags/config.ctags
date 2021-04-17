@@ -1,0 +1,27 @@
+# General files to exclude
+--exclude=.git
+--exclude=.hg
+--exclude=.svn
+--exclude=log
+--exclude=tmp
+--exclude=*.*ignore
+--exclude=coverage
+--exclude=vendor
+--exclude=test
+--exclude=tests
+--exclude=*.min.*
+--exclude=*.spec.*
+--exclude=*.test.*
+--exclude=tags
+--exclude=public
+--exclude=build
+
+# Options
+--append=no
+--sort=no
+
+# Language specif config
+--optlib-dir=/home/beto/.config/ctags
+--options=lang/js.ctags
+--options=lang/python.ctags
+--options=lang/others.ctags

@@ -1,0 +1,8 @@
+--exclude=venv
+--exclude=*.egg-info/
+--exclude=*.spec
+--exclude=__pycache__/
+--exclude=*.py[cod]
+--exclude=*$py.class
+
+--python-kinds=-iv
