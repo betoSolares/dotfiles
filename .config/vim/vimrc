@@ -19,15 +19,15 @@ call plug#begin('~/.local/vim/plugged')
     Plug 'justincampbell/vim-eighties'
     Plug 'jiangmiao/auto-pairs'
     Plug 'wellle/targets.vim'
-    Plug 'editorconfig/editorconfig-vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'ludovicchabant/vim-gutentags'
     Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 
 " Basic configuration
+set hidden
 set noswapfile
 let mapleader=","
 set encoding=utf-8
@@ -60,8 +60,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Auto reload on external change
 set autoread
 set updatetime=2000
-au CursorHold,CursorHoldI * checktime
-au FocusGained,BufEnter * :checktime
+autocmd CursorHold,CursorHoldI * checktime
+autocmd FocusGained,BufEnter * :checktime
 
 " Better scrolling
 noremap J <C-d>
@@ -72,6 +72,7 @@ map <silent> <leader>q :qall!<cr>
 map <silent> <leader>x :q!<cr>
 map <leader>sudo :w !sudo tee % <CR><CR>
 cmap W w
+cmap Q q
 
 " Copy/Paste from X11 clipboard
 vnoremap <C-c> :!xclip -f -sel clip<CR>
@@ -110,12 +111,31 @@ let g:netrw_liststyle=3
 let g:netrw_altv=1
 nnoremap <leader><TAB> :Explore<CR>
 
+" Ctags
+let g:gutentags_file_list_command = 'fd --type f --hidden --exclude **/.git/'
+
 " Fuzzy finding
-if executable('fd')
-    let $FZF_DEFAULT_COMMAND='fd --type f'
-endif
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8  }  }
-nnoremap <silent> <Leader>f :Files<CR>
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+\ }
+let g:ctrlp_user_command = 'fd --type f --hidden --exclude **/.git/'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 1
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:25,results:25'
+let g:ctrlp_switch_buffer = 'ETVH'
+let g:ctrlp_max_history = 0
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_arg_map = 1
+let g:ctrlp_types = ['fil']
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("h")': ['<c-c>', '<c-cr>', '<c-s>'],
+\ }
+let g:ctrlp_extensions = ['tag']
+
+nnoremap <silent> <leader>f :CtrlP<CR>
+nnoremap <silent> <leader>c :CtrlPTag<CR>
 
 " Search
 set ignorecase
@@ -147,9 +167,11 @@ let g:currentmode={
     \ 'R'  : 'R ',
     \ 'Rv' : 'V·Replace ',
     \ 'c'  : 'Command ',
+    \ 's'  : 'Substitute ',
 \}
 
-autocmd BufEnter * call GitBranch()
+autocmd CursorHold,CursorHoldI * call GitBranch()
+autocmd FocusGained,BufEnter * call GitBranch()
 
 set statusline=
 set statusline+=%#PmenuSel#
@@ -157,6 +179,7 @@ set statusline+=\ %{toupper(g:currentmode[mode()])}
 set statusline+=%{&paste?'\ PASTE\ ':''}
 set statusline+=%{&spell?'\ SPELL\ ':''}
 set statusline+=%{StatuslineGit()}
+set statusline+=%{gutentags#statusline()}
 set statusline+=%#Normal#
 set statusline+=\ %t
 set statusline+=%=
@@ -177,8 +200,8 @@ set shortmess+=cF
 set signcolumn=number
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 inoremap <silent><expr> <TAB>
@@ -204,3 +227,5 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

@@ -61,4 +61,3 @@ highlight Label ctermfg=32
 highlight PreProc ctermfg=33
 highlight StorageClass ctermfg=40 ctermbg=22
 highlight Error ctermbg=196
-

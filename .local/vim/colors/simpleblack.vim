@@ -84,7 +84,7 @@ call <sid>hi('TabLineSel', s:simpleBlue, s:simpleBlack, 'none')
 " General
 call <sid>hi('Boolean', s:simpleGoo, s:none, 'none')
 call <sid>hi('Character', s:simpleGoo, s:none, 'none')
-call <sid>hi('Comment', s:simpleBlue, s:none, 'none')
+call <sid>hi('Comment', s:simpleBlue, s:none, 'italic')
 call <sid>hi('Conditional', s:simpleLightBlue, s:none, 'none')
 call <sid>hi('Constant', s:simpleOrange, s:none, 'none')
 call <sid>hi('Define', s:simpleLightBlue, s:none, 'none')
@@ -126,9 +126,13 @@ else
   call <sid>hi('DiffText', s:simpleSteel, s:simpleBlue2, 'none')
 endif
 
-let $FZF_DEFAULT_OPTS='
-	\ --reverse
-	\ --color=fg:#5f87af,bg:#080808,hl:#5f87af
-	\ --color=fg+:#f0d50c,bg+:#121212,hl+:#f0d50c
-	\ --color=info:#ff8700,prompt:#57ba37,pointer:#ff5787
-	\ --color=marker:#57ba37,spinner:#ff5787,header:#dedede'
+" CtrlP
+call <sid>hi('CtrlPNoEntries', s:simpleWhite, s:simpleRed, 'none')
+call <sid>hi('CtrlPMatch', s:simpleGold, s:none, 'bold')
+call <sid>hi('CtrlPLinePre', s:none, s:none, 'none')
+call <sid>hi('CtrlPPrtBase', s:simpleGreen, s:none, 'none')
+call <sid>hi('CtrlPPrtText', s:simpleBlue, s:none, 'none')
+call <sid>hi('CtrlPPrtCursor', s:simpleBlack, s:simpleSteel, 'none')
+call <sid>hi('CtrlPTagKind', s:simpleOrange, s:none, 'bold')
+call <sid>hi('CtrlPMode1', s:simpleOrange, s:none, 'bold')
+call <sid>hi('CtrlPMode2', s:simpleIndianRed, s:none, 'bold')
