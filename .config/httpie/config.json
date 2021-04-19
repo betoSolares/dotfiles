@@ -1,0 +1,9 @@
+{
+  "default_options": [
+    "--pretty=all",
+    "--style=auto",
+    "--verbose"
+  ]
+}
+
+
