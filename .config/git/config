@@ -16,18 +16,24 @@
 [difftool]
 	prompt = 0
 [alias]
+	a = "!git ls-files . --exclude-standard --others -m | peco | xargs git add"
+	bl = "!tig blame"
+	b = branch
+	c = cz -S
+	co = checkout -B
 	cs = commit -S
-	ds = "!git l | fzf | awk '{print $2}' | xargs -I {} git diff {}^ {}"
-	s = status
-	a = add -A
-	p = push
 	d = difftool
-	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+	dl = "!git l | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 	h = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+	open = "!gh repo view --web"
+	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+	r = "!git diff --name-only --cached | peco | xargs git restore --staged"
+	s = status
+	sw = "!f() { git switch $1 2>/dev/null || git switch -c $1;  }; f"
 [gpg]
 	program = gpg2
-[help]
-	autocorrect = 5
 [color]
 	ui = auto
 [column]
@@ -41,3 +47,5 @@
 	template = /home/beto/.config/git/gitmessage
 [pull]
 	rebase = true
+[ghq]
+	root = ~/Repositories
