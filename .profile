@@ -21,13 +21,10 @@ export GNUPGHOME="$HOME/.local/share/gnupg"
 export XAUTHORITY="/tmp/Xauthority"
 export XINITRC="$HOME/.config/X11/xinitrc"
 export HISTFILE="$HOME/.local/share/hist/history"
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export TMUXP_CONFIGDIR="$HOME/.local/share/tmuxp"
 export ZDOTDIR="$HOME/.config/zsh"
-export FZF_DEFAULT_OPTS='
-	--height 50% --reverse --border
-	--color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255
-	--color info:7,prompt:2,spinner:1,pointer:232,marker:1'
 
 # Less more friendly
 export LESS='-R -F -g -i -J -M -W -x2'
@@ -40,11 +37,12 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export LESSHISTFILE=/dev/null
 
+
 # Call the rc
-if [ "${SHELL}" = "/bin/bash" ]; then
-  echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-else
-  echo "$0" | grep "zsh$" >/dev/null && [ -f ~/.config/zsh/.zshrc ] && source "$HOME/.config/zsh/.zshrc"
+if [ "${SHELL}" = "/bin/bash"  ]; then
+	echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc  ] && source "$HOME/.bashrc"
+  else
+	echo "$0" | grep "zsh$" >/dev/null && [ -f ~/.config/zsh/.zshrc  ] && source "$HOME/.config/zsh/.zshrc"
 fi
 
 # Window Manager

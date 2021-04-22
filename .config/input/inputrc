@@ -12,3 +12,15 @@ set show-mode-in-prompt On
 set vi-ins-mode-string \1\e[90;1;32m\2I \1\e[34m\2
 set vi-cmd-mode-string \1\e[94;1;90m\2N \1\e[0m\2
 TAB:menu-complete
+
+set keymap vi-insert
+"\C-x\C-a": vi-movement-mode
+"\C-x\C-e": shell-expand-line
+"\C-x\C-r": redraw-current-line
+"\C-x^": history-expand-line
+"\C-r": "\C-x\C-addi$(HISTTIMEFORMAT= history | interactive-history)\C-x\C-e\C-x\C-r\C-x^\C-x\C-a$a\C-m"
+"\C-f": "source search\C-m"
+
+set keymap vi-command
+"\C-r": "i\C-r"
+"\C-f": "i\C-f"

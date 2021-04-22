@@ -1,0 +1,13 @@
+#!/bin/sh
+
+DIRS=$({ fd --type d --exact-depth 1 --absolute-path . ${HOME}/.config; \
+  ghq list -p; \
+  fd --type d --absolute-path . $PWD; \
+  fd --type d --exact-depth 1 --absolute-path . ${HOME}/samples; \
+}; 2> /dev/null)
+
+SELECT=$(echo "${DIRS}" | peco)
+
+if [ $? -eq 0  ] && [ ! -z "${SELECT}" ]; then
+  cd "${SELECT}"
+fi

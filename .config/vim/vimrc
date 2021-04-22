@@ -32,7 +32,7 @@ set noswapfile
 let mapleader=","
 set encoding=utf-8
 set lazyredraw
-set wrap
+set nowrap
 set autoindent
 set smartindent
 set tabstop=8

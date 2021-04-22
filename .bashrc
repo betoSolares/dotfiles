@@ -2,20 +2,32 @@
 # Bash read this file
 
 # Aliases
-alias lynx='lynx -cfg=/home/beto/.config/lynx/lynx.cfg'
+alias bc='bc -l'
+alias calcurse='calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
-alias calcurse='calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse'
+alias lynx='lynx -cfg=/home/beto/.config/lynx/lynx.cfg'
+alias mkdir='mkdir -pv'
+
+alias cat='bat'
 alias ls='lsd'
 alias ll='lsd -lA'
-alias bc='bc -l'
-alias mkdir='mkdir -pv'
-alias null='/dev/null'
-alias cls='clear'
-alias ts='tmux-starter'
-alias open='xdg-open'
 alias tree='lsd --tree'
 alias vi='vim'
+
+alias cls='clear'
+alias g='git'
+alias open='xdg-open'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias tk='tmux-killer'
+alias tm='tmuxp'
+alias ts='tmux-starter'
+alias txk='tmux kill-server'
+alias txl='tmux ls'
+alias v='vim'
+alias xcpy='xclip -selection clipboard'
+alias xpst='xclip -selection clipboard -o'
 
 # GPG ask in tty
 export GPG_TTY=$(tty)
@@ -107,7 +119,7 @@ function scm_prompt {
 
 function show_host {
 	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-		echo -ne "\[\e[1;91m\]\u\[\e[1;94m\]@\[\e[1;92m\]\h"
+		echo -ne "\[\e[1;91m\]\u\[\e[1;94m\]@\[\e[1;92m\]\h "
 	fi
 }
 
@@ -116,5 +128,11 @@ export PS1='$(show_host)\[\e[1;93m\]\w \[\e[1;90m\]$(scm_prompt)\[\e[1;97m\]\$\[
 
 stty -ixon # Disable ctrl-s and ctrl-q
 shopt -s autocd # cd by typing the name
+shopt -s dirspell # Correct spelling errors during tab-completion
 shopt -s cdspell # Correct minor errors in cd
+shopt -s checkwinsize # Update window size after every command
 shopt -s cmdhist # Save multiline commands in single line
+
+# Autocompletion
+source <(cod init $$ bash)
+eval "$(gh completion -s bash)"

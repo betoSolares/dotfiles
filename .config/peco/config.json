@@ -1,5 +1,5 @@
 {
-  "InitialFilter": "IgnoreCase",
+  "InitialFilter": "Fuzzy",
   "OnCancel": "error",
   "Use256Color": true,
   "Layout": "bottom-up",
