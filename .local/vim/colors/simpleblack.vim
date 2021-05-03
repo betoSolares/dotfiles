@@ -119,6 +119,7 @@ if &diff
   call <sid>hi('DiffChange', s:simpleBlack, s:simpleGold, 'none')
   call <sid>hi('DiffDelete', s:simpleRed2, s:simpleRed, 'none')
   call <sid>hi('DiffText', s:simpleGray, s:simpleBlue2, 'none')
+  call <sid>hi('CursorLine', s:none, s:none, 'none')
 else
   call <sid>hi('DiffAdd', s:simpleGreen, s:none, 'none')
   call <sid>hi('DiffChange', s:simpleGold, s:none, 'none')
