@@ -5,5 +5,5 @@
 
 . "${HOME}/.cache/wal/colors.sh"
 regex='(((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]'
-url=$(grep -Po "$regex" | dmenu -p "Go:" -l 5 -nb $color1 -nf $color7 -sb $color0 -sf $color1) || exit
+url=$(grep -Po "$regex" | sort -u | dmenu -p "Go:" -l 5 -nb $color1 -nf $color7 -sb $color0 -sf $color1) || exit
 $BROWSER "$url"
