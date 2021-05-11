@@ -1,0 +1,17 @@
+#!/bin/sh
+#original artwork by http://www.sanderfocus.nl/#/portfolio/tech-heroes
+#converted to shell by #nixers @ irc.unix.chat
+
+cat << 'eof'
+    .-"^`\                                        /`^"-.
+  .'   ___\                                      /___   `.
+ /    /.---.                                    .---.\    \
+|    //     '-.  ___________________________ .-'     \\    |
+|   ;|         \/--------------------------//         |;   |
+\   ||       |\_)          Red Hat         (_/|       ||   /
+ \  | \  . \ ;  |     Enterprise Linux     || ; / .  / |  /
+  '\_\ \\ \ \ \ |                          ||/ / / // /_/'
+        \\ \ \ \|    Server Release 5.3    |/ / / //
+         `'-\_\_\     Codename Tikanga     /_/_/-'`
+                '--------------------------'
+eof

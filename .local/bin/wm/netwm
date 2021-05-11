@@ -1,0 +1,3 @@
+#!/bin/sh
+
+iw dev | grep ssid | awk '{print $2}'
