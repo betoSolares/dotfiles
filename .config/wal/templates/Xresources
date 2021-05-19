@@ -18,6 +18,12 @@
 !*.color14: {color14}
 !*.color15: {color15}
 
+! Polybar
+*.pb: {color1}
+*.pbalt: {color2}
+*.pf: {color7}
+*.pfalt: {color0}
+
 ! Simple black
 *.foreground: #dadada
 *.background: #080808

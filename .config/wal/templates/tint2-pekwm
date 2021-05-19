@@ -54,7 +54,7 @@ border_color_pressed = #000000 0
 panel_items = ECEEEBTEEEEEE
 panel_monitor = all
 panel_position = top center horizontal
-panel_size = 99% 25
+panel_size = 100% 25
 scale_relative_to_dpi = 0
 scale_relative_to_screen_height = 0
 panel_shrink = 0
@@ -183,7 +183,7 @@ battery_background_id = 2
 # Volume icon
 execp = new
 execp_command = iconvolume
-execp_interval = 0
+execp_interval = 1
 execp_continuous = 0
 execp_font = Hack Nerd Font 10
 execp_font_color = {color7} 100
@@ -232,7 +232,7 @@ execp_background_id = 2
 
 # Network
 execp = new
-execp_command = net
+execp_command = netwm
 execp_interval = 1
 execp_continuous = 0
 execp_font = Hack Nerd Font 9
