@@ -1,0 +1,9 @@
+mod_dock.create{
+    mode="embedded",
+    screen=0,
+    pos="bl",
+    grow="right",
+    is_auto=true,
+    floating_hidden=false,
+    name="*dock*",
+}
