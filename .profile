@@ -16,7 +16,6 @@ export LS_COLORS="su=30;41:ow=30;42:st=30;44:"
 export BC_ENV_ARGS=~/.config/bc/bc.conf
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export WEECHAT_HOME="$HOME/.config/weechat"
-export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export XAUTHORITY="/tmp/Xauthority"
 export XINITRC="$HOME/.config/X11/xinitrc"
@@ -25,6 +24,7 @@ export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export TMUXP_CONFIGDIR="$HOME/.local/share/tmuxp"
 export ZDOTDIR="$HOME/.config/zsh"
+export WGETRC="$HOME/.config/wget/wgetrc"
 
 # Less more friendly
 export LESS='-R -F -g -i -J -M -W -x2'
@@ -49,7 +49,8 @@ fi
 #export WM="qtile"
 #export WM="fvwm"
 #export WM="dwm"
-export WM="pekwm"
+#export WM="pekwm"
+export WM="notion"
 
 # Start graphical server
 if [[ "$(tty)" = "/dev/tty1" ]]; then
