@@ -2,7 +2,7 @@
 # X11 read this file in startup
 
 # Load and merge the resources file
-[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
+[ -f "$HOME"/.config/X11/xresources ] && xrdb -merge -I$HOME "$HOME"/.config/X11/xresources
 
 # Keyboard adjustment
 setxkbmap -option caps:swapescape
