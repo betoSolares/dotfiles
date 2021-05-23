@@ -1,0 +1,24 @@
+#!/bin/sh
+
+SERVICES=""
+
+# Recorder
+if [ -f "/tmp/recordingpid" ]; then
+  SERVICES="壘 "
+fi
+
+# Lock screen services
+if pgrep -x xautolock >/dev/null; then
+  SERVICES="${SERVICES} "
+fi
+
+# Docker service
+if [ "$(systemctl is-active docker.service)" = "active" ]; then
+  SERVICES="${SERVICES} "
+fi
+
+if [ ! -z "${SERVICES}" ]; then
+  echo "[ ${SERVICES}]"
+else
+  echo ""
+fi

@@ -1,8 +1,8 @@
 [colors]
-background=${xrdb:color1:#222}
-background-alt=${xrdb:color2:#222}
-foreground=${xrdb:color7:#222}
-foreground-alt=${xrdb:color0:#222}
+background=${xrdb:pb:#222}
+background-alt=${xrdb:pbalt:#222}
+foreground=${xrdb:pf:#222}
+foreground-alt=${xrdb:pfalt:#222}
 
 [bar/fvwm]
 height=20
@@ -35,6 +35,23 @@ modules-left=dwm-module
 modules-center=clock
 modules-right=mpd backlight icon-volume volume network date battery-icon battery
 bottom=false
+
+[bar/notion]
+height=20
+width=100%
+offset-x=0%
+offset-y=0
+override-redirect=false
+fixed-center=true
+padding=1
+module-margin-left=1
+background=${colors.background}
+foreground=${colors.foreground-alt}
+font-0="Monospace:pixelsize=10;3"
+modules-left=ewmh mpd
+modules-center=tad
+modules-right=services backlight icon-volume volume network battery-icon battery
+bottom=true
 
 [module/date]
 type=internal/date
@@ -78,7 +95,6 @@ label-connected-foreground=${colors.foreground}
 label-disconnected=
 label-disconnected-foreground=${colors.foreground}
 ramp-signal-0=
-
 
 [module/volume]
 type=custom/script
@@ -141,3 +157,42 @@ label-visible-padding=${self.label-focused-padding}
 label-empty=""
 label-empty-background=${colors.background}
 label-empty-padding=1
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = false
+enable-scroll = false
+
+label-active=
+label-active-padding=1
+label-active-foreground=${colors.foreground}
+label-active-background=${colors.background}
+
+label-occupied=
+label-occupied-padding=1
+label-occupied-foreground=${colors.foreground}
+label-occupied-background=${colors.background}
+
+label-urgent=
+label-urgent-padding=1
+label-urgent-foreground=${colors.foreground-alt}
+label-urgent-background=${colors.background}
+
+label-empty=
+label-empty-padding=1
+label-empty-foreground=${colors.foreground}
+label-empty-background=${colors.background}
+
+[module/tad]
+type=internal/date
+internal=1.0
+date=%a %b %d
+time=%I:%M:%S %P
+label=%date%, %time%
+label-foreground=${colors.foreground}
+
+[module/services]
+type=custom/script
+exec=servicerunning
+interval=1

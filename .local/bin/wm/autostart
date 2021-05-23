@@ -2,10 +2,9 @@
 # Functions to run on start
 
 colorscheme RECOVERY # Generate the color scheme
-#compton --config ~/.config/compton/"${WM}".conf & # Initialize compton
 killall -q unclutter
 unclutter & # Hide cursor idle
 launch-poly
-#betterlockscreen -u $(cat $HOME/.cache/wal/wal) # Set lock screen wallpaper
-#xautolock -time 5 -locker 'slock' & # Lock automatic
-#xautolock -time 5 -locker 'betterlockscreen -l dimblur' & # Lock automatic
+betterlockscreen -u $(cat $HOME/.cache/wal/wal) # Set lock screen wallpaper
+killall -q xautolock
+xautolock -time 5 -locker 'betterlockscreen -l dimblur' & # Lock automatic
