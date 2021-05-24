@@ -65,7 +65,7 @@ function git_prompt_info {
 	SCM_STATE='✓'
 	local status=$(command git status --porcelain 2> /dev/null | tail -n1)
 	if [[ -n ${status} ]]; then
-		SCM_STATE='✗'
+		SCM_STATE='x'
 	fi
 }
 
@@ -92,7 +92,7 @@ function hg_prompt_info {
 
 	# Status from https://github.com/ohmybash/oh-my-bash/blob/master/themes/base.theme.sh
 	if [[ -n $(hg status 2> /dev/null) ]]; then
-		SCM_STATE='✗'
+		SCM_STATE='x'
 	else
 		SCM_STATE='✓'
 	fi
@@ -104,7 +104,7 @@ function svn_prompt_info {
 
 	# Status
 	if [[ -n $(svn status 2> /dev/null) ]]; then
-		SCM_STATE='✗'
+		SCM_STATE='x'
 	else
 		SCM_STATE='✓'
 	fi
