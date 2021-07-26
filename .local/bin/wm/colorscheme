@@ -11,6 +11,6 @@ fi
 cp -f "${HOME}"/.cache/wal/Xresources "${HOME}"/.config/X11/xresources
 xrdb ~/.config/X11/xresources
 cp -f "${HOME}"/.cache/wal/fvwm "${HOME}"/.config/fvwm/colorset
+cp -f "${HOME}"/.cache/wal/config.json "${HOME}"/.local/share/startpage/config/config.json
 
 dunstcolors # Start dunst with colors
-#betterlockscreen -u "$(cat $HOME/.cache/wal/wal)" # Set lock screen wallpaper
