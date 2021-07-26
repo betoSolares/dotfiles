@@ -74,6 +74,12 @@ if [ $basedir_specified -eq $FALSE ]; then
 	ln -fsT "$XDG_CONFIG_HOME/qutebrowser" "$basedir/config"
 	ln -fsT "$XDG_CACHE_HOME/qutebrowser/$session" "$basedir/cache"
 	ln -fsT "$XDG_STATE_HOME/qutebrowser/$session" "$basedir/data"
+
+	if [ -d "$XDG_DATA_HOME/qutebrowser/qtwebengine_dictionaries" ]; then
+		ln -fsT "$XDG_DATA_HOME/qutebrowser/qtwebengine_dictionaries" \
+		        "$basedir/data/qtwebengine_dictionaries"
+	fi
+
 	if [ -d "$XDG_DATA_HOME/qutebrowser/userscripts" ]; then
 		ln -fsT "$XDG_DATA_HOME/qutebrowser/userscripts" \
 		        "$basedir/data/userscripts"
