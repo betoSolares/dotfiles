@@ -25,6 +25,8 @@ export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export TMUXP_CONFIGDIR="$HOME/.local/share/tmuxp"
 export ZDOTDIR="$HOME/.config/zsh"
 export WGETRC="$HOME/.config/wget/wgetrc"
+export CM_DIR="$HOME/.local/share/clipmenu"
+export CM_MAX_CLIPS=100
 
 # Less more friendly
 export LESS='-R -F -g -i -J -M -W -x2'

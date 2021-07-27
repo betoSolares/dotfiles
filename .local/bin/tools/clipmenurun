@@ -1,0 +1,5 @@
+#!/bin/sh
+# Run clipmenu with colors from pywal
+
+. "${HOME}/.cache/wal/colors.sh"
+clipmenu -nb $color1 -nf $color7 -sb $color0 -sf $color1

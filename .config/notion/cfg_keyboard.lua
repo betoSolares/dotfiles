@@ -41,6 +41,7 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."q", "mod_query.exec_on_merr(_, 'qute')"),
     kpress(META.."e", "mod_query.exec_on_merr(_, 'dmenuunicode')"),
     kpress(ALTMETA.."e", "mod_query.exec_on_merr(_, 'dmenukaomoji')"),
+    kpress(META.."c", "mod_query.exec_on_merr(_, 'clipmenurun')"),
     kpress(ALTMETA.."w", "mod_query.exec_on_merr(_, 'wpa-cute')"),
     kpress(META.."v", "mod_query.exec_on_merr(_, 'st -e vim')"),
     kpress(META.."f", "mod_query.exec_on_merr(_, 'st -e ranger')"),
