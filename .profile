@@ -27,6 +27,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 export WGETRC="$HOME/.config/wget/wgetrc"
 export CM_DIR="$HOME/.local/share/clipmenu"
 export CM_MAX_CLIPS=100
+export SUDO_ASKPASS="$HOME/.local/bin/tools/dpass"
 
 # Less more friendly
 export LESS='-R -F -g -i -J -M -W -x2'

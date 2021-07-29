@@ -1,0 +1,7 @@
+#!/bin/sh
+# Run dmenu_bw without saving contents to clipmenu
+
+clipctl disable
+dmenu_bw
+sleep 1
+clipctl enable

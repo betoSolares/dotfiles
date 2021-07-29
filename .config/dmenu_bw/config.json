@@ -1,0 +1,17 @@
+{
+  "copyCmds": {
+    "login": {
+      ".login.username": [
+        "echo \"$value\" | xclip -i -selection primary"
+      ],
+      ".login.password": [
+        "echo \"$value\" | xclip -i -selection clipboard"
+      ]
+    },
+    "securenote": {},
+    "card": {},
+    "identity": {}
+  },
+  "editCmd": "st -e vim",
+  "passwordGenCmd": "tr -dc 'a-zA-Z0-9!@#$%^&*()-=_+[]~{}|;:,./<>?' < /dev/urandom | head -c 16"
+}
