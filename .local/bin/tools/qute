@@ -84,6 +84,11 @@ if [ $basedir_specified -eq $FALSE ]; then
 		ln -fsT "$XDG_DATA_HOME/qutebrowser/userscripts" \
 		        "$basedir/data/userscripts"
 	fi
+
+	if [ -d "$XDG_DATA_HOME/qutebrowser/greasemonkey" ]; then
+		ln -fsT "$XDG_DATA_HOME/qutebrowser/greasemonkey" \
+		        "$basedir/data/greasemonkey"
+	fi
 fi
 
 # Search "real" qutebrowser executable:

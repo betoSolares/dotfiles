@@ -101,6 +101,13 @@ config.bind('<Alt-k>', 'tab-prev')
 config.bind('<Alt-h>', 'back')
 config.bind('<Alt-l>', 'forward')
 config.bind('<Ctrl-m>', 'tab-mute')
-config.bind('<Ctrl-h>', 'open qute://history')
+config.bind('<Ctrl-h>', 'open -t qute://history')
 config.bind('dd', 'tab-close')
 config.bind('di', 'hint images download')
+config.bind('ta', 'config-cycle content.blocking.enabled True False')
+
+# Aliases for commands
+c.aliases = {
+    'bitwarden' : 'spawn --userscript qute-bitwarden',
+    'toggle-adblock' : 'config-cycle content.blocking.enabled True False'
+}
