@@ -3,7 +3,7 @@
 DIRS=$({ fd --type d --exact-depth 1 --absolute-path . ${HOME}/.config; \
   ghq list -p; \
   fd --type d --exact-depth 2 --absolute-path . $PWD; \
-  fd --type d --exact-depth 1 --absolute-path . ${HOME}/samples; \
+  fd --type d --exact-depth 1 --absolute-path . ${HOME}/Samples; \
 }; 2> /dev/null)
 
 SELECT=$(echo "${DIRS}" | sort -u | peco)
