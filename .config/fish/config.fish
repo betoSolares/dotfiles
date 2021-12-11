@@ -2,29 +2,27 @@
 
 # Aliases
 alias bc='bc -l'
-alias calcurse='calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse'
-alias grep='grep --color=auto'
+alias cat='bat'
+alias g='git'
 alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ll='lsd -lA'
+alias ls='lsd'
 alias lynx='lynx -cfg=/home/beto/.config/lynx/lynx.cfg'
 alias mkdir='mkdir -pv'
-
-alias cat='bat'
-alias ls='lsd'
-alias ll='lsd -lA'
-alias tree='lsd --tree'
-alias vi='vim'
-
-alias cls='clear'
-alias g='git'
 alias open='xdg-open'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias tk='tmux-killer'
-alias tm='tmuxp'
+alias tree='lsd --tree'
 alias ts='tmux-starter'
 alias txk='tmux kill-server'
 alias txl='tmux ls'
+alias txp='tmuxp'
+alias txpf='tmuxp freeze'
+alias txpl='tmuxp load'
 alias v='vim'
+alias vi='vim'
 alias xcpy='xclip -selection clipboard'
 alias xpst='xclip -selection clipboard -o'
 
@@ -57,9 +55,6 @@ end
 # Vi mode
 fish_vi_key_bindings
 set fish_cursor_default block
-
-# Pywal colors
-#source ~/.cache/wal/colors.fish
 
 # Autocompletion
 cod init %self fish | source

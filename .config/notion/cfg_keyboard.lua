@@ -46,8 +46,6 @@ defbindings("WMPlex.toplevel", {
     kpress(ALTMETA.."w", "mod_query.exec_on_merr(_, 'wpa-cute')"),
     kpress(META.."v", "mod_query.exec_on_merr(_, 'st -e vim')"),
     kpress(META.."f", "mod_query.exec_on_merr(_, 'st -e ranger')"),
-    kpress(META.."w", "mod_query.exec_on_merr(_, 'st -e weechat')"),
-    kpress(META.."n", "mod_query.exec_on_merr(_, 'st -e neomutt')"),
     kpress(ALTMETA.."m", "mod_query.exec_on_merr(_, 'dmenumount')"),
     kpress(ALTMETA.."u", "mod_query.exec_on_merr(_, 'dmenuunmount')"),
     kpress(META.."F8", "mod_query.exec_on_merr(_, 'recorder')"),

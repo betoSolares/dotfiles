@@ -23,7 +23,7 @@ c.completion.use_best_match = True
 c.confirm_quit = ['downloads', 'multiple-tabs']
 
 # ad/host blocker
-c.content.blocking.enabled = True
+#c.content.blocking.enabled = True
 
 # Encoding
 c.content.default_encoding = 'utf-8'
@@ -63,7 +63,7 @@ c.keyhint.radius = 10
 c.keyhint.delay = 1000
 
 # Don't load autoconfig
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 # Scrollbar
 c.scrolling.bar = 'always'

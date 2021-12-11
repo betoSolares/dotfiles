@@ -8,13 +8,9 @@
   KeyPress = "Mod4 Q" { Actions = "Exec qute" }
   KeyPress = "Mod4 E" { Actions = "Exec dmenuunicode" }
   KeyPress = "Mod4 Shift E" { Actions = "Exec dmenukaomoji" }
-  KeyPress = "Mod4 Shift W" { Actions = "Exec wpa_gui" }
+  KeyPress = "Mod4 Shift W" { Actions = "Exec wpa-cute" }
   KeyPress = "Mod4 V" { Actions = "Exec st -e vim" }
   KeyPress = "Mod4 F" { Actions = "Exec st -e ranger" }
-  KeyPress = "Mod4 W" { Actions = "Exec st -e weechat" }
-  KeyPress = "Mod4 C" { Actions = "Exec st -e cava" }
-  KeyPress = "Mod4 S" { Actions = "Exec st -e slack" }
-  KeyPress = "Mod4 N" { Actions = "Exec st -e neomutt" }
   KeyPress = "Mod4 Shift M" { Actions = "Exec dmenumount" }
   KeyPress = "Mod4 Shift U" { Actions = "Exec dmenuunmount" }
   KeyPress = "Mod4 U" { Actions = "Exec dmenuunmount" }

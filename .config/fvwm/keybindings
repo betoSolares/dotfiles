@@ -12,11 +12,6 @@ Silent Key e A 4s Exec dmenukaomoji
 Silent Key w A 4s Exec wpa-cute
 Silent Key v A 4 Exec $[TERMINAL] -e vim
 Silent Key f A 4 Exec $[TERMINAL] -e ranger
-Silent Key w A 4 Exec $[TERMINAL] -e weechat
-Silent Key m A 4 Exec $[TERMINAL] -e ncmpcpp
-Silent Key c A 4 Exec $[TERMINAL] -e cava
-Silent Key s A 4 Exec slack
-Silent Key n A 4 Exec $[TERMINAL] -e neomutt
 Silent Key m A 4s Exec dmenumount
 Silent Key u A 4s Exec dmenuunmount
 Silent Key plus A 4 Exec xzoom

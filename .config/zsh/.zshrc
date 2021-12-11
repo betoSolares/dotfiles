@@ -2,29 +2,27 @@
 
 # Aliases
 alias bc='bc -l'
-alias calcurse='calcurse -C ~/.config/calcurse -D ~/.local/share/calcurse'
+alias cat='bat'
 alias diff='diff --color=auto'
+alias g='git'
 alias grep='grep --color=auto'
+alias ll='lsd -lA'
+alias ls='lsd'
 alias lynx='lynx -cfg=/home/beto/.config/lynx/lynx.cfg'
 alias mkdir='mkdir -pv'
-
-alias cat='bat'
-alias ls='lsd'
-alias ll='lsd -lA'
-alias tree='lsd --tree'
-alias vi='vim'
-
-alias cls='clear'
-alias g='git'
 alias open='xdg-open'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias tk='tmux-killer'
-alias tm='tmuxp'
+alias tree='lsd --tree'
 alias ts='tmux-starter'
 alias txk='tmux kill-server'
 alias txl='tmux ls'
+alias txp='tmuxp'
+alias txpf='tmuxp freeze'
+alias txpl='tmuxp load'
 alias v='vim'
+alias vi='vim'
 alias xcpy='xclip -selection clipboard'
 alias xpst='xclip -selection clipboard -o'
 
@@ -44,100 +42,100 @@ _comp_options+=(globdots)
 
 # SCM in prompt
 function check_scm {
-	if [[ -f .git/HEAD ]]; then
-		SCM='git'
-	elif which git &> /dev/null && [[ -n "$(git rev-parse --is-inside-work-tree 2> /dev/null)" ]]; then
-		SCM='git'
-	elif [[ -d .hg ]]; then
-		SCM='hg'
-	elif which hg &> /dev/null && [[ -n "$(hg root 2> /dev/null)" ]]; then
-		SCM='hg'
-	elif [[ -d .svn ]]; then
-		SCM='svn'
-	else
-		SCM='NONE'
-	fi
+  if [[ -f .git/HEAD ]]; then
+    SCM='git'
+  elif which git &> /dev/null && [[ -n "$(git rev-parse --is-inside-work-tree 2> /dev/null)" ]]; then
+    SCM='git'
+  elif [[ -d .hg ]]; then
+    SCM='hg'
+  elif which hg &> /dev/null && [[ -n "$(hg root 2> /dev/null)" ]]; then
+    SCM='hg'
+  elif [[ -d .svn ]]; then
+    SCM='svn'
+  else
+    SCM='NONE'
+  fi
 }
 
 function scm_info {
-	check_scm
-	if [[ ${SCM} == 'git' ]]; then
-		git_prompt_info
-	elif [[ ${SCM} == 'hg' ]]; then
-		hg_prompt_info
-	elif [[ ${SCM} == 'svn' ]]; then
-		svn_prompt_info
-	fi
+  check_scm
+  if [[ ${SCM} == 'git' ]]; then
+    git_prompt_info
+  elif [[ ${SCM} == 'hg' ]]; then
+    hg_prompt_info
+  elif [[ ${SCM} == 'svn' ]]; then
+    svn_prompt_info
+  fi
 }
 
 function git_prompt_info {
-	# Branch from here: https://github.com/njhartwell/pw3nage
-	unsafe_ref=$(command git symbolic-ref -q HEAD 2> /dev/null)
-	stripped_ref=${unsafe_ref##refs/heads/}
-	clean_ref=${stripped_ref//[^a-zA-Z0-9\/]/-}
-	SCM_BRANCH=${clean_ref}
+  # Branch from here: https://github.com/njhartwell/pw3nage
+  unsafe_ref=$(command git symbolic-ref -q HEAD 2> /dev/null)
+  stripped_ref=${unsafe_ref##refs/heads/}
+  clean_ref=${stripped_ref//[^a-zA-Z0-9\/]/-}
+  SCM_BRANCH=${clean_ref}
 
-	# Status
-	SCM_STATE='✓'
-	st=$(command git status --porcelain 2> /dev/null | tail -n1)
-	if [[ -n ${st} ]]; then
-		SCM_STATE='✗'
-	fi
+  # Status
+  SCM_STATE='✓'
+  st=$(command git status --porcelain 2> /dev/null | tail -n1)
+  if [[ -n ${st} ]]; then
+    SCM_STATE='✗'
+  fi
 }
 
 function get_hg_root {
-	CURRENT_DIR=$(pwd)
-	while [ "$CURRENT_DIR" != "/" ]; do
-		if [ -d "$CURRENT_DIR/.hg" ]; then
-			echo "$CURRENT_DIR/.hg"
-			return
-		fi
-		CURRENT_DIR=$(dirname $CURRENT_DIR)
-	done
+  CURRENT_DIR=$(pwd)
+  while [ "$CURRENT_DIR" != "/" ]; do
+    if [ -d "$CURRENT_DIR/.hg" ]; then
+      echo "$CURRENT_DIR/.hg"
+      return
+    fi
+    CURRENT_DIR=$(dirname $CURRENT_DIR)
+  done
 }
 
 function hg_prompt_info {
-	#Branch from https://github.com/ohmybash/oh-my-bash/blob/master/themes/base.theme.sh
-	HG_ROOT=$(get_hg_root)
-	if [ -f "$HG_ROOT/branch" ]; then
-		# Mercurial holds it's current branch in .hg/branch file
-		SCM_BRANCH=$(cat "$HG_ROOT/branch")
-	else
-		SCM_BRANCH=$(hg summary 2> /dev/null | grep branch: | awk '{print $2}')
-	fi
+  #Branch from https://github.com/ohmybash/oh-my-bash/blob/master/themes/base.theme.sh
+  HG_ROOT=$(get_hg_root)
+  if [ -f "$HG_ROOT/branch" ]; then
+    # Mercurial holds it's current branch in .hg/branch file
+    SCM_BRANCH=$(cat "$HG_ROOT/branch")
+  else
+    SCM_BRANCH=$(hg summary 2> /dev/null | grep branch: | awk '{print $2}')
+  fi
 
-	# Status from https://github.com/ohmybash/oh-my-bash/blob/master/themes/base.theme.sh
-	if [[ -n $(hg status 2> /dev/null) ]]; then
-		SCM_STATE='✗'
-	else
-		SCM_STATE='✓'
-	fi
+  # Status from https://github.com/ohmybash/oh-my-bash/blob/master/themes/base.theme.sh
+  if [[ -n $(hg status 2> /dev/null) ]]; then
+    SCM_STATE='✗'
+  else
+    SCM_STATE='✓'
+  fi
 }
 
 function svn_prompt_info {
-	# Branch
-	SCM_BRANCH=$(svn info | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$')
+  # Branch
+  SCM_BRANCH=$(svn info | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$')
 
-	# Status
-	if [[ -n $(svn status 2> /dev/null) ]]; then
-		SCM_STATE='✗'
-	else
-		SCM_STATE='✓'
-	fi
+  # Status
+  if [[ -n $(svn status 2> /dev/null) ]]; then
+    SCM_STATE='✗'
+  else
+    SCM_STATE='✓'
+  fi
 }
 
 function scm_prompt {
-	scm_info
-	if [[ $SCM != 'NONE' ]]; then
-		echo -ne "  ${SCM_BRANCH} ${SCM_STATE}"
-	fi
+  scm_info
+  if [[ $SCM != 'NONE' ]]; then
+    echo -ne "  ${SCM_BRANCH} ${SCM_STATE}"
+  fi
 }
 
 # Vi mode indicator
 VIMODE='[INS]'
 function zle-keymap-select {
-	VIMODE="${${KEYMAP/vicmd/[CMD]}/(main|viins)/[INS]}"
-	zle reset-prompt
+  VIMODE="${${KEYMAP/vicmd/[CMD]}/(main|viins)/[INS]}"
+  zle reset-prompt
 }
 zle -N zle-keymap-select
 
