@@ -1,7 +1,7 @@
 [user]
 	email = betosolaresgar@gmail.com
 	name = Roberto Solares
-	signingkey = 6E7FB0D0FB5B52EB
+	signingkey = 0260433EE2DBC0FD
 [core]
 	editor = vim
 	pager = less
@@ -15,23 +15,34 @@
 	conflictstyle = diff3
 [difftool]
 	prompt = 0
+[mergetool]
+	prompt = false
 [alias]
 	a = "!git ls-files . --exclude-standard --others -m | peco | xargs git add"
-	bl = "!tig blame"
 	b = branch
-	c = cz -S
+	bl = "!tig blame"
 	co = checkout -B
 	cs = commit -S
 	d = difftool
 	dl = "!git l | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+	f = fetch
 	h = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+	issue = "!gh issues"
+	issueme = "!gh isme"
 	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
-	open = "!gh repo view --web"
+	m = mergetool
+	newissue = "!gh ni"
+	newpr = "!gh np"
+	open = "!gh open"
 	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+	pr = "!gh prs"
+	prme = "!gh prme"
 	r = "!git diff --name-only --cached | peco | xargs git restore --staged"
 	s = status
-	sw = "!f() { git switch $1 2>/dev/null || git switch -c $1;  }; f"
+	sw = "!f() { git switch $1 2>/dev/null || git switch -c $1; }; f"
+	viewissue = "!gh iv"
+	viewpr = "!gh pv"
 [gpg]
 	program = gpg2
 [color]

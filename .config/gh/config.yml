@@ -3,7 +3,6 @@ editor: vim
 prompt: enabled
 pager: less
 aliases:
-    co: "!gh pr list | peco | awk '{print $1}' | xargs gh pr checkout"
     open: repo view --web
     issues: issue list
     prs: pr list

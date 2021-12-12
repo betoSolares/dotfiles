@@ -11,6 +11,9 @@
 # ctags
 .notags
 tags
+tags.temp
+tags.lock
+tags.files
 TAGS
 
 # Custom
