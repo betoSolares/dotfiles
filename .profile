@@ -3,6 +3,7 @@
 
 # Export own scripts to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
+export PATH="$PATH$HOME/.local/npm/bin"
 
 # Some Default Variables
 export BC_ENV_ARGS=~/.config/bc/bc.conf
