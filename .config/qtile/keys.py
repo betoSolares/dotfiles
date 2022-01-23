@@ -13,7 +13,7 @@ mouse = [
 
 keys = [
     # Applications
-    Key([mod], "Return", lazy.spawn("st")),
+    Key([mod], "Return", lazy.spawn("alacritty")),
     Key([mod], "b", lazy.spawn("chromium")),
     Key([mod, "shift"], "b", lazy.spawn("chromium --incognito")),
     Key([mod], "d", lazy.spawn("dmenurun")),
@@ -21,8 +21,8 @@ keys = [
     Key([mod], "e", lazy.spawn("dmenuunicode")),
     Key([mod, "shift"], "e", lazy.spawn("dmenukaomoji")),
     Key([mod, "shift"], "w", lazy.spawn("wpa-cute")),
-    Key([mod], "v", lazy.spawn("st -e vim")),
-    Key([mod], "f", lazy.spawn("st -e ranger")),
+    Key([mod], "v", lazy.spawn("alacritty -e vim")),
+    Key([mod], "f", lazy.spawn("alacritty -e ranger")),
     Key([mod, "shift"], "m", lazy.spawn("dmenumount")),
     Key([mod, "shift"], "u", lazy.spawn("dmenuunmount")),
     Key([mod], "plus", lazy.spawn("xzoom")),

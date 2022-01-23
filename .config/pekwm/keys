@@ -1,6 +1,6 @@
  Global {
   # Applications
-  KeyPress = "Mod4 Return" { Actions = "Exec st" }
+  KeyPress = "Mod4 Return" { Actions = "Exec alacritty" }
   KeyPress = "Mod4 X" { Actions = "Exec xterm" }
   KeyPress = "Mod4 B" { Actions = "Exec chromium" }
   KeyPress = "Mod4 Shift B" { Actions = "Exec chromium --incognito" }
@@ -9,8 +9,8 @@
   KeyPress = "Mod4 E" { Actions = "Exec dmenuunicode" }
   KeyPress = "Mod4 Shift E" { Actions = "Exec dmenukaomoji" }
   KeyPress = "Mod4 Shift W" { Actions = "Exec wpa-cute" }
-  KeyPress = "Mod4 V" { Actions = "Exec st -e vim" }
-  KeyPress = "Mod4 F" { Actions = "Exec st -e ranger" }
+  KeyPress = "Mod4 V" { Actions = "Exec alacritty -e vim" }
+  KeyPress = "Mod4 F" { Actions = "Exec alacritty -e ranger" }
   KeyPress = "Mod4 Shift M" { Actions = "Exec dmenumount" }
   KeyPress = "Mod4 Shift U" { Actions = "Exec dmenuunmount" }
   KeyPress = "Mod4 U" { Actions = "Exec dmenuunmount" }

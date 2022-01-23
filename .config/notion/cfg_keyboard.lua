@@ -34,7 +34,7 @@ defbindings("WMPlex", {
 defbindings("WMPlex.toplevel", {
     -- Applications
     kpress(META.."t", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
-    kpress(META.."Return", "mod_query.exec_on_merr(_, 'st')"),
+    kpress(META.."Return", "mod_query.exec_on_merr(_, 'alacritty')"),
     kpress(META.."b", "mod_query.exec_on_merr(_, 'chromium')"),
     kpress(ALTMETA.."b", "mod_query.exec_on_merr(_, 'chromium --incognito')"),
     kpress(META.."d", "mod_query.exec_on_merr(_, 'dmenurun')"),
@@ -44,8 +44,8 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."c", "mod_query.exec_on_merr(_, 'clipmenurun')"),
     kpress(META.."x", "mod_query.exec_on_merr(_, 'bitmenu')"),
     kpress(ALTMETA.."w", "mod_query.exec_on_merr(_, 'wpa-cute')"),
-    kpress(META.."v", "mod_query.exec_on_merr(_, 'st -e vim')"),
-    kpress(META.."f", "mod_query.exec_on_merr(_, 'st -e ranger')"),
+    kpress(META.."v", "mod_query.exec_on_merr(_, 'alacritty -e vim')"),
+    kpress(META.."f", "mod_query.exec_on_merr(_, 'alacritty -e ranger')"),
     kpress(ALTMETA.."m", "mod_query.exec_on_merr(_, 'dmenumount')"),
     kpress(ALTMETA.."u", "mod_query.exec_on_merr(_, 'dmenuunmount')"),
     kpress(META.."F8", "mod_query.exec_on_merr(_, 'recorder')"),
