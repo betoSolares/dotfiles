@@ -7,6 +7,7 @@ endif
 
 set t_Co=256
 let g:colors_name = "neon"
+set signcolumn=number
 
 " Vim >= 7.0 specific colors
 if version >= 700

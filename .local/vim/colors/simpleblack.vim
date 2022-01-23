@@ -1,5 +1,4 @@
 scriptencoding utf-8
-
 set background=dark
 hi clear
 
@@ -9,6 +8,8 @@ endif
 
 set t_Co=256
 let g:colors_name="simpleblack"
+
+set signcolumn=number
 
 " ==========================
 " Highlighting Function

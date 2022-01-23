@@ -25,24 +25,24 @@
 *.pfalt: {color0}
 
 ! Simple black
-*.foreground: #dadada
-*.background: #080808
-*.color0: #080808
-*.color1: #ff0000
-*.color2: #5faf5f
-*.color3: #ffd700
-*.color4: #5f87af
-*.color5: #ff0000
-*.color6: #5f87af
-*.color7: #dadada
-*.color8: #ff5f87
-*.color9: #ff8700
-*.color10: #d7ff5f
-*.color11: #ffd700
-*.color12: #87afd7
-*.color13: #ff8700
-*.color14: #afd7ff
-*.color15: #ffffff
+!*.foreground: #dadada
+!*.background: #080808
+!*.color0: #080808
+!*.color1: #ff0000
+!*.color2: #5faf5f
+!*.color3: #ffd700
+!*.color4: #5f87af
+!*.color5: #ff0000
+!*.color6: #5f87af
+!*.color7: #dadada
+!*.color8: #ff5f87
+!*.color9: #ff8700
+!*.color10: #d7ff5f
+!*.color11: #ffd700
+!*.color12: #87afd7
+!*.color13: #ff8700
+!*.color14: #afd7ff
+!*.color15: #ffffff
 
 ! Neon
 !*.foreground: #FFFFFF
@@ -63,3 +63,23 @@
 !*.color13: #FF5F00
 !*.color14: #0084F9
 !*.color15: #FFFFFF
+
+! Brogrammer
+*.background: #080808
+*.foreground: #d6dbe5
+*.color0: #1f1f1f
+*.color1: #f81118
+*.color2: #2dc55e
+*.color3: #ecba0f
+*.color4: #2a84d2
+*.color5: #4e5ab7
+*.color6: #1081d6
+*.color7: #d6dbe5
+*.color8: #d6dbe5
+*.color9: #de352e
+*.color10: #1dd361
+*.color11: #f3bd09
+*.color12: #1081d6
+*.color13: #5350b9
+*.color14: #0f7ddb
+*.color15: #ffffff
