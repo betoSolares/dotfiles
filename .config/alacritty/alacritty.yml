@@ -1,0 +1,109 @@
+font:
+  normal:
+    family: monospace
+    style: Regular
+
+  bold:
+    family: monospace
+    style: Bold
+
+  italic:
+    family: monospace
+    style: Italic
+
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+
+  size: 8.0
+
+selection:
+  save_to_clipboard: true
+
+key_bindings:
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: Key0, mods: Alt, action: ResetFontSize }
+  - { key: K, mods: Alt|Shift, action: IncreaseFontSize }
+  - { key: J, mods: Alt|Shift, action: DecreaseFontSize }
+  - { key: K, mods: Alt, action: ScrollLineUp }
+  - { key: J, mods: Alt, action: ScrollLineDown }
+  - { key: L, mods: Alt, command: { program: "/bin/sh", args: ["-c", "linkgrabber"] } }
+
+# Simple black
+#colors:
+#  primary:
+#    background: '#080808'
+#    foreground: '#dadada'
+#
+#  normal:
+#    black: '#080808'
+#    red: '#ff0000'
+#    yellow: '#ffd700'
+#    green: '#5faf5f'
+#    blue: '#5f87af'
+#    magenta: '#ff0000'
+#    cyan: '#5f87af'
+#    white: '#dadada'
+#
+#  bright:
+#    black: '#ff5f87'
+#    red: '#ff8700'
+#    yellow: '#ffd700'
+#    green: '#d7ff5f'
+#    blue: '#87afd7'
+#    magenta: '#ff8700'
+#    cyan: '#afd7ff'
+#    white: '#ffffff'
+
+# Neon
+#colors:
+#  primary:
+#    background: '#080808'
+#    foreground: '#ff0000'
+#
+#  normal:
+#    black: '#080808'
+#    red: '#ff0000'
+#    yellow: '#005F00'
+#    green: '#F1F100'
+#    blue: '#1717E8'
+#    magenta: '#FF0000'
+#    cyan: '#1717E8'
+#    white: '#878787'
+#
+#  bright:
+#    black: '#8a8a8a'
+#    red: '#FF5F00'
+#    yellow: '#00DF11'
+#    green: '#F1F100'
+#    blue: '#0084F9'
+#    magenta: '#FF5F00'
+#    cyan: '#0084F9'
+#    white: '#FFFFFF'
+
+# Brogrammer
+colors:
+  primary:
+    background: '#080808'
+    foreground: '#d6dbe5'
+
+  normal:
+    black: '#1f1f1f'
+    red: '#f81118'
+    yellow: '#2dc55e'
+    green: '#ecba0f'
+    blue: '#2a84d2'
+    magenta: '#4e5ab7'
+    cyan: '#1081d6'
+    white: '#d6dbe5'
+
+  bright:
+    black: '#d6dbe5'
+    red: '#de352e'
+    yellow: '#1dd361'
+    green: '#f3bd09'
+    blue: '#1081d6'
+    magenta: '#5350b9'
+    cyan: '#0f7ddb'
+    white: '#ffffff'
