@@ -20,17 +20,19 @@ call plug#begin('~/.local/vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'wellle/targets.vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'tmux-plugins/vim-tmux-focus-events'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Basic configuration
-set hidden
-set noswapfile
 let mapleader=","
 set encoding=utf-8
+set fileencodings=utf8,
+set hidden
+set noswapfile
 set lazyredraw
 set nowrap
 set autoindent
@@ -44,8 +46,7 @@ filetype plugin indent on
 
 " UI
 set background=dark
-set t_Co=256
-colorscheme simpleblack
+colorscheme brogrammer
 set fillchars+=vert:│
 set laststatus=2
 set ruler
@@ -59,17 +60,19 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Auto reload on external change
 set autoread
-set updatetime=2000
+set updatetime=100
 autocmd CursorHold,CursorHoldI * checktime
 autocmd FocusGained,BufEnter * :checktime
 
 " Better scrolling
+set scrolloff=1
+set sidescrolloff=5
+set display+=lastline
 noremap J <C-d>
 noremap K <C-u>
 
 " File saving shortcuts
 map <silent> <leader>q :qall!<cr>
-map <silent> <leader>x :q!<cr>
 map <leader>sudo :w !sudo tee % <CR><CR>
 cmap W w
 cmap Q q
@@ -85,7 +88,7 @@ map <F6> :setlocal spell! spelllang=es<CR>
 
 " Tab characters
 set list
-set listchars=nbsp:¬,tab:»·,trail:·,extends:>
+set listchars=nbsp:¬,tab:»·,trail:·,precedes:<,extends:>
 nnoremap <F3> :set list!<CR>
 
 " Split
@@ -100,6 +103,9 @@ map <C-l> <C-w>l
 " Easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
+
+" Yank till end of line
+nnoremap Y y$
 
 " Folding with space
 nnoremap <space> za
@@ -141,7 +147,7 @@ nnoremap <silent> <leader>c :CtrlPTag<CR>
 set ignorecase
 set incsearch
 set hlsearch
-nnoremap <leader><leader> :nohlsearch<CR>
+nnoremap <silent> <leader><leader> :nohlsearch<CR>
 
 " Statusline
 function! GitBranch()
@@ -155,7 +161,8 @@ function! GitBranch()
 endfunction
 
 function! StatuslineGit()
-    return strlen(g:git_branch) > 0?' ['.g:git_branch.'] ':''
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return strlen(g:git_branch) > 0?' ['.g:git_branch.'] [+'.a.' >'.m.' -'.r.']':''
 endfunction
 
 let g:currentmode={
@@ -188,6 +195,16 @@ set statusline+=\ [%{&fileformat}]
 set statusline+=\ %Y
 set statusline+=\ %l:%c
 set statusline+=\ %p%%
+set statusline+=\ [%L]
+
+" Git gutter
+let g:gitgutter_map_keys = 0
+let g:gitgutter_set_sign_backgrounds = 1
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
 
 " Vim Eighties
 let g:eighties_enabled = 1
@@ -197,7 +214,6 @@ let g:eighties_minimum_width = 120
 set nobackup
 set nowritebackup
 set shortmess+=cF
-set signcolumn=number
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -210,16 +226,21 @@ inoremap <silent><expr> <TAB>
     \ coc#refresh()
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <NUL> coc#refresh()
-
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>r <Plug>(coc-rename)
-
 nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -227,5 +248,3 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
