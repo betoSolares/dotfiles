@@ -5,6 +5,10 @@
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
 export PATH="$PATH$HOME/.local/npm/bin"
 
+# Go env
+export GOPATH="$HOME/.local/go"
+export PATH="$PATH:$GOPATH/bin"
+
 # Some Default Variables
 export BC_ENV_ARGS=~/.config/bc/bc.conf
 export BROWSER="qute"
