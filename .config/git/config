@@ -26,6 +26,7 @@
 	d = difftool
 	dl = "!git l | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 	f = fetch
+	g = grep
 	h = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
 	issue = "!gh issues"
 	issueme = "!gh isme"
