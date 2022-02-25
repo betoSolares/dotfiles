@@ -15,3 +15,10 @@ setlocal foldmethod=syntax
 
 " Ruler
 set colorcolumn=99
+
+" Coc server
+call coc#config('golang', {
+	\ 'command': 'gopls',
+	\ 'rootPatterns': ["go.mod", ".vim/", ".git/", ".hg/"],
+	\ 'filetypes': ['go']
+\ })
