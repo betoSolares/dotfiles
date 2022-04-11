@@ -1,3 +1,6 @@
+env:
+  TERM: xterm-256color
+
 font:
   normal:
     family: monospace
@@ -83,27 +86,53 @@ key_bindings:
 #    white: '#FFFFFF'
 
 # Brogrammer
+#colors:
+#  primary:
+#    background: '#080808'
+#    foreground: '#d6dbe5'
+#
+#  normal:
+#    black: '#1f1f1f'
+#    red: '#f81118'
+#    yellow: '#2dc55e'
+#    green: '#ecba0f'
+#    blue: '#2a84d2'
+#    magenta: '#4e5ab7'
+#    cyan: '#1081d6'
+#    white: '#d6dbe5'
+#
+#  bright:
+#    black: '#d6dbe5'
+#    red: '#de352e'
+#    yellow: '#1dd361'
+#    green: '#f3bd09'
+#    blue: '#1081d6'
+#    magenta: '#5350b9'
+#    cyan: '#0f7ddb'
+#    white: '#ffffff'
+
+# Ayu Dark
 colors:
   primary:
-    background: '#080808'
-    foreground: '#d6dbe5'
+    background: '0x080808'
+    foreground: '0xe6e1cf'
 
   normal:
-    black: '#1f1f1f'
-    red: '#f81118'
-    yellow: '#2dc55e'
-    green: '#ecba0f'
-    blue: '#2a84d2'
-    magenta: '#4e5ab7'
-    cyan: '#1081d6'
-    white: '#d6dbe5'
+    black:   '0x000000'
+    red:     '0xf34a4a'
+    green:   '0xbae67e'
+    yellow:  '0xffee99'
+    blue:    '0x73d0ff'
+    magenta: '0xd4bfff'
+    cyan:    '0x83CEC6'
+    white:   '0xf2f2f2'
 
   bright:
-    black: '#d6dbe5'
-    red: '#de352e'
-    yellow: '#1dd361'
-    green: '#f3bd09'
-    blue: '#1081d6'
-    magenta: '#5350b9'
-    cyan: '#0f7ddb'
-    white: '#ffffff'
+    black:   '0x737d87'
+    red:     '0xff3333'
+    green:   '0xc2d94c'
+    yellow:  '0xe7c547'
+    blue:    '0x59c2ff'
+    magenta: '0xb77ee0'
+    cyan:    '0x5ccfe6'
+    white:   '0xffffff'
