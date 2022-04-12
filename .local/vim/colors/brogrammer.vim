@@ -42,10 +42,6 @@ hi Comment ctermfg=241 ctermbg=NONE cterm=italic guifg=#606060 guibg=NONE gui=it
 hi Conditional ctermfg=167 ctermbg=NONE cterm=bold guifg=#e74c3c guibg=NONE gui=bold
 hi Constant ctermfg=62 ctermbg=NONE cterm=NONE guifg=#6c71c4 guibg=NONE gui=NONE
 hi Define ctermfg=167 ctermbg=NONE cterm=bold guifg=#e74c3c guibg=NONE gui=bold
-hi DiffAdd ctermfg=231 ctermbg=64 cterm=bold guifg=#ecf0f1 guibg=#44800a gui=bold
-hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#880505 guibg=NONE gui=NONE
-hi DiffChange ctermfg=231 ctermbg=23 cterm=NONE guifg=#ecf0f1 guibg=#1d3251 gui=NONE
-hi DiffText ctermfg=231 ctermbg=40 cterm=bold guifg=#ecf0f1 guibg=#00df00 gui=bold
 hi ErrorMsg ctermfg=15 ctermbg=167 cterm=NONE guifg=#ffffff guibg=#e74c3c gui=NONE
 hi WarningMsg ctermfg=15 ctermbg=167 cterm=NONE guifg=#ffffff guibg=#e74c3c gui=NONE
 hi Float ctermfg=62 ctermbg=NONE cterm=NONE guifg=#6c71c4 guibg=NONE gui=NONE
@@ -115,6 +111,10 @@ hi cssClassName ctermfg=41 ctermbg=NONE cterm=NONE guifg=#2ecc71 guibg=NONE gui=
 hi cssValueLength ctermfg=62 ctermbg=NONE cterm=NONE guifg=#6c71c4 guibg=NONE gui=NONE
 hi cssCommonAttr ctermfg=41 ctermbg=NONE cterm=NONE guifg=#2ecc71 guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi DiffAdd ctermfg=231 ctermbg=64 cterm=bold guifg=#ecf0f1 guibg=#44800a gui=bold
+hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#880505 guibg=NONE gui=NONE
+hi DiffChange ctermfg=231 ctermbg=23 cterm=NONE guifg=#ecf0f1 guibg=#1d3251 gui=NONE
+hi DiffText ctermfg=231 ctermbg=40 cterm=bold guifg=#ecf0f1 guibg=#00df00 gui=bold
 
 if &diff
   hi CursorLine ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
@@ -130,3 +130,53 @@ hi CtrlPPrtCursor ctermfg=234 ctermbg=231 cterm=NONE
 hi CtrlPTagKind ctermfg=208 ctermbg=NONE cterm=BOLD
 hi CtrlPMode1 ctermfg=208 ctermbg=NONE cterm=BOLD
 hi CtrlPMode2 ctermfg=167 ctermbg=NONE cterm=BOLD
+
+" Airline
+let s:scheme_slug = substitute("brogrammer", "-", "_", "g")
+
+let g:airline#themes#base16_{s:scheme_slug}#palette = {}
+
+" GUI color definitions
+let s:gui00 = '#1f1f1f'
+let s:gui01 = '#f81118'
+let s:gui02 = '#2dc55e'
+let s:gui03 = '#ecba0f'
+let s:gui04 = '#2a84d2'
+let s:gui05 = '#4e5ab7'
+let s:gui06 = '#1081d6'
+let s:gui07 = '#d6dbe5'
+let s:gui08 = '#d6dbe5'
+let s:gui09 = '#de352e'
+let s:gui0A = '#1dd361'
+let s:gui0B = '#f3bd09'
+let s:gui0C = '#1081d6'
+let s:gui0D = '#5350b9'
+let s:gui0E = '#0f7ddb'
+let s:gui0F = '#ffffff'
+
+" Terminal color definitions
+let s:cterm00        = "00"
+let s:cterm03        = "08"
+let s:cterm05        = "07"
+let s:cterm07        = "15"
+let s:cterm08        = "01"
+let s:cterm0A        = "03"
+let s:cterm0B        = "02"
+let s:cterm0C        = "06"
+let s:cterm0D        = "04"
+let s:cterm0E        = "05"
+if exists("base16colorspace") && base16colorspace == "256"
+  let s:cterm01 = "18"
+  let s:cterm02 = "19"
+  let s:cterm04 = "20"
+  let s:cterm06 = "21"
+  let s:cterm09 = "16"
+  let s:cterm0F = "17"
+else
+  let s:cterm01 = "10"
+  let s:cterm02 = "11"
+  let s:cterm04 = "12"
+  let s:cterm06 = "13"
+  let s:cterm09 = "09"
+  let s:cterm0F = "14"
+endif

@@ -17,6 +17,10 @@ setlocal foldmethod=indent
 set colorcolumn=81
 
 " Coc server
+call coc#config('preferences', {
+	\ 'formatOnSaveFiletypes': ['python']
+\ })
+
 call coc#config('python', {
 	\ 'jediEnabled': v:true,
 	\ 'linting.enabled': v:true,

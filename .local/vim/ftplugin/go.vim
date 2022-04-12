@@ -17,8 +17,14 @@ setlocal foldmethod=syntax
 set colorcolumn=99
 
 " Coc server
+call coc#config('preferences', {
+	\ 'formatOnSaveFiletypes': ['go']
+\ })
+
 call coc#config('golang', {
 	\ 'command': 'gopls',
 	\ 'rootPatterns': ["go.mod", ".vim/", ".git/", ".hg/"],
 	\ 'filetypes': ['go']
 \ })
+
+let g:go_def_mapping_enabled = 0

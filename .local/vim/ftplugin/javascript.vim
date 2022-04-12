@@ -15,3 +15,8 @@ setlocal foldmethod=syntax
 
 " Ruler
 set colorcolumn=80
+
+" Coc server
+call coc#config('preferences', {
+	\ 'formatOnSaveFiletypes': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+\ })
