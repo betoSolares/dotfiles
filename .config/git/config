@@ -40,6 +40,7 @@
 	pr = "!gh prs"
 	prme = "!gh prme"
 	r = "!git diff --name-only --cached | peco | xargs git restore --staged"
+	rb = rebase
 	s = status
 	sw = "!f() { git switch $1 2>/dev/null || git switch -c $1; }; f"
 	viewissue = "!gh iv"
