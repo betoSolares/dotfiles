@@ -50,7 +50,7 @@ filetype plugin indent on
 set number relativenumber
 set termguicolors
 set background=dark
-colorscheme ayu
+colorscheme abstract
 set fillchars+=vert:│
 set laststatus=2
 set ruler
