@@ -33,132 +33,27 @@ key_bindings:
   - { key: J, mods: Alt, action: ScrollLineDown }
   - { key: L, mods: Alt, command: { program: "/bin/sh", args: ["-c", "linkgrabber"] } }
 
-# Simple black
-#colors:
-#  primary:
-#    background: '#080808'
-#    foreground: '#dadada'
-#
-#  normal:
-#    black: '#080808'
-#    red: '#ff0000'
-#    yellow: '#ffd700'
-#    green: '#5faf5f'
-#    blue: '#5f87af'
-#    magenta: '#ff0000'
-#    cyan: '#5f87af'
-#    white: '#dadada'
-#
-#  bright:
-#    black: '#ff5f87'
-#    red: '#ff8700'
-#    yellow: '#ffd700'
-#    green: '#d7ff5f'
-#    blue: '#87afd7'
-#    magenta: '#ff8700'
-#    cyan: '#afd7ff'
-#    white: '#ffffff'
-
-# Neon
-#colors:
-#  primary:
-#    background: '#080808'
-#    foreground: '#ff0000'
-#
-#  normal:
-#    black: '#080808'
-#    red: '#ff0000'
-#    yellow: '#005F00'
-#    green: '#F1F100'
-#    blue: '#1717E8'
-#    magenta: '#FF0000'
-#    cyan: '#1717E8'
-#    white: '#878787'
-#
-#  bright:
-#    black: '#8a8a8a'
-#    red: '#FF5F00'
-#    yellow: '#00DF11'
-#    green: '#F1F100'
-#    blue: '#0084F9'
-#    magenta: '#FF5F00'
-#    cyan: '#0084F9'
-#    white: '#FFFFFF'
-
-# Brogrammer
-#colors:
-#  primary:
-#    background: '#080808'
-#    foreground: '#d6dbe5'
-#
-#  normal:
-#    black: '#1f1f1f'
-#    red: '#f81118'
-#    yellow: '#2dc55e'
-#    green: '#ecba0f'
-#    blue: '#2a84d2'
-#    magenta: '#4e5ab7'
-#    cyan: '#1081d6'
-#    white: '#d6dbe5'
-#
-#  bright:
-#    black: '#d6dbe5'
-#    red: '#de352e'
-#    yellow: '#1dd361'
-#    green: '#f3bd09'
-#    blue: '#1081d6'
-#    magenta: '#5350b9'
-#    cyan: '#0f7ddb'
-#    white: '#ffffff'
-
-# Ayu Dark
-#colors:
-#  primary:
-#    background: '0x080808'
-#    foreground: '0xe6e1cf'
-#
-#  normal:
-#    black:   '0x000000'
-#    red:     '0xf34a4a'
-#    green:   '0xbae67e'
-#    yellow:  '0xffee99'
-#    blue:    '0x73d0ff'
-#    magenta: '0xd4bfff'
-#    cyan:    '0x83CEC6'
-#    white:   '0xf2f2f2'
-#
-#  bright:
-#    black:   '0x737d87'
-#    red:     '0xff3333'
-#    green:   '0xc2d94c'
-#    yellow:  '0xe7c547'
-#    blue:    '0x59c2ff'
-#    magenta: '0xb77ee0'
-#    cyan:    '0x5ccfe6'
-#    white:   '0xffffff'
-
-# Abstact
 colors:
   primary:
-    background: '#121212'
-    foreground: '#f8f8f2'
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
 
   normal:
-    black:   '#f8f8f2'
-    red:     '#F30000'
-    green:   '#00CC95'
-    yellow:  '#5cf1ff'
-    blue:    '#5A5AE6'
-    magenta: '#FF479A'
-    cyan:    '#5CF1FF'
-    white:   '#f8f8f2'
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
 
   bright:
-    black:   '#f8f8f2'
-    red:     '#F30000'
-    green:   '#00CC95'
-    yellow:  '#5cf1ff'
-    blue:    '#5A5AE6'
-    magenta: '#FF479A'
-    cyan:    '#5CF1FF'
-    white:   '#f8f8f2'
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xffffff'

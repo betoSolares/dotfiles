@@ -1,3 +1,3 @@
---theme="abstract"
+--theme="onedark"
 --style="numbers,changes,header"
 --map-syntax ".ignore:Git Ignore"
