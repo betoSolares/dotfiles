@@ -15,7 +15,7 @@ export BROWSER="qute"
 export CM_DIR="$HOME/.local/share/clipmenu"
 export CM_MAX_CLIPS=100
 export DOCKER_CONFIG="$HOME/.config/docker"
-export EDITOR="vim"
+export EDITOR="nvim"
 export FILE="ranger"
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
@@ -28,7 +28,6 @@ export READER="zathura"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dpass"
 export TERMINAL="alacritty"
 export TMUXP_CONFIGDIR="$HOME/.local/share/tmuxp"
-export VIMINIT="source $HOME/.config/vim/vimrc"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export WGETRC="$HOME/.config/wget/wgetrc"
 export XAUTHORITY="/tmp/Xauthority"
@@ -48,9 +47,9 @@ export LESSHISTFILE=/dev/null
 
 # Call the rc
 if [ "${SHELL}" = "/bin/bash"  ]; then
-  echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc  ] && source "$HOME/.bashrc"
+    echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc  ] && source "$HOME/.bashrc"
 else
-  echo "$0" | grep "zsh$" >/dev/null && [ -f ~/.config/zsh/.zshrc  ] && source "$HOME/.config/zsh/.zshrc"
+    echo "$0" | grep "zsh$" >/dev/null && [ -f ~/.config/zsh/.zshrc  ] && source "$HOME/.config/zsh/.zshrc"
 fi
 
 # Window Manager
@@ -62,5 +61,5 @@ export WM="notion"
 
 # Start graphical server
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-  pgrep "${WM}" || exec startx "$HOME/.config/X11/xinitrc" &> /dev/null
+    pgrep "${WM}" || exec startx "$HOME/.config/X11/xinitrc" &> /dev/null
 fi
