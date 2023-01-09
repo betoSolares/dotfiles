@@ -6,7 +6,6 @@ vim.opt.directory = HOME .. "/.cache/nvim"
 vim.opt.backupdir = HOME .. "/.cache/nvim"
 vim.opt.backup = false
 vim.opt.writebackup = false
-
 vim.opt.swapfile = false
 
 -- file format
@@ -73,3 +72,6 @@ vim.opt.hlsearch = true
 
 -- signcolumn
 vim.opt.signcolumn = "yes"
+
+-- foldcolumn
+vim.o.fillchars = "eob: ,vert:│,fold: ,foldopen:,foldsep: ,foldclose:"

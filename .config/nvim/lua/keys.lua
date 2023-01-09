@@ -25,15 +25,3 @@ vim.keymap.set("v", "<", "<gv", opts)
 
 -- search
 vim.keymap.set("n", "<leader><leader>", ":nohlsearch<CR>", opts)
-
--- copy to clipboard
-vim.keymap.set("v", "y", '"+y', opts)
-vim.keymap.set("n", "Y", '"+yg_', opts)
-vim.keymap.set("n", "y ", '"+y', opts)
-vim.keymap.set("n", "yy", '"+yy', opts)
-
--- paste from clipboard
-vim.keymap.set("n", "p", '"+p', opts)
-vim.keymap.set("n", "P", '"+P', opts)
-vim.keymap.set("v", "p", '"+p', opts)
-vim.keymap.set("v", "P", '"+P', opts)

@@ -1,8 +1,10 @@
-local status, icons = pcall(require, 'nvim-web-devicons')
+local status, icons = pcall(require, "nvim-web-devicons")
 
-if (not status) then return end
+if not status then
+  return
+end
 
-icons.setup {
+icons.setup({
   default = true,
-  color_icons = true
-}
+  color_icons = true,
+})

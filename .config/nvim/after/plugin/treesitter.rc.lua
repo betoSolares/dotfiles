@@ -1,30 +1,32 @@
-local status, ts = pcall(require, 'nvim-treesitter.configs')
+local status, ts = pcall(require, "nvim-treesitter.configs")
 
-if (not status) then return end
+if not status then
+  return
+end
 
-ts.setup {
+ts.setup({
   highlight = {
     enable = true,
-    disable = {}
+    disable = {},
   },
   indent = {
     enable = true,
-    disable = {}
+    disable = {},
   },
   ensure_installed = {
-    'tsx',
-    'javascript',
-    'go',
-    'gomod',
-    'python',
-    'lua',
-    'dockerfile',
-    'bash',
-    'make',
-    'toml',
-    'json',
-    'yaml',
-    'css',
-    'html'
-  }
-}
+    "tsx",
+    "javascript",
+    "go",
+    "gomod",
+    "python",
+    "lua",
+    "dockerfile",
+    "bash",
+    "make",
+    "toml",
+    "json",
+    "yaml",
+    "css",
+    "html",
+  },
+})
