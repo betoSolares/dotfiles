@@ -9,14 +9,17 @@
 	whitespace = fix
 	excludesfile = /home/beto/.config/git/gitignore
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 [difftool]
 	prompt = 0
 [mergetool]
+	keepBackup = false
 	prompt = false
+[mergetool "vimdiff"]
+	cmd = "nvim  -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
 [alias]
 	a = "!git ls-files . --exclude-standard --others -m | peco | xargs git add"
 	b = branch
