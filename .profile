@@ -11,7 +11,7 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Some Default Variables
 export BC_ENV_ARGS=~/.config/bc/bc.conf
-export BROWSER="qute"
+export BROWSER="brave"
 export CM_DIR="$HOME/.local/share/clipmenu"
 export CM_MAX_CLIPS=100
 export DOCKER_CONFIG="$HOME/.config/docker"
