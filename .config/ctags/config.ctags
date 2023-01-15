@@ -22,7 +22,6 @@
 
 # Language specif config
 --optlib-dir=/home/beto/.config/ctags
---options=lang/go.ctags
 --options=lang/js.ctags
 --options=lang/python.ctags
 --options=lang/others.ctags
