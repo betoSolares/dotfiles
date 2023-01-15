@@ -3,23 +3,25 @@
 	name = Roberto Solares
 	signingkey = 0260433EE2DBC0FD
 [core]
-	editor = vim
+	editor = nvim
 	pager = less
 	autocrlf = input
 	whitespace = fix
 	excludesfile = /home/beto/.config/git/gitignore
 [diff]
 	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\""
+[difftool]
+	prompt = false
 [merge]
 	tool = nvimdiff
 	conflictstyle = diff3
-[difftool]
-	prompt = 0
+[mergetool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\""
 [mergetool]
-	keepBackup = false
 	prompt = false
-[mergetool "vimdiff"]
-	cmd = "nvim  -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
+	keepBackup = false
 [alias]
 	a = "!git ls-files . --exclude-standard --others -m | peco | xargs git add"
 	b = branch
