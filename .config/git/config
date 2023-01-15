@@ -53,6 +53,11 @@
 [gpg]
 	program = gpg2
 [color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
 	ui = auto
 [column]
 	ui = auto
