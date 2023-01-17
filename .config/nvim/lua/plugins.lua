@@ -13,7 +13,6 @@ packer.startup(function(use)
   use("kevinhwang91/promise-async") -- async functions
   use("nvim-tree/nvim-web-devicons") -- file icons
   use("navarasu/onedark.nvim") -- colorscheme
-  use("sunjon/shade.nvim") -- dim inactive windows
   use("nvim-lualine/lualine.nvim") -- statusline
   use("edluffy/specs.nvim") -- cursor highlighting
   use("windwp/nvim-autopairs") -- autopair quotes, brackets, etc
@@ -37,6 +36,8 @@ packer.startup(function(use)
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
   })
+  use("nvim-treesitter/nvim-treesitter-textobjects") -- tree sitter textobjects
+  use("windwp/nvim-ts-autotag") -- autoclose html tags
   use("m-demare/hlargs.nvim") -- highlight args definitions and usages
   use("AckslD/nvim-neoclip.lua") -- clipboard manager
   use("nvim-tree/nvim-tree.lua") -- tree file explorer

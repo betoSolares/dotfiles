@@ -36,6 +36,10 @@ vim.keymap.set("n", "<leader>s", function()
   })
 end)
 
+vim.keymap.set("n", "<leader>g", function()
+  builtin.tags()
+end)
+
 vim.keymap.set("n", "<leader>e", function()
   builtin.diagnostics()
 end)

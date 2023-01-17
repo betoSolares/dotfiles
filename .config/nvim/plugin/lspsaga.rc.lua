@@ -4,15 +4,22 @@ if not status then
   return
 end
 
-saga.init_lsp_saga({
-  server_filetype_map = {},
-  border_style = "single",
-  move_in_saga = {
-    prev = "<S-Tab>",
-    next = "<Tab>",
+saga.setup({
+  finder = {
+    edit = { "i", "o", "<CR>" },
+    vsplit = "v",
+    split = "c",
+    quit = { "q", "<ESC>" },
   },
-  code_action_lightbulb = {
+  lightbulb = {
     enable = false,
+  },
+  symbol_in_winbar = {
+    enable = false,
+  },
+  ui = {
+    theme = "round",
+    border = "solid",
   },
 })
 

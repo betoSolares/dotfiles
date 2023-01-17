@@ -5,6 +5,19 @@ if not status then
 end
 
 ts.setup({
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    move = {},
+  },
   highlight = {
     enable = true,
     disable = {},
@@ -12,6 +25,9 @@ ts.setup({
   indent = {
     enable = true,
     disable = {},
+  },
+  autotag = {
+    enable = true,
   },
   ensure_installed = {
     "tsx",
@@ -28,5 +44,6 @@ ts.setup({
     "yaml",
     "css",
     "html",
+    "markdown",
   },
 })
