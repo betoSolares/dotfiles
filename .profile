@@ -1,15 +1,11 @@
 #!/bin/sh
-# File reads on login
 
-# Export own scripts to $PATH
+# Add to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':')"
 export PATH="$PATH$HOME/.local/npm/bin"
-
-# Go env
-export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$GOPATH/bin"
 
-# Some Default Variables
+# Default Variables
 export BC_ENV_ARGS=~/.config/bc/bc.conf
 export BROWSER="brave"
 export CM_DIR="$HOME/.local/share/clipmenu"
@@ -18,6 +14,7 @@ export DOCKER_CONFIG="$HOME/.config/docker"
 export EDITOR="nvim"
 export FILE="ranger"
 export GNUPGHOME="$HOME/.local/share/gnupg"
+export GOPATH="$HOME/.local/go"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export HISTFILE="$HOME/.local/share/hist/history"
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
@@ -36,13 +33,13 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # Less more friendly
 export LESS='-R -F -g -i -J -M -W -x2'
-export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
-export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
-export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+export LESS_TERMCAP_mb=$'\E[1;31m'
+export LESS_TERMCAP_md=$'\E[1;36m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[1;32m'
+export LESS_TERMCAP_ue=$'\E[0m'
 export LESSHISTFILE=/dev/null
 
 # Call the rc
