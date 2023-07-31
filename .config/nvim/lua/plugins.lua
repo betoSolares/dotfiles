@@ -12,7 +12,7 @@ packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- common utilities
   use("kevinhwang91/promise-async") -- async functions
   use("nvim-tree/nvim-web-devicons") -- file icons
-  use("navarasu/onedark.nvim") -- colorscheme
+  use({ "catppuccin/nvim", as = "catppuccin" }) -- colorscheme
   use("nvim-lualine/lualine.nvim") -- statusline
   use("edluffy/specs.nvim") -- cursor highlighting
   use("windwp/nvim-autopairs") -- autopair quotes, brackets, etc
@@ -22,7 +22,7 @@ packer.startup(function(use)
   use("ludovicchabant/vim-gutentags") -- ctags integration
   use("neovim/nvim-lspconfig") -- lsp client
   use("onsails/lspkind.nvim") -- lsp pictograms
-  use("j-hui/fidget.nvim") -- lsp progress ui
+  use({ "j-hui/fidget.nvim", tag = "legacy" }) -- lsp progress ui
   use("hrsh7th/cmp-nvim-lsp") -- completion from lsp client
   use("hrsh7th/cmp-buffer") -- completion from buffer
   use("hrsh7th/nvim-cmp") -- completion core functions
