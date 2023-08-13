@@ -34,43 +34,43 @@ key_bindings:
 
 colors:
   primary:
-    background: "#000000"
+    background: "#171717"
     foreground: "#CDD6F4"
     dim_foreground: "#CDD6F4"
     bright_foreground: "#CDD6F4"
 
   cursor:
-    text: "#000000"
+    text: "#171717"
     cursor: "#F5E0DC"
 
   vi_mode_cursor:
-    text: "#000000"
+    text: "#171717"
     cursor: "#B4BEFE"
 
   search:
     matches:
-      foreground: "#000000"
+      foreground: "#171717"
       background: "#A6ADC8"
 
     focused_match:
-      foreground: "#000000"
+      foreground: "#171717"
       background: "#A6E3A1"
 
     footer_bar:
-      foreground: "#000000"
+      foreground: "#171717"
       background: "#A6ADC8"
 
   hints:
     start:
-      foreground: "#000000"
+      foreground: "#171717"
       background: "#F9E2AF"
 
     end:
-      foreground: "#000000"
+      foreground: "#171717"
       background: "#A6ADC8"
 
   selection:
-    text: "#000000"
+    text: "#171717"
     background: "#F5E0DC"
 
   normal:
