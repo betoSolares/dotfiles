@@ -9,3 +9,23 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "BufEnter", "FocusGai
   pattern = "*",
   command = ":checktime",
 })
+
+-- turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "set nopaste",
+})
+
+-- highlight yanked text
+local yank_group = vim.api.nvim_create_augroup("HighlightYank", {})
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = yank_group,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "Visual",
+      timeout = 100,
+    })
+  end,
+})

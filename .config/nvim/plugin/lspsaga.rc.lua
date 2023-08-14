@@ -19,11 +19,15 @@ saga.setup({
   },
   ui = {
     theme = "round",
-    border = "solid",
+    border = "rounded",
+    devicon = true,
+    code_action = "󰌵",
   },
 })
 
 local opts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<leader>ca", "<Cmd>Lspsaga code_action<CR>", opts)
 vim.keymap.set("n", "<leader>n", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "<leader>k", "<Cmd>Lspsaga hover_doc<CR>", opts)
 vim.keymap.set("n", "<leader>gi", "<Cmd>Lspsaga lsp_finder<CR>", opts)

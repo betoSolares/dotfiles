@@ -5,6 +5,35 @@ if not status then
 end
 
 ts.setup({
+  ensure_installed = {
+    "bash",
+    "comment",
+    "css",
+    "dockerfile",
+    "go",
+    "gomod",
+    "gosum",
+    "gowork",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "tsx",
+    "typescript",
+  },
+  sync_install = false,
+  auto_install = true,
+  ignore_install = {},
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+  modules = {},
   textobjects = {
     select = {
       enable = true,
@@ -15,35 +44,15 @@ ts.setup({
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
       },
+      selection_modes = {
+        ["@parameter.outer"] = "v",
+        ["@function.outer"] = "V",
+        ["@class.outer"] = "<c-v>",
+      },
+      include_surrounding_whitespace = true,
     },
-    move = {},
-  },
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = true,
-    disable = {},
   },
   autotag = {
     enable = true,
-  },
-  ensure_installed = {
-    "tsx",
-    "javascript",
-    "go",
-    "gomod",
-    "python",
-    "lua",
-    "dockerfile",
-    "bash",
-    "make",
-    "toml",
-    "json",
-    "yaml",
-    "css",
-    "html",
-    "markdown",
   },
 })

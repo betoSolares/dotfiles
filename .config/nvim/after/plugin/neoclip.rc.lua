@@ -48,4 +48,5 @@ neoclip.setup({
   },
 })
 
-vim.keymap.set("n", '""', ":Telescope neoclip<CR>", { noremap = true, silent = true })
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<leader>p", ":Telescope neoclip<CR>", opts)

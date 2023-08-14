@@ -4,7 +4,7 @@ if not status then
   return
 end
 
-vim.o.foldcolumn = "0"
+vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
@@ -49,7 +49,10 @@ end
 ufo.setup({
   open_fold_hl_timeout = 150,
   provider_selector = provider,
+  enable_get_fold_virt_text = true,
   fold_virt_text_handler = handler,
+  close_fold_kinds = {},
+  preview = {},
 })
 
 vim.keymap.set("n", "<space>", "za", { noremap = true, silent = true })

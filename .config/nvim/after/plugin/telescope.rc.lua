@@ -24,11 +24,18 @@ telescope.setup({
       },
     },
   },
+  extensions = {
+    file_browser = {
+      theme = "dropdown",
+      hijack_netrw = true,
+    },
+  },
 })
 
 telescope.load_extension("neoclip")
+telescope.load_extension("file_browser")
 
-vim.keymap.set("n", "<leader>s", function()
+vim.keymap.set("n", "<leader>f", function()
   builtin.find_files({
     no_ignore = false,
     hidden = true,
@@ -36,10 +43,21 @@ vim.keymap.set("n", "<leader>s", function()
   })
 end)
 
-vim.keymap.set("n", "<leader>g", function()
+vim.keymap.set("n", "<leader>t", function()
   builtin.tags()
 end)
 
 vim.keymap.set("n", "<leader>e", function()
   builtin.diagnostics()
+end)
+
+vim.keymap.set("n", "<leader><Tab>", function()
+  telescope.extensions.file_browser.file_browser({
+    respect_gitignore = true,
+    hidden = true,
+    grouped = true,
+    previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40, width = 80 },
+  })
 end)

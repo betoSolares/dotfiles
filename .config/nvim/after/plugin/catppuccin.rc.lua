@@ -6,6 +6,7 @@ end
 
 catpuccin.setup({
   flavour = "mocha",
+  term_colors = true,
   dim_inactive = {
     enabled = true,
     shade = "dark",
@@ -15,7 +16,7 @@ catpuccin.setup({
     mocha = {
       base = "#171717",
       mantle = "#171717",
-      crust = "#171717",
+      crust = "#121212",
     },
   },
   integrations = {
