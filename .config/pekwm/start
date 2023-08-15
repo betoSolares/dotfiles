@@ -1,8 +1,0 @@
-#!/bin/sh
-
-menu PEKWM >> ~/.config/pekwm/menu
-yes | cp -f ~/.cache/wal/pekwm ~/.config/pekwm/theme/theme
-pkill tint2
-yes | cp -f ~/.cache/wal/tint2-pekwm ~/.config/tint2/tint2rc
-tint2 &
-autostart
