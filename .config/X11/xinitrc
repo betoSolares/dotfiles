@@ -1,16 +1,10 @@
 #!/bin/sh
-# X11 read this file in startup
 
 # Load and merge the resources file
-[ -f "$HOME"/.config/X11/xresources ] && xrdb -merge -I$HOME "$HOME"/.config/X11/xresources
+[ -f "$HOME"/.config/X11/xresources ] && xrdb -merge -I"$HOME" "$HOME"/.config/X11/xresources
 
 # Keyboard adjustment
 setxkbmap -option caps:swapescape
 
 # Execute wm
-case "${WM}" in
-  fvwm) exec dbus-launch fvwm -f ${HOME}/.config/fvwm/config ;;
-  pekwm) exec dbus-launch pekwm --config ${HOME}/.config/pekwm/config ;;
-  notion) exec dbus-launch notion -searchdir ${HOME}/.config/notion/ -session ${HOME}/.config/notion/mysession ;;
-  *) exec "${WM}" ;;
-esac
+exec dbus-launch notion -searchdir "${HOME}"/.config/notion/ -session "${HOME}"/.config/notion/mysession
