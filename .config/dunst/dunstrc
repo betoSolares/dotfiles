@@ -1,5 +1,4 @@
 [global]
-    ### Display ###
     monitor = 0
     follow = mouse
     geometry = "250x5-10+30"
@@ -15,8 +14,6 @@
     separator_color = frame
     sort = yes
     idle_threshold = 120
-
-    ### Text ###
     font = monospace 9
     line_height = 1
     markup = full
@@ -29,30 +26,15 @@
     stack_duplicates = true
     hide_duplicate_count = false
     show_indicators = yes
-
-    ### Icons ###
     icon_position = left
     max_icon_size = 32
-    #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
-    ### History ###
     sticky_history = yes
     history_length = 20
-
-    ### Misc/Advanced ###
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/vivaldi-stable
+    browser = /usr/bin/brave
     always_run_script = true
-
-    # Define the title of the windows spawned by dunst
     title = Dunst
-
-    # Define the class of the windows spawned by dunst
     class = Dunst
-
-    # Print a notification on startup.
-    # This is mainly for error detection, since dbus (re-)starts dunst
-    # automatically after a crash.
     startup_notification = false
 
 [shortcuts]
@@ -65,57 +47,14 @@
     background = "#222222"
     foreground = "#888888"
     timeout = 10
-    #icon = /path/to/icon
 
 [urgency_normal]
     background = "#285577"
     foreground = "#ffffff"
     timeout = 10
-    #icon = /path/to/icon
 
 [urgency_critical]
     background = "#900000"
     foreground = "#ffffff"
     frame_color = "#ff0000"
     timeout = 0
-    #icon = /path/to/icon
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
-#[ignore]
-#    # This notification will not be displayed
-#    summary = "foobar"
-#    format = ""
-
-#[history-ignore]
-#    # This notification will not be saved in history
-#    summary = "foobar"
-#    history_ignore = yes
-
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#
-# vim: ft=cfg
