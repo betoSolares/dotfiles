@@ -23,33 +23,19 @@
 	prompt = false
 	keepBackup = false
 [alias]
-	a = "!git ls-files . --exclude-standard --others -m | peco | xargs git add"
+	a = add -p
 	b = branch
-	bl = "!tig blame"
 	co = checkout -B
-	cs = commit -S
 	d = difftool
-	dl = "!git l | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 	f = fetch
-	g = grep
-	h = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
-	issue = "!gh issues"
-	issueme = "!gh isme"
+	g = "!gh"
 	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
 	m = mergetool
-	newissue = "!gh ni"
-	newpr = "!gh np"
-	open = "!gh open"
-	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
-	pr = "!gh prs"
-	prme = "!gh prme"
-	r = "!git diff --name-only --cached | peco | xargs git restore --staged"
-	rb = rebase
+	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+	ql = log --color --pretty=format:\"%Cgreen%h%Creset%C(yellow)%d%Creset %s%Creset\" --abbrev-commit -n5
 	s = status
 	sw = "!f() { git switch $1 2>/dev/null || git switch -c $1; }; f"
-	viewissue = "!gh iv"
-	viewpr = "!gh pv"
 [gpg]
 	program = gpg2
 [color]
@@ -66,8 +52,6 @@
 	followTags = true
 [fetch]
 	prune = true
-[commit]
-	template = /home/beto/.config/git/gitmessage
 [pull]
 	rebase = true
 [ghq]

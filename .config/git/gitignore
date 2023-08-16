@@ -1,3 +1,6 @@
+# Operating system
+.DS_Store
+
 # Vim files
 .netrwhist
 *~

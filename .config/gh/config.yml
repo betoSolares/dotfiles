@@ -4,11 +4,11 @@ prompt: enabled
 pager: less
 aliases:
     open: repo view --web
-    issues: issue list
-    prs: pr list
-    isme: issue list -a betoSolares
-    prme: pr list -a betoSolares
-    iv: "!gh issue list | peco | awk '{print $1}' | xargs gh issue view --web"
-    pv: "!gh pr list | peco | awk '{print $1}' | xargs gh pr view --web"
-    ni: issue create -w
-    np: pr create -w
+    ls-issue: issue list
+    ls-pr: pr list
+    issue-me: issue list -a betoSolares
+    pr-me: pr list -a betoSolares
+    view-issue: "!gh issue list | peco | awk '{print $1}' | xargs gh issue view --web"
+    view-pr: "!gh pr list | peco | awk '{print $1}' | xargs gh pr view --web"
+    new-issue: issue create -w
+    new-pr: pr create -w
