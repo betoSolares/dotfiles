@@ -1,5 +1,0 @@
-#!/bin/sh
-
-killall -q polybar
-echo "---" | tee -a /tmp/polybar.log
-polybar "${WM}" >>/tmp/polybar.log 2>&1 &

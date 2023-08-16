@@ -1,1 +1,0 @@
-ioncore.exec("autostart")

@@ -1,6 +1,0 @@
-#!/bin/sh
-# Get the current volume
-
-pactl list sinks | grep -q "Mute: yes" && exit
-volume=$(pactl list sinks | grep '[0-9]\+%' | sed "s,.* \([0-9]\+\)%.*,\1,;1q")
-printf "%s" "$volume%"
