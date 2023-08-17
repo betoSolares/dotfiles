@@ -1,0 +1,4 @@
+#!/bin/sh
+# Create a config file for commitizen in the current directory
+
+echo '{ "path": "cz-conventional-changelog" }' >.czrc

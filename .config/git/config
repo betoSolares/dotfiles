@@ -24,7 +24,7 @@
 	keepBackup = false
 [alias]
 	a = add -p
-	c = commit -S -m
+	c = cz -S
 	contrib = shortlog --summary --numbered
 	d = difftool
 	ds = "!git add -A && git reset --hard >/dev/null 2>&1"

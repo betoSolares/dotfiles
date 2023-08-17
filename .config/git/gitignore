@@ -24,3 +24,4 @@ TAGS
 tmp/
 *.tmp
 *.log
+.czrc
