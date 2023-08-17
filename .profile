@@ -10,7 +10,6 @@ export PATH="$PATH:$GOPATH/bin"
 export BROWSER="brave"
 export DOCKER_CONFIG="$HOME/.config/docker"
 export EDITOR="nvim"
-export FILE="ranger"
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export GOPATH="$HOME/.local/go"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
@@ -46,12 +45,4 @@ export LESS_TERMCAP_ue
 
 if [ "${SHELL}" = "/bin/bash" ]; then
 	echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && . "$HOME/.bashrc"
-fi
-
-# Window Manager
-export WM="notion"
-
-# Start graphical server
-if [ "$(tty)" = "/dev/tty1" ]; then
-	pgrep "${WM}" || exec startx "$HOME/.config/X11/xinitrc" >/dev/null 2>&1
 fi
