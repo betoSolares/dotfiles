@@ -1,0 +1,10 @@
+#!/bin/sh
+# Cross platform open app
+
+os=$(uname)
+
+if [ "$os" = "Linux" ]; then
+	xdg-open "$*"
+elif [ "$os" = "Darwin" ]; then
+	/usr/bin/open "$*"
+fi

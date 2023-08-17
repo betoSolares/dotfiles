@@ -8,15 +8,10 @@ alias grep='grep --color=auto'
 alias ll='lsd -lA'
 alias ls='lsd'
 alias mkdir='mkdir -pv'
-alias open='xdg-open'
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias tree='lsd --tree'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias xcpy='xclip -selection clipboard'
-alias xpst='xclip -selection clipboard -o'
 
 # GPG ask in tty
 GPG_TTY=$(tty)

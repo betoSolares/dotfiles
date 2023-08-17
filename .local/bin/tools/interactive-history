@@ -1,7 +1,0 @@
-#!/bin/sh
-
-SELECTION=$(cat "${HOME}"/.local/share/hist/history | peco)
-
-if [ $? -eq 0 ] && [ ! -z "${SELECTION}" ]; then
-  printf "%s\n" "${SELECTION}"
-fi

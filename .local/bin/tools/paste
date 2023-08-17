@@ -1,0 +1,10 @@
+#!/bin/sh
+# Cross platform clipboard paste
+
+os=$(uname)
+
+if [ "$os" = "Linux" ]; then
+	xclip -selection clipboard -o
+elif [ "$os" = "Darwin" ]; then
+	/usr/bin/pbpaste
+fi
