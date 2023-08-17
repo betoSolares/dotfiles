@@ -24,18 +24,23 @@
 	keepBackup = false
 [alias]
 	a = add -p
-	b = branch
-	co = checkout -B
+	c = commit -S -m
+	contrib = shortlog --summary --numbered
 	d = difftool
-	f = fetch
+	ds = "!git add -A && git reset --hard >/dev/null 2>&1"
+	discard = "!git add -A && git reset --hard >/dev/null 2>&1"
 	g = "!gh"
+	github = "!gh"
 	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
 	m = mergetool
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	ql = log --color --pretty=format:\"%Cgreen%h%Creset%C(yellow)%d%Creset %s%Creset\" --abbrev-commit -n5
+	r = rebase
 	s = status
-	sw = "!f() { git switch $1 2>/dev/null || git switch -c $1; }; f"
+	sw = switch -C
+	u = reset HEAD~1 --mixed
+	undo = reset HEAD~1 --mixed
 [gpg]
 	program = gpg2
 [color]
