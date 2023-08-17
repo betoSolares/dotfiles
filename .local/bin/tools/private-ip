@@ -1,0 +1,14 @@
+#!/bin/sh
+# Get my public ip
+
+os=$(uname)
+
+if [ "$os" = "Linux" ]; then
+	set -- "$(hostname -I)"
+
+	for ip in "$@"; do
+		echo "$ip"
+	done
+elif [ "$os" = "Darwin" ]; then
+	ipconfig getifaddr en0
+fi

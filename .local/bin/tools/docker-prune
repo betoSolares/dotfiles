@@ -1,0 +1,6 @@
+#!/bin/sh
+# Prune all docker stuff
+
+docker stop "$(docker ps -a -q)"
+
+docker system prune -a
