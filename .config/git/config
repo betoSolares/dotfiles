@@ -23,7 +23,7 @@
 	prompt = false
 	keepBackup = false
 [alias]
-	a = add -p
+	a = "!git-adder"
 	c = cz -S
 	contrib = shortlog --summary --numbered
 	d = difftool

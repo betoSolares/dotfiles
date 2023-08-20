@@ -1,0 +1,31 @@
+#!/bin/sh
+# Helper for git add
+
+ask_for_track_file() {
+	file="$1"
+
+	printf "\nDo you want to stage this file %s? (y/n) " "$file"
+	read -r answear
+
+	case $answear in
+	y | Y) git add "$file" ;;
+	n | N) ;;
+	*)
+		printf "Invalid response\n"
+		ask_for_track_file "$file"
+		;;
+	esac
+}
+
+main() {
+	untracked="$(git ls-files --other --exclude-standard)"
+
+	for file in $untracked; do
+		ask_for_track_file "$file"
+	done
+
+	echo ""
+	git add -p
+}
+
+main
