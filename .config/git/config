@@ -40,7 +40,7 @@
 	ql = log --color --pretty=format:\"%Cgreen%h%Creset%C(yellow)%d%Creset %s%Creset\" --abbrev-commit -n5
 	r = rebase
 	s = status
-	sw = switch -C
+	sw = "!git-switcher"
 	u = reset HEAD~1 --mixed
 	undo = reset HEAD~1 --mixed
 [gpg]
