@@ -30,6 +30,7 @@
 	d = difftool
 	ds = "!git add -A && git reset --hard >/dev/null 2>&1"
 	discard = "!git add -A && git reset --hard >/dev/null 2>&1"
+	f = fetch
 	g = "!gh"
 	github = "!gh"
 	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
