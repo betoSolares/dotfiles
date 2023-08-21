@@ -24,6 +24,7 @@
 	keepBackup = false
 [alias]
 	a = "!git-adder"
+	b = branch
 	c = cz -S
 	contrib = shortlog --summary --numbered
 	d = difftool
