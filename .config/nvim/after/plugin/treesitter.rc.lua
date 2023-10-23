@@ -6,6 +6,7 @@ end
 
 ts.setup({
   ensure_installed = {
+    "astro",
     "bash",
     "comment",
     "css",

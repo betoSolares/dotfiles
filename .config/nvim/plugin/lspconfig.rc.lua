@@ -169,3 +169,8 @@ nvim_lsp.tsserver.setup({
   on_attach = bindings,
   capabilities = capabilities,
 })
+
+nvim_lsp.astro.setup({
+  on_attach = bindings,
+  capabilities = capabilities,
+})
