@@ -5,11 +5,6 @@ if not status then
 end
 
 local utils = require("formatter.util")
-local css_format = require("formatter.filetypes.css")
-local html_format = require("formatter.filetypes.html")
-local js_format = require("formatter.filetypes.javascript")
-local json_format = require("formatter.filetypes.json")
-local ts_format = require("formatter.filetypes.typescript")
 
 formatter.setup({
   logging = true,
@@ -29,7 +24,13 @@ formatter.setup({
       end,
     },
     css = {
-      css_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
     go = {
       function()
@@ -45,16 +46,40 @@ formatter.setup({
       end,
     },
     html = {
-      html_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
     javascript = {
-      js_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
     javascriptreact = {
-      js_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
     json = {
-      json_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
     lua = {
       function()
@@ -102,10 +127,22 @@ formatter.setup({
       end,
     },
     typescript = {
-      ts_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
     typescriptreact = {
-      ts_format.prettierd(),
+      function()
+        return {
+          exe = "prettierd",
+          args = { vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+        }
+      end,
     },
   },
 })

@@ -71,6 +71,11 @@ local bindings = function(_, bufnr)
   buf_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 end
 
+nvim_lsp.astro.setup({
+  on_attach = bindings,
+  capabilities = capabilities,
+})
+
 nvim_lsp.bashls.setup({
   on_attach = bindings,
   capabilities = capabilities,
@@ -168,9 +173,9 @@ nvim_lsp.tailwindcss.setup({
 nvim_lsp.tsserver.setup({
   on_attach = bindings,
   capabilities = capabilities,
-})
-
-nvim_lsp.astro.setup({
-  on_attach = bindings,
-  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
 })
