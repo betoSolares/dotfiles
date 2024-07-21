@@ -43,6 +43,9 @@
 	sw = "!git-switcher"
 	u = reset HEAD~1 --mixed
 	undo = reset HEAD~1 --mixed
+	wta = worktree add
+	wtl = worktree list
+	wtr = worktree remove
 [gpg]
 	program = gpg2
 [color]
