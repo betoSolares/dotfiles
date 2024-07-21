@@ -24,12 +24,6 @@ function check_scm {
 		SCM='git'
 	elif which git &>/dev/null && [[ -n "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
 		SCM='git'
-	elif [[ -d .hg ]]; then
-		SCM='hg'
-	elif which hg &>/dev/null && [[ -n "$(hg root 2>/dev/null)" ]]; then
-		SCM='hg'
-	elif [[ -d .svn ]]; then
-		SCM='svn'
 	else
 		SCM='NONE'
 	fi
@@ -39,10 +33,6 @@ function scm_info {
 	check_scm
 	if [[ ${SCM} == 'git' ]]; then
 		git_prompt_info && return
-	elif [[ ${SCM} == 'hg' ]]; then
-		hg_prompt_info && return
-	elif [[ ${SCM} == 'svn' ]]; then
-		svn_prompt_info && return
 	fi
 }
 
@@ -56,42 +46,6 @@ function git_prompt_info {
 	status=$(command git status --porcelain 2>/dev/null | tail -n1)
 	if [[ -n ${status} ]]; then
 		SCM_STATE='x'
-	fi
-}
-
-function get_hg_root {
-	CURRENT_DIR=$(pwd)
-	while [ "$CURRENT_DIR" != "/" ]; do
-		if [ -d "$CURRENT_DIR/.hg" ]; then
-			echo "$CURRENT_DIR/.hg"
-			return
-		fi
-		CURRENT_DIR=$(dirname "$CURRENT_DIR")
-	done
-}
-
-function hg_prompt_info {
-	HG_ROOT=$(get_hg_root)
-	if [ -f "$HG_ROOT/branch" ]; then
-		SCM_BRANCH=$(cat "$HG_ROOT/branch")
-	else
-		SCM_BRANCH=$(hg summary 2>/dev/null | grep branch: | awk '{print $2}')
-	fi
-
-	if [[ -n $(hg status 2>/dev/null) ]]; then
-		SCM_STATE='x'
-	else
-		SCM_STATE='✓'
-	fi
-}
-
-function svn_prompt_info {
-	SCM_BRANCH=$(svn info | grep '^URL:' | grep -E -o '(tags|branches)/[^/]+|trunk' | grep -E -o '[^/]+$')
-
-	if [[ -n $(svn status 2>/dev/null) ]]; then
-		SCM_STATE='x'
-	else
-		SCM_STATE='✓'
 	fi
 }
 
@@ -119,5 +73,6 @@ shopt -s checkwinsize # Update window size after every command
 shopt -s cmdhist      # Save multiline commands in single line
 
 # Autocompletion
+# shellcheck source=/dev/null
 source <(cod init $$ bash)
 eval "$(gh completion -s bash)"
