@@ -29,3 +29,26 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     })
   end,
 })
+
+-- lsp key bindings
+local lspGroup = vim.api.nvim_create_augroup("LspGroup", {})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = lspGroup,
+  pattern = "*",
+  callback = function(e)
+    local opts = { buffer = e.buf }
+
+    vim.keymap.set("n", "<leader>gd", function()
+      vim.lsp.buf.definition()
+    end, opts)
+
+    vim.keymap.set("i", "<C-k>", function()
+      vim.lsp.buf.signature_help()
+    end, opts)
+
+    vim.keymap.set("n", "<leader>i", function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+    end, {})
+  end,
+})
