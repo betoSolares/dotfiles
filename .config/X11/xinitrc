@@ -7,4 +7,4 @@
 setxkbmap -option caps:swapescape
 
 # Execute wm
-exec dbus-launch notion -searchdir "${HOME}"/.config/notion/ -session "${HOME}"/.config/notion/mysession
+exec awesome
