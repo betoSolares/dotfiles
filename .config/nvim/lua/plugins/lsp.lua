@@ -73,7 +73,7 @@ return {
           "jsonls",
           "lua_ls",
           "tailwindcss",
-          "tsserver",
+          "ts_ls",
         },
         handlers = {
           function(server_name)
@@ -142,8 +142,8 @@ return {
               },
             })
           end,
-          ["tsserver"] = function()
-            require("lspconfig").tsserver.setup({
+          ["ts_ls"] = function()
+            require("lspconfig").ts_ls.setup({
               capabilities = capabilities,
               init_options = {
                 preferences = {
