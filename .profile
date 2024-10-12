@@ -46,6 +46,15 @@ export LESS_TERMCAP_se
 export LESS_TERMCAP_us
 export LESS_TERMCAP_ue
 
+# FZF config
+export FZF_DEFAULT_OPTS='
+  --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626
+  --color=hl:#f38ba8,hl+:#5fd7ff,info:#cba6f7,marker:#b4befe
+  --color=prompt:#cba6f7,spinner:#f5e0dc,pointer:#f5e0dc,header:#f38ba8
+  --color=border:#262626,label:#aeaeae,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+  --marker=">" --pointer="◆" --separator="-" --scrollbar="│"'
+
 if [ "${SHELL}" = "/bin/bash" ]; then
 	echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && . "$HOME/.bashrc"
 fi
