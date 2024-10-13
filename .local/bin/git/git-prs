@@ -1,0 +1,13 @@
+#!/bin/sh
+# View repo pull requests
+
+if gh pr list >/dev/null 2>&1; then
+	pr=$(gh pr list | fzf --height 40%)
+	if [ -n "$pr" ]; then
+		echo "$pr" | awk '{print $1}' | xargs gh pr view --web
+	else
+		echo "No PR selected"
+	fi
+else
+	echo "Error connecting to GitHub"
+fi

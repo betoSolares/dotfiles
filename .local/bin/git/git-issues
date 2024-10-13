@@ -1,0 +1,13 @@
+#!/bin/sh
+# View repo issues
+
+if gh issue list >/dev/null 2>&1; then
+	issue=$(gh issue list | fzf --height 40%)
+	if [ -n "$issue" ]; then
+		echo "$issue" | awk '{print $1}' | xargs gh issue view --web
+	else
+		echo "No issue selected"
+	fi
+else
+	echo "Error connecting to GitHub"
+fi

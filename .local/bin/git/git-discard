@@ -1,0 +1,5 @@
+#!/bin/sh
+# Reset the status to the last commit
+
+git add -A
+git reset --hard >/dev/null 2>&1

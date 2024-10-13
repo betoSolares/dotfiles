@@ -1,0 +1,145 @@
+#!/bin/sh
+# Manage tmux sessions
+
+usage() {
+	echo "usage: tmux-helper [-h | --help] <command> [<args>]"
+	echo ""
+	echo "  commands:"
+	echo "    create                  Save a new tmux session"
+	echo "    delete <session_name>   Delete a saved tmux session"
+	echo "    kill [<session_name>]   Kill a tmux session. If no <session_name> the server is kill"
+	echo "    list [all]              List the tmux sessions. If not all, would list on only active sessions"
+	echo "    load <session_name>     Open a tmux session"
+	echo ""
+}
+
+has_argument() {
+	if [ -z "$2" ]; then
+		return 1
+	fi
+
+	case $2 in
+	-*)
+		return 1
+		;;
+	*)
+		return 0
+		;;
+	esac
+}
+
+create() {
+	tmuxp freeze --force
+}
+
+delete() {
+	file_without_extension="$TMUXP_CONFIGDIR/$1"
+
+	if [ -f "$file_without_extension.yaml" ]; then
+		file="$file_without_extension.yaml"
+	elif [ -f "$file_without_extension.json" ]; then
+		file="$file_without_extension.json"
+	else
+		return 2
+	fi
+
+	rm -fr "$file"
+}
+
+kill_session() {
+	if [ -z "$1" ]; then
+		tmux kill-server
+	else
+		tmux kill-session -t "$1"
+	fi
+}
+
+tmux_list() {
+	tmux ls
+}
+
+tmuxp_list() {
+	tmuxp ls
+}
+
+load() {
+	name="${1:-base}"
+	tmuxp load "$1" 2>/dev/null || tmux a -t "${name}" || tmux new -s "${name}"
+}
+
+main() {
+	if [ $# -eq 0 ]; then
+		usage
+	fi
+
+	case $1 in
+	-h | --help)
+		usage
+		exit 0
+		;;
+	create)
+		create
+		exit $?
+		;;
+	delete)
+		if ! has_argument "$@"; then
+			echo "invalid session name: $2" >&2
+			echo ""
+			usage
+			exit 1
+		fi
+
+		delete "$2"
+		status=$?
+
+		if [ $status -eq 2 ]; then
+			echo "not found session: $2" >&2
+			exit 2
+		elif [ $status -eq 0 ]; then
+			echo "session deleted"
+			exit 0
+		else
+			exit $status
+		fi
+		;;
+	kill)
+		kill_session "$2"
+		exit $?
+		;;
+	list)
+		if ! has_argument "$@"; then
+			tmux_list
+			exit $?
+		else
+			if [ "$2" != "all" ]; then
+				echo "invalid argument: $2" >&2
+				echo ""
+				usage
+				exit 22
+			fi
+
+			tmuxp_list
+			exit $?
+		fi
+		;;
+	load)
+		if ! has_argument "$@"; then
+			echo "invalid session name: $2" >&2
+			echo ""
+			usage
+			exit 1
+		fi
+
+		load "$2"
+		exit $?
+		;;
+	*)
+		echo "invalid command: $1" >&2
+		echo ""
+		usage
+		exit 1
+		;;
+	esac
+}
+
+main "$@"

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Helper for git add
+# Add files to git
 
 ask_for_track_file() {
 	file="$1"

@@ -1,4 +1,4 @@
 #!/bin/sh
-# Helper for git switch
+# Switch git branch
 
 git switch "$1" 2>/dev/null || git switch -c "$1"
