@@ -8,7 +8,8 @@ aliases:
     ls-pr: pr list
     issue-me: issue list -a betoSolares
     pr-me: pr list -a betoSolares
-    view-issue: "!gh issue list | peco | awk '{print $1}' | xargs gh issue view --web"
-    view-pr: "!gh pr list | peco | awk '{print $1}' | xargs gh pr view --web"
+    view-issue: "!git-issues"
+    view-pr: "!git-prs"
     new-issue: issue create -w
     new-pr: pr create -w
+version: "1"

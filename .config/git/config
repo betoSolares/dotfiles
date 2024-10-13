@@ -1,7 +1,7 @@
 [user]
 	email = betosolaresgar@gmail.com
 	name = Roberto Solares
-	signingkey = 0260433EE2DBC0FD
+	signingkey = C0BA6AB17F2363CB
 [core]
 	editor = nvim
 	pager = less
@@ -28,11 +28,9 @@
 	c = cz -S
 	contrib = shortlog --summary --numbered
 	d = difftool
-	ds = "!git add -A && git reset --hard >/dev/null 2>&1"
-	discard = "!git add -A && git reset --hard >/dev/null 2>&1"
+	ds = "!git-discard"
 	f = fetch
 	g = "!gh"
-	github = "!gh"
 	l = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
 	m = mergetool
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
@@ -42,7 +40,6 @@
 	s = status
 	sw = "!git-switcher"
 	u = reset HEAD~1 --mixed
-	undo = reset HEAD~1 --mixed
 	wta = worktree add
 	wtl = worktree list
 	wtr = worktree remove
