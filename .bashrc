@@ -71,8 +71,3 @@ shopt -s dirspell     # Correct spelling errors during tab-completion
 shopt -s cdspell      # Correct minor errors in cd
 shopt -s checkwinsize # Update window size after every command
 shopt -s cmdhist      # Save multiline commands in single line
-
-# Autocompletion
-# shellcheck source=/dev/null
-source <(cod init $$ bash)
-eval "$(gh completion -s bash)"
