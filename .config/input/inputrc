@@ -18,9 +18,3 @@ set keymap vi-insert
 "\C-x\C-e": shell-expand-line
 "\C-x\C-r": redraw-current-line
 "\C-x^": history-expand-line
-"\C-r": "\C-x\C-addi$(HISTTIMEFORMAT= history | interactive-history)\C-x\C-e\C-x\C-r\C-x^\C-x\C-a$a\C-m"
-"\C-f": "\C-x\C-addisource search\C-m"
-
-set keymap vi-command
-"\C-r": "i\C-r"
-"\C-f": "i\C-f"
