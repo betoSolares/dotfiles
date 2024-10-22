@@ -133,10 +133,20 @@ return {
               settings = {
                 Lua = {
                   diagnostics = {
-                    globals = { "vim" },
+                    globals = {
+                      "vim",
+                      "awesome",
+                      "client",
+                      "root",
+                      "mouse",
+                      "RC",
+                    },
                   },
                   workspace = {
-                    library = vim.api.nvim_get_runtime_file("", true),
+                    library = {
+                      vim.api.nvim_get_runtime_file("", true),
+                      "/usr/share/awesome/lib/",
+                    },
                   },
                 },
               },
