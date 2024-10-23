@@ -1,0 +1,76 @@
+configuration {
+    show-icons: false;
+    display-run: "   Run ";
+    disable-history: false;
+    click-to-exit: true;
+    location: 0;
+    terminal: "alacritty";
+}
+
+* {
+    font: "GoMono Nerd Font 12";
+    bg-col:  #171717;
+    bg-col-light: #171717;
+    border-col: #171717;
+    selected-col: #171717;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #f38ba8;
+    grey: #6c7086;
+}
+
+window {
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 2px;
+    text-color: @bg-col;
+    border-radius: 3px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 2px;
+    margin: 0px 0px 0px 2px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+    background-color: @bg-col;
+}
+
+element {
+    padding: 2px;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+}
+
+element selected {
+    background-color:  @blue;
+    text-color: @bg-col;
+}
