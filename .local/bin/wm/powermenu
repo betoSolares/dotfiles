@@ -1,0 +1,28 @@
+#!/bin/bash
+# Rofi power options
+
+rofi_command="rofi -theme ~/.config/rofi/powermenu.rasi"
+
+lock="󰍁 Lock"
+suspend="󰒲 Suspend"
+reboot="󰜉 Reboot"
+shutdown="󰐥 Shutdown"
+
+options="$lock\n$suspend\n$reboot\n$shutdown"
+
+chosen="$(echo -e "$options" | $rofi_command -dmenu)"
+
+case $chosen in
+"$shutdown")
+	poweroff
+	;;
+"$reboot")
+	reboot
+	;;
+"$lock")
+	loginctl lock-session
+	;;
+"$suspend")
+	systemctl suspend
+	;;
+esac

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Rofi launcher
+
+rofi -show run -theme ~/.config/rofi/run.rasi
